@@ -1,0 +1,61 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Athens Report{% block title %}{% endblock title %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/lib/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+    {% block css %}
+    {% endblock %}
+
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+
+  </head>
+
+  <body>
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="{% url 'base:home' %}">
+              <img id="navbar-logo" src="{% static 'img/athensreport.png' %}" alt="Athens Report">
+            </a>
+          </div>
+        </div>
+      </nav>
+
+    <div class="container">
+
+      {% block content %}{% endblock content %}
+
+    </div>
+
+    <footer>
+      <div class="container">
+        <hr>
+        <div class="row">
+          <div class="col-md-6">
+            Athens Report
+          </div>
+          <div class="col-md-6 text-right footer-options">
+            <a href="#top">Back to top</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="{% static 'js/lib/jquery-1.11.2.min.js' %}"></script>
+    <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+    {% block javascript %}
+    {% endblock javascript %}
+</body>
+</html>
