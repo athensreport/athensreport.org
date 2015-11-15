@@ -8,6 +8,7 @@ urlpatterns = patterns(
     '',
 
     url(r'^', include('athensreport.base.urls', namespace='base')),
+    url(r'^', include('athensreport.gallery.urls', namespace='gallery')),
 
     url(r'^admin/', include(admin.site.urls)),
 )

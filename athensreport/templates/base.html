@@ -11,42 +11,62 @@
     {% block css %}
     {% endblock %}
 
-    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+    <link rel="shortcut icon" href="{% static 'favicon.ico' %}">
 
   </head>
 
   <body>
-      <nav class="navbar navbar-default">
-        <div class="container">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="{% url 'base:home' %}">
-              <img id="navbar-logo" src="{% static 'img/athensreport.png' %}" alt="Athens Report">
-            </a>
-          </div>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{% url 'base:home' %}">
+            <img id="navbar-logo" src="{% static 'img/athensreport.png' %}" alt="Athens Report">
+          </a>
         </div>
-      </nav>
+        <div class="collapse navbar-collapse" id="navbar-collapse-menu">
+          <ul class="nav navbar-nav navbar-right nav-top">
+            <li><a href="{% url 'base:home' %}">home</a></li>
+            <li><a href="{% url 'gallery:theproject' %}">the project</a></li>
+            <li><a href="#">graffiti route</a></li>
+            <li><a href="#">on line 11</a></li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right nav-bottom">
+            <li><a href="#" class="highlight">upload media</a></li>
+            <li><a href="#">users routes</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-    <div class="container">
 
-      {% block content %}{% endblock content %}
-
-    </div>
+    {% block content %}{% endblock content %}
 
     <footer>
       <div class="container">
-        <hr>
         <div class="row">
-          <div class="col-md-6">
-            Athens Report
+          <div class="col-md-4">
+            <a href="{% url 'base:home' %}"><img class="footer-logo" src="{% static 'img/athensreport.png' %}" alt="Athens Report"></a>
+            <p>
+              Sweet roll oat cake tiramisu candy canes cake cheesecake gingerbread oat cake.
+            </p>
           </div>
-          <div class="col-md-6 text-right footer-options">
-            <a href="#top">Back to top</a>
+
+          <div class="footer-text col-md-4">
+            <p>
+              Croissant chocolate gingerbread marshmallow. Tootsie roll jelly-o jelly cake candy canes cake cupcake bonbon. Carrot cake halvah oat cake marshmallow. Sweet candy muffin sweet roll tootsie roll lemon drops marshmallow apple pie sweet roll. Sweet roll gummi bears jelly beans cotton candy sesame snaps apple pie pastry cheesecake.
+            </p>
+          </div>
+
+          <div class="col-md-4 footer-nav">
+            <a href="#" target="_blank" class="yellowish upload">Upload Media</a>
           </div>
         </div>
       </div>
