@@ -24,6 +24,8 @@ nosetests.xml
 *.sqlite
 *.sqlite3
 
-# Media & Static
-media
+# Deployment
+/media/*
 /staticfiles/*
+gunicorn.*
+fabfile.py
