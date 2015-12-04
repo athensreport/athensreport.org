@@ -17,6 +17,7 @@ THIRD_PARTY_APPS = (
 )
 LOCAL_APPS = (
     'athensreport.base',
+    'athensreport.gallery',
 )
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 
@@ -67,6 +68,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'django.core.context_processors.tz',
     'django.contrib.messages.context_processors.messages',
     'django.core.context_processors.request',
+    'django.template.context_processors.media',
 )
 TEMPLATE_DIRS = (
     path.join(BASE_DIR, 'templates'),
@@ -86,7 +88,7 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 )
-MEDIA_ROOT = path.join(BASE_DIR, 'media')
+MEDIA_ROOT = path.join(path.dirname(BASE_DIR), 'media')
 MEDIA_URL = '/media/'
 
 # App conf
