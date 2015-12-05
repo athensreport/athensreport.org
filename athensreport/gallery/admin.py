@@ -5,6 +5,15 @@ from athensreport.gallery.models import Item
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'timestamp')
+    list_display = ('name', 'category', 'video_timestamp')
     list_filter = ('category', 'timestamp')
     search_fields = ('title', )
+
+    def name(self, obj):
+        if obj.title:
+            return obj.title
+        else:
+            return obj.id
+
+    def video_timestamp(self, obj):
+        return obj.timestamp.strftime('%H:%M:%S')
