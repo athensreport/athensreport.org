@@ -16,4 +16,7 @@ class ItemAdmin(admin.ModelAdmin):
             return obj.id
 
     def video_timestamp(self, obj):
-        return obj.timestamp.strftime('%H:%M:%S')
+        try:
+            return obj.timestamp.strftime('%H:%M:%S')
+        except:
+            return ''
