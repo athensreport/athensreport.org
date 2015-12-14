@@ -21,6 +21,27 @@
   <div class="strip black text-center">
     <h2>galleries</h2>
   </div>
+
+  <div class="container gallery">
+    <div class="row">
+      {% for item in items %}
+        <div class="col-md-4 gallery-item">
+          <a href="#">
+            <img src="{{ MEDIA_URL }}{{ item.source_thumb }}" alt="{{ item }}" class="gallery-thumb">
+          </a>
+          <div class="gallery-title">{{ item.title }}</div>
+          <div class="gallery-credit">
+            {{ item.credit }}
+            {% if request.user.is_superuser %}
+              <a href="{% url 'admin:gallery_item_change' item.id %}" target="_blank">
+                <span class="glyphicon glyphicon-wrench" ></span>
+              </a>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
 {% endblock %}
 
 {% block javascript %}

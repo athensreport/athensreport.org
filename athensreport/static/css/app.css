@@ -265,6 +265,26 @@ a:hover {
     margin: auto;
 }
 
+.gallery {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.gallery-item {
+    padding: 20px;
+}
+
+.gallery-thumb {
+    display: block;
+    max-width: 100%;
+}
+
+.gallery-credit {
+    color: #EC2E2A;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 
 /* Footer
 ==================== */
