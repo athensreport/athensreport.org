@@ -32,13 +32,19 @@
           <div class="gallery-title">{{ item.title }}</div>
           <div class="gallery-credit">
             {{ item.credit }}
-            {% if request.user.is_superuser %}
+            {% if 'gallery.change_item' in request.user.get_all_permissions %}
               <a href="{% url 'admin:gallery_item_change' item.id %}" target="_blank">
                 <span class="glyphicon glyphicon-wrench" ></span>
               </a>
             {% endif %}
           </div>
         </div>
+        {% if forloop.counter|divisibleby:3 %}
+          </div>
+           {% if not loop.last %}
+             <div class="row">
+           {% endif %}
+        {% endif %}
       {% endfor %}
     </div>
   </div>

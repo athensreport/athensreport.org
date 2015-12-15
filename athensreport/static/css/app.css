@@ -274,9 +274,21 @@ a:hover {
     padding: 20px;
 }
 
+.gallery-item > a {
+    display: block;
+    height: 13em;
+    width: 21em;
+    overflow: hidden;
+}
+
 .gallery-thumb {
     display: block;
     max-width: 100%;
+}
+
+.gallery-title {
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .gallery-credit {
