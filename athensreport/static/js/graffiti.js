@@ -44,13 +44,19 @@ $(document).ready(function() {
                     <div class="gallery-year">
                       ${item.fields.year}
                     </div>
-                    <div class="gallery-comment">
-                      <strong>Description:</strong>
-                      ${item.fields.comment}
-                    </div>
                 `;
+                if (item.fields.comment) {
+                    var comment_html = `
+                        <div class="gallery-comment">
+                          <strong>Description:</strong>
+                          ${item.fields.comment}
+                        </div>
+                    `;
+                } else {
+                    var comment_html = ``;
+                }
                 source.html(source_html);
-                info.html(info_html);
+                info.html(info_html + comment_html);
                 var target = $('#details');
                 $('html, body').animate({
                     show: target,
