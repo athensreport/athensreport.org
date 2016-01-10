@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block content %}
+  {% block video %}
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 text-center">
+          <div class="project-video text-center">
+            <div class="project-video-strip yellowish">
+              <h2>route video</h2>
+            </div>
+            <video height="604" width="1070" id="thevideo" controls>
+              <source src="{{ MEDIA_URL}}thevideo.mp4">
+            </video>
+            <div id="timeline"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block details %}
+    <div class="container">
+      <div class="row" id="details">
+        <div class="col-md-6">
+          <div id="details-source"></div>
+        </div>
+        <div class="col-md-6">
+          <div id="details-info"></div>
+        </div>
+      </div>
+    </div>
+  {% endblock %}
+
+  <div class="strip black text-center">
+    <h2>galleries</h2>
+  </div>
+
+  {% block gallery %}
+    <div class="container gallery" id="gallery-items" data-category="{{ category }}">
+    </div>
+  {% endblock %}
+{% endblock %}
+
+{% block javascript %}
+  <script src="{% static 'js/lib/popcorn-complete.min.js' %}"></script>
+  <script src="{% static 'js/video.js' %}"></script>
+{% endblock javascript %}

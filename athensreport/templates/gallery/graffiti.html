@@ -1,0 +1,7 @@
+{% extends "gallery/gallery.html" %}
+{% load staticfiles %}
+
+{% block javascript %}
+  {{ block.super }}
+  <script src="{% static 'js/graffiti.js' %}"></script>
+{% endblock javascript %}

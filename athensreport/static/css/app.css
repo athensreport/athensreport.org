@@ -152,10 +152,6 @@ a:hover {
     content: "";
 }
 
-.nav-top {
-
-}
-
 .nav-bottom {
     clear: right;
 }
@@ -261,7 +257,6 @@ a:hover {
 .project-video-strip {
     text-transform: uppercase;
     text-align: right;
-    max-width: 853px;
     margin: auto;
 }
 
@@ -287,16 +282,30 @@ a:hover {
 }
 
 .gallery-title {
+    font-size: 1.5em;
     font-weight: bold;
     text-transform: uppercase;
+}
+
+.gallery-year {
+    color: #FDDB37;
+    font-size: 1.4em;
+    margin-bottom: 40px;
 }
 
 .gallery-credit {
     color: #EC2E2A;
     font-weight: bold;
     text-transform: uppercase;
+    font-size: 0.9em;
 }
 
+.gallery-comment {
+}
+
+#details {
+    margin: 20px 0px;
+}
 
 /* Footer
 ==================== */

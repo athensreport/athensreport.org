@@ -9,11 +9,20 @@
           <div class="project-video-strip yellowish">
             <h2>route video</h2>
           </div>
-          <video height="480" width="850" id="thevideo" controls>
+          <video height="604" width="1070" id="thevideo" controls>
             <source src="{{ MEDIA_URL}}thevideo.mp4">
           </video>
           <div id="timeline"></div>
         </div>
+      </div>
+    </div>
+
+    <div class="row" id="details">
+      <div class="col-md-6">
+        <div id="details-source"></div>
+      </div>
+      <div class="col-md-6">
+        <div id="details-info"></div>
       </div>
     </div>
   </div>
@@ -22,35 +31,12 @@
     <h2>galleries</h2>
   </div>
 
-  <div class="container gallery">
-    <div class="row">
-      {% for item in items %}
-        <div class="col-md-4 gallery-item">
-          <a href="#">
-            <img src="{{ MEDIA_URL }}{{ item.source_thumb }}" alt="{{ item }}" class="gallery-thumb">
-          </a>
-          <div class="gallery-title">{{ item.title }}</div>
-          <div class="gallery-credit">
-            {{ item.credit }}
-            {% if 'gallery.change_item' in request.user.get_all_permissions %}
-              <a href="{% url 'admin:gallery_item_change' item.id %}" target="_blank">
-                <span class="glyphicon glyphicon-wrench" ></span>
-              </a>
-            {% endif %}
-          </div>
-        </div>
-        {% if forloop.counter|divisibleby:3 %}
-          </div>
-           {% if not loop.last %}
-             <div class="row">
-           {% endif %}
-        {% endif %}
-      {% endfor %}
-    </div>
+  <div class="container gallery" id="gallery-items" data-category="{{ category }}">
   </div>
 {% endblock %}
 
 {% block javascript %}
   <script src="{% static 'js/lib/popcorn-complete.min.js' %}"></script>
   <script src="{% static 'js/video.js' %}"></script>
+  <script src="{% static 'js/theproject.js' %}"></script>
 {% endblock javascript %}
