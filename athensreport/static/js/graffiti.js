@@ -40,6 +40,7 @@ $(document).ready(function() {
 
                 `;
                 var info_html = `
+                    <div class="gallery-cat"><img src="/static/img/graffiti.png"></div>
                     <div class="gallery-title">${item.fields.title}</div>
                     <div class="gallery-year">
                       ${item.fields.year}
