@@ -56,8 +56,15 @@ $(document).ready(function() {
                 } else {
                     var comment_html = ``;
                 }
+                var social_html = `
+                    <div class="social-share">
+                      <img src="/static/img/facebook.png" alf="facebook">
+                      <img src="/static/img/twitter.png" alf="twitter">
+                      <img src="/static/img/email.png" alf="email">
+                    </div>
+                `;
                 source.html(source_html);
-                info.html(info_html + comment_html);
+                info.html(info_html + comment_html + social_html);
                 var target = $('#details');
                 $('html, body').animate({
                     show: target,
