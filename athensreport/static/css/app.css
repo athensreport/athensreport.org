@@ -170,6 +170,14 @@ a:hover {
     font-size: 1.2em;
 }
 
+.carousel-caption {
+    padding-bottom: 0px;
+}
+
+.carousel-indicators {
+    bottom: 90px;
+}
+
 .yellow {
     color: #FFDA36;
 }
