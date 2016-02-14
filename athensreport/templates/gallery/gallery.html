@@ -8,7 +8,7 @@
         <div class="col-md-12 text-center">
           <div class="project-video text-center">
             <div class="project-video-strip yellowish">
-              <h2>route video</h2>
+              <h2 class="project-route-title">{% block project-route-title %}{% endblock %}</h2>
             </div>
             <video height="604" width="1070" id="thevideo" controls>
               <source src="{{ MEDIA_URL}}thevideo.mp4">
@@ -37,9 +37,11 @@
     </div>
   {% endblock %}
 
-  <div class="strip black text-center">
-    <h2>galleries</h2>
-  </div>
+  {% block galleries %}
+    <div class="gallery-strip strip black text-center">
+      <h2>galleries</h2>
+    </div>
+  {% endblock %}
 
   {% block gallery %}
     <div class="container gallery" id="gallery-items" data-category="{{ category }}">

@@ -16,7 +16,7 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -46,7 +46,6 @@
       </div>
     </nav>
 
-
     {% block content %}{% endblock content %}
 
     <footer>
@@ -55,13 +54,15 @@
           <div class="col-md-4">
             <a href="{% url 'base:home' %}"><img class="footer-logo" src="{% static 'img/athensreport.png' %}" alt="Athens Report"></a>
             <p>
-              Sweet roll oat cake tiramisu candy canes cake cheesecake gingerbread oat cake.
+              Anna Lascari &copy; 2015<script>document.write("-"+new Date().getFullYear());</script>
+              Creative Commons Attribution-NonCommercial-NoDerivatives<br>
+              info@athensreport.org
             </p>
           </div>
 
           <div class="footer-text col-md-4">
             <p>
-              Croissant chocolate gingerbread marshmallow. Tootsie roll jelly-o jelly cake candy canes cake cupcake bonbon. Carrot cake halvah oat cake marshmallow. Sweet candy muffin sweet roll tootsie roll lemon drops marshmallow apple pie sweet roll. Sweet roll gummi bears jelly beans cotton candy sesame snaps apple pie pastry cheesecake.
+              "Athens Report" seeks your participation to build a collective bottom-up project which, by filing personal experiences, will contribute to re-representation of the years of recession and austerity in Athens against the dominant representation as it is expressed through the traditional media.
             </p>
           </div>
 

@@ -37,10 +37,12 @@ $(document).ready(function() {
                 var info = $('#details-info');
                 var source_html = `
                     <img src="/media/${item.fields.source}" alt="${item.fields.title}" class="img-responsive">
-
+                    <div class="graffiti-credit">photo by: ${item.fields.credit}</div>
                 `;
                 var info_html = `
-                    <div class="gallery-cat"><img src="/static/img/graffiti.png"></div>
+                    <div class="gallery-cat">
+                      <img src="/static/img/graffiti.png" alt="${item.fields.title}">
+                    </div>
                     <div class="gallery-title">${item.fields.title}</div>
                     <div class="gallery-year">
                       ${item.fields.year}
