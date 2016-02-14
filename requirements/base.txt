@@ -1,9 +1,10 @@
 # Basic stuff
-django>=1.8,<1.9
+django==1.9.2
 
 # Configuration
-django_dotenv==1.3.0
-dj-database-url==0.3.0
+django_dotenv==1.4.1
+dj-database-url==0.4.0
+django-text==1.7.2
 
 # Deployment
 Fabric==1.10.2

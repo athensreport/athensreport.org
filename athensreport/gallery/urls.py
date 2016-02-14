@@ -1,10 +1,10 @@
 from django.conf.urls import url, patterns
 
+from athensreport.gallery import views
 
-urlpatterns = patterns(
-    'athensreport.gallery.views',
-    url(r'^theproject/$', 'theproject', name='theproject'),
-    url(r'^graffiti/$', 'graffiti', name='graffiti'),
-    url(r'^items/(?P<category>[\w]+)/$', 'items', name='items'),
-    url(r'^item/(?P<pk>\d+)/$', 'item', name='item'),
-)
+gallery_urlpatterns = ([
+    url(r'^theproject/$', views.theproject, name='theproject'),
+    url(r'^graffiti/$', views.graffiti, name='graffiti'),
+    url(r'^items/(?P<category>[\w]+)/$', views.items, name='items'),
+    url(r'^item/(?P<pk>\d+)/$', views.item, name='item'),
+], 'gallery')

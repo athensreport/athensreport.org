@@ -1,7 +1,7 @@
 from django.conf.urls import url, patterns
 
+from athensreport.base import views
 
-urlpatterns = patterns(
-    'athensreport.base.views',
-    url(r'^$', 'index', name='home'),
-)
+base_urlpatterns = ([
+    url(r'^$', views.index, name='home'),
+], 'base')
