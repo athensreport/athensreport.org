@@ -109,7 +109,8 @@ a:hover {
 
 .navbar-collapse {
     position: relative;
-    top: 55px;
+    top: 25px;
+    clear: right;
 }
 
 .navbar-brand {
@@ -121,8 +122,8 @@ a:hover {
     text-transform: uppercase;
 }
 
-.navbar-right ~ .navbar-right {
-    margin-right: -15px;
+.navbar-right {
+    margin-right: 0px;
 }
 
 .navbar-default .navbar-nav > li > a.highlight {
@@ -155,6 +156,23 @@ a:hover {
 
 .nav-bottom {
     clear: right;
+}
+
+.navbar-social {
+    float: right;
+    color: #595959;
+    margin-top: 5px;
+}
+
+.navbar-social > span {
+    font-size: 1.4em;
+    font-weight: bold;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.navbar-social > a {
+    padding: 0 0 0 10px;
 }
 
 .carousel img {
@@ -203,10 +221,6 @@ a:hover {
     color: white;
 }
 
-.strip > h2 {
-    padding: 0px;
-}
-
 .route {
     background-color: #e6e7e8;
     padding: 20px;
@@ -245,7 +259,7 @@ a:hover {
 }
 
 .video-social > img {
-    margin-top: 5px !important;
+    margin-top: 2px !important;
 }
 
 .entertheproject {
@@ -282,6 +296,13 @@ a:hover {
     text-align: right;
     margin: auto;
     padding-right: 10px;
+    margin-bottom: 5px;
+}
+
+.project-route-title {
+    font-size: 2em;
+    font-weight: bold;
+    vertical-align: middle;
 }
 
 .gallery {
@@ -354,7 +375,7 @@ a:hover {
 }
 
 .social-share > img {
-    padding: 10px;
+    padding-right: 10px;
     margin-top: 20px;
 }
 

@@ -29,6 +29,12 @@
             <img id="navbar-logo" src="{% static 'img/athensreport.png' %}" alt="Athens Report">
           </a>
         </div>
+        <div class="navbar-social">
+          <span>SHARE</span>
+          <a href="#"><img src="/static/img/facebook.png" alf="facebook"></a>
+          <a href="#"><img src="/static/img/twitter.png" alf="twitter"></a>
+          <a href="#"><img src="/static/img/email.png" alf="email"></a>
+        </div>
         <div class="collapse navbar-collapse" id="navbar-collapse-menu">
           <ul class="nav navbar-nav navbar-right nav-top">
             <li><a href="{% url 'base:home' %}">home</a></li>
@@ -54,19 +60,22 @@
           <div class="col-md-4">
             <a href="{% url 'base:home' %}"><img class="footer-logo" src="{% static 'img/athensreport.png' %}" alt="Athens Report"></a>
             <p>
-              Anna Lascari &copy; 2015<script>document.write("-"+new Date().getFullYear());</script>
-              Creative Commons Attribution-NonCommercial-NoDerivatives<br>
+              Anna Lascari &copy; 2015<script>document.write("-"+new Date().getFullYear());</script><br>
+              Creative Commons Attribution-NonCommercial-NoDerivatives
               info@athensreport.org
             </p>
           </div>
 
-          <div class="footer-text col-md-4">
+          <div class="footer-text col-md-5">
+            <p>
+              CROWDSOURCING
+            </p>
             <p>
               "Athens Report" seeks your participation to build a collective bottom-up project which, by filing personal experiences, will contribute to re-representation of the years of recession and austerity in Athens against the dominant representation as it is expressed through the traditional media.
             </p>
           </div>
 
-          <div class="col-md-4 footer-nav">
+          <div class="col-md-3 footer-nav">
             <a href="#" target="_blank" class="yellowish upload">Upload Media</a>
           </div>
         </div>
