@@ -1,7 +1,13 @@
 {% extends "gallery/gallery.html" %}
 {% load staticfiles %}
 
-{% block project-route-title %}route video{% endblock %}
+{% block project-route-title %}
+  <div class="project-video-strip yellowish">
+    <div class="project-route-title">
+      route video
+    </div>
+  </div>
+{% endblock %}
 
 {% block content %}
   {% block video %}
@@ -60,6 +66,19 @@
       </div>
     </div>
   {% endblock %}
+
+  <div class="route-title strip text-center">
+    <h1>route</h1>
+  </div>
+
+  <div class="route">
+    <div class="route-container">
+      <img src="{% static 'img/route.jpg' %}" alt="Route" class="img-responsive">
+      <div class="strip yellowish text-center">
+        Click on the map or the event indicator bar to go to selected spot or watch the whole video
+      </div>
+    </div>
+  </div>
 {% endblock %}
 
 {% block javascript %}

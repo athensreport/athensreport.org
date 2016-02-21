@@ -184,17 +184,15 @@ a:hover {
     background-color: black;
 }
 
-.carousel-caption {
+.post-carousel {
     text-transform: uppercase;
-    font-size: 1.2em;
+    font-size: 1.5em;
+    background-color: #282425;
 }
 
-.carousel-caption {
-    padding-bottom: 0px;
-}
-
-.carousel-indicators {
-    bottom: 90px;
+.post-carousel > div {
+    color: white;
+    padding: 20px 0;
 }
 
 .yellow {
@@ -305,6 +303,17 @@ a:hover {
     vertical-align: middle;
 }
 
+.graffiti-video-strip {
+    background-color: #EE302B;
+    color: white;
+}
+
+.upload-media {
+    width: 206px;
+    margin: auto;
+    margin-top: 20px;
+}
+
 .gallery {
     margin-top: 20px;
     margin-bottom: 20px;
@@ -402,11 +411,11 @@ a:hover {
 footer {
     background-color: #231f20;
     color: white;
-    height: 180px;
+    height: 200px;
     padding: 40px 0px;
     width: 100%;
     font-size: 0.9em;
-    border-top: 10px #ffd900 solid;
+    border-top: 15px #ffd900 solid;
 }
 
 footer > .container {
@@ -425,9 +434,6 @@ footer > .container {
 }
 
 .upload {
-    padding: 5px;
-    color: black;
-    font-size:1.2em;
-    text-transform: uppercase;
+    margin-top: 80px
     display: inline-block;
 }

@@ -7,20 +7,24 @@
       <div class="row">
         <div class="col-md-12 text-center">
           <div class="project-video text-center">
-            <div class="project-video-strip yellowish">
-              <div class="project-route-title">{% block project-route-title %}{% endblock %}</div>
+            {% block project-route-strip %}
+            {% endblock %}
             </div>
             <video height="604" width="1070" id="thevideo" controls>
               <source src="{{ MEDIA_URL}}thevideo.mp4">
             </video>
             <div class="social-share video-social">
-              <img src="/static/img/facebook.png" alf="facebook">
-              <img src="/static/img/twitter.png" alf="twitter">
-              <img src="/static/img/email.png" alf="email">
+              <img src="{% static 'img/facebook.png' %}" alf="facebook">
+              <img src="{% static 'img/twitter.png' %}" alf="twitter">
+              <img src="{% static 'img/email.png' %}" alf="email">
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="upload-media">
+      <a href="#"><img src="{% static 'img/upload.jpg' %}" alt="Upload Media"></a>
     </div>
   {% endblock %}
 

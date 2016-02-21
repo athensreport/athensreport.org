@@ -1,7 +1,13 @@
 {% extends "gallery/gallery.html" %}
 {% load staticfiles %}
 
-{% block project-route-title %}graffiti route{% endblock %}
+{% block project-route-strip %}
+  <div class="project-video-strip graffiti-video-strip">
+    <div class="project-route-title">
+      graffiti route
+    </div>
+  </div>
+{% endblock %}
 
 {% block javascript %}
   {{ block.super }}
