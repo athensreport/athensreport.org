@@ -320,7 +320,7 @@ a:hover {
 }
 
 .video-back {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .gallery {
@@ -405,6 +405,11 @@ a:hover {
     padding-left: 0px;
 }
 
+#video-back,
+#gallery,
+#gallery-strip {
+    display: none;
+}
 
 /* Flatpages
 ==================== */

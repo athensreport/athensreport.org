@@ -20,20 +20,20 @@
     {{ block.super }}
 
     {% block video-back %}
-      <div class="video-back">
+      <div class="video-back" id="video-back">
         <a href="#"><img src="{% static 'img/back.png' %}" alt="Back to the Project"></a>
       </div>
     {% endblock %}
   {% endblock %}
 
   {% block galleries %}
-    <div class="gallery-strip strip black text-center">
+    <div class="gallery-strip strip black text-center" id="gallery-strip">
       <h2>galleries</h2>
     </div>
   {% endblock %}
 
   {% block gallery %}
-    <div class="gallery container">
+    <div class="gallery container" id="gallery">
       <div class="row">
         <div class="col-md-8">
           <div id="gallery-items" data-category="{{ category }}">
@@ -92,5 +92,5 @@
 {% block javascript %}
   {{ block.super }}
   <script src="{% static 'js/theproject.js' %}"></script>
-  <!--<script src="{% static 'js/video.js' %}"></script>-->
+  <script src="{% static 'js/video.js' %}"></script>
 {% endblock javascript %}
