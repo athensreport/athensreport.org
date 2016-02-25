@@ -55,7 +55,7 @@ $(document).ready(function() {
                 var info_html = `
                     <div class="gallery-title">${item.fields.title}</div>
                     <div class="gallery-year">
-                      ${item.fields.year}
+                      ${item.fields.created}
                     </div>
                 `;
                 if (item.fields.comment) {
