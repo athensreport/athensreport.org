@@ -192,17 +192,21 @@ a:hover {
 
 .post-carousel > div {
     color: white;
-    padding: 20px 0;
+    padding: 20px 0;l
 }
 
 .yellow {
-    color: #FFDA36;
+    color: #F1B51D;
 }
 
 .look {
     background-image: url('/static/img/look-bg.jpg');
-    height: 200px;
-    padding:30px;
+    height: 400px;
+    padding: 30px;
+}
+
+.look > img {
+    margin-right: 90px;
 }
 
 .strip {
@@ -211,7 +215,7 @@ a:hover {
 }
 
 .yellowish {
-    background-color: #ffd900;
+    background-color: #F1B51D;
 }
 
 .black {
@@ -308,10 +312,15 @@ a:hover {
     color: white;
 }
 
-.upload-media {
+.upload-media,
+.video-back {
     width: 206px;
     margin: auto;
     margin-top: 20px;
+}
+
+.video-back {
+    margin-bottom: 10px;
 }
 
 .gallery {
@@ -334,7 +343,7 @@ a:hover {
 
 .gallery-item > a {
     display: block;
-    max-height: 14em;
+    max-height: 170px;
     overflow: hidden;
 }
 

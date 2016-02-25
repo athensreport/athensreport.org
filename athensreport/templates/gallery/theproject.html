@@ -14,8 +14,16 @@
     {{ block.super }}
   {% endblock %}
 
+  {% block video-upload %}{% endblock %}
+
   {% block details %}
     {{ block.super }}
+
+    {% block video-back %}
+      <div class="video-back">
+        <a href="#"><img src="{% static 'img/back.png' %}" alt="Back to the Project"></a>
+      </div>
+    {% endblock %}
   {% endblock %}
 
   {% block galleries %}
