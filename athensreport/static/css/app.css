@@ -91,7 +91,7 @@ a:hover {
 }
 
 .container {
-    max-width: 1100px;
+    max-width: 980px;
 }
 
 .navbar {
@@ -123,7 +123,7 @@ a:hover {
 }
 
 .navbar-default .navbar-nav > li > a.highlight {
-    color: #FFDA36;
+    color: #FAE500;
 }
 
 .navbar-default .navbar-nav > li > a.highlight::after {
@@ -156,13 +156,12 @@ a:hover {
 
 .navbar-social {
     float: right;
-    color: #595959;
+    color: #CFD1D2;
     margin-top: 5px;
 }
 
 .navbar-social > span {
-    font-size: 1.4em;
-    font-weight: bold;
+    font-size: 1.2em;
     display: inline-block;
     vertical-align: middle;
 }
@@ -192,6 +191,10 @@ a:hover {
 }
 
 .yellow {
+    color: #FAE500;
+}
+
+.yellow-dark {
     color: #F1B51D;
 }
 
@@ -208,6 +211,7 @@ a:hover {
 .strip {
     padding: 14px;
     text-transform: uppercase;
+    background-color: #FAE500;
     font-family: 'Roboto';
 }
 
@@ -221,7 +225,7 @@ a:hover {
 }
 
 .route {
-    background-color: #e6e7e8;
+    background-color: #E4E5E7;
     padding: 20px;
     text-align: center;
 }
@@ -232,9 +236,15 @@ a:hover {
 }
 
 .route-container > img {
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+}
+
+.route-container > .strip {
+    background-color: #FAE500;
     font-family: 'Roboto';
     padding: 8px;
+    padding-top: 11px;
+    font-size: 1.6em;
 }
 
 .route-info {
@@ -242,14 +252,22 @@ a:hover {
     margin: auto;
 }
 
-.route-info > div {
+.route-info p {
     text-align: left;
+    margin-top: 20px;
+    font-size: 1.1em;
+}
+
+.route-info-first-text {
+    margin-left: -20px;
 }
 
 .route-info > div > h2 {
     text-transform: uppercase;
     font-family: 'Roboto';
     font-size: 3em;
+    line-height: 0.9em;
+    text-align: left;
 }
 
 .video-guide {
@@ -259,10 +277,16 @@ a:hover {
 
 .video-social {
     text-align: left;
+    float: left;
 }
 
 .video-social > img {
-    margin-top: 2px !important;
+    margin-top: 4px !important;
+}
+
+.video-icons {
+    float: right;
+    margin-top: -4px;
 }
 
 .entertheproject {
@@ -277,8 +301,13 @@ a:hover {
     margin-bottom: -10px;
 }
 
+.route-title div {
+    font-size: 3em;
+    text-transform: uppercase;
     font-family: 'Roboto';
     margin-top: -2px;
+}
+
 .project-title {
     background-image: url('/static/img/project-bg.png');
     background-repeat: repeat-x;
@@ -287,14 +316,18 @@ a:hover {
     margin-bottom: -10px;
 }
 
+.project-title div {
+    font-size: 3em;
+    text-transform: uppercase;
     font-family: 'Roboto';
 }
+
 
 /* The Project
 ==================== */
 
 .project-video {
-    margin: 20px 0px;
+    margin: 20px 0 10px 0;
     text-align: center;
 }
 
@@ -304,11 +337,11 @@ a:hover {
     margin: auto;
     padding-right: 10px;
     margin-bottom: 5px;
+    background-color: #FAE500;
 }
 
 .project-route-title {
     font-size: 2em;
-    font-weight: bold;
     vertical-align: middle;
     font-family: 'Roboto';
 }
@@ -322,7 +355,7 @@ a:hover {
 .video-back {
     width: 206px;
     margin: auto;
-    margin-top: 20px;
+    margin-top: 10px;
 }
 
 .video-back {
@@ -330,10 +363,15 @@ a:hover {
 }
 
 .gallery {
-    margin-top: 20px;
+    margin-top: 60px;
     margin-bottom: 20px;
     padding-left: 5px;
     padding-right: 5px;
+}
+
+.gallery-details {
+    border-right: 1px solid lightgray;
+    padding-right: 0px;
 }
 
 .gallery-strip {
@@ -343,15 +381,31 @@ a:hover {
         min-height: 100px;
 }
 
+.gallery-strip div {
+    font-size: 3.2em;
+    text-transform: uppercase;
     font-family: 'Roboto';
     margin-top: 7px;
+}
+
+.gallery-top-icons {
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
+
+.gallery-top-icons img {
+    padding-right: 30px;
+}
+
 .gallery-item {
-    padding: 10px;
+    padding: 0 20px 0 5px;
+    height: 212px;
+    overflow: hidden;
 }
 
 .gallery-item > a {
     display: block;
-    max-height: 170px;
+    height: 140px;
     overflow: hidden;
 }
 
@@ -361,25 +415,30 @@ a:hover {
 }
 
 .gallery-cat {
-    margin-top: 30px;
+    margin-top: 0px;
 }
 
 .gallery-title {
-    font-size: 1.6em;
+    font-size: 2em;
     font-weight: bold;
     text-transform: uppercase;
     font-style: italic;
-    margin-top: 10px;
+    margin: 10px 0 8px 0;
     font-family: 'Roboto';
     line-height: 0.9em;
 }
 
 .gallery-year {
-    color: #dc9c28;
     font-size: 1.5em;
     font-style: italic;
-    margin-bottom: 40px;
-    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.gallery-location,
+.gallery-creator,
+.gallery-comment {
+    margin: 10px 0;
 }
 
 .gallery-credit {
@@ -392,6 +451,10 @@ a:hover {
 .gallery-comment {
 }
 
+.gallery-datelinks {
+    padding-left: 15px;
+}
+
 .graffiti-credit {
     margin-top: -20px;
     color: white;
@@ -402,13 +465,36 @@ a:hover {
     font-style: italic;
 }
 
+.details-info-container {
+    padding-left: 40px;
+    padding-right: 0px;
+}
+
+.details-title {
+    font-style: italic;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    line-height: 0.9em;
+}
+
+.details {
+    margin-bottom: 8px;
+}
+
+.details-created {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 .social-share > img {
     padding-right: 10px;
     margin-top: 20px;
 }
 
 #details {
-    margin: 20px 0px;
+    margin: 60px 0 0 0;
 }
 
 #details > .col-md-8 {
@@ -421,8 +507,12 @@ a:hover {
     display: none;
 }
 
+#video-back {
+    text-align: center;
+}
+
 #years {
-    margin: 0 60px 0 -60px;
+    margin-left: -10px;
 }
 
 /* Flatpages
@@ -439,11 +529,11 @@ a:hover {
 footer {
     background-color: #231f20;
     color: white;
-    height: 200px;
-    padding: 40px 0px;
+    height: 210px;
+    padding: 30px 0px;
     width: 100%;
     font-size: 0.9em;
-    border-top: 15px #ffd900 solid;
+    border-top: 15px #FAE500 solid;
 }
 
 footer > .container {
@@ -456,9 +546,29 @@ footer > .container {
     max-width: 200px;
 }
 
+.footer-email {
+    font-weight: bold;
+    font-size: 1.3em;
+}
+
+.footer-title {
+    font-size: 1.4em;
+    color: #FAE500;
+}
+
+.footer-left p {
+    padding-left: 24px;
+    padding-right: 10px;
+}
+
 .footer-nav {
     text-align: right;
     padding-right: 30px;
+    padding-top: 100px;
+}
+
+.footer-text p {
+    padding-right: 80px;
 }
 
 .upload {

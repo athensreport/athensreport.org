@@ -42,7 +42,7 @@ $(document).ready(function() {
                     `;
                 } else {
                     var source_html = `
-                        <video height="100%" width="700" controls>
+                        <video height="100%" width="640" controls>
                           <source src="/media/${item.fields.source}">
                         </video>
                     `;
@@ -54,10 +54,31 @@ $(document).ready(function() {
                 `
                 var info_html = `
                     <div class="gallery-title">${item.fields.title}</div>
-                    <div class="gallery-year">
+                    <div class="gallery-year yellow-dark">
                       ${item.fields.created}
                     </div>
                 `;
+                if (item.fields.location) {
+                    var location_html = `
+                        <div class="gallery-location">
+                          <strong>Location:</strong>
+                          ${item.fields.location}
+                        </div>
+                    `;
+                } else {
+                    var location_html = ``;
+                }
+                if (item.fields.credit) {
+                    var creator_html = `
+                        <div class="gallery-creator">
+                          <strong>Creator:</strong>
+                          ${item.fields.credit}
+                          <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                        </div>
+                    `;
+                } else {
+                    var creator_html = ``;
+                }
                 if (item.fields.comment) {
                     var comment_html = `
                         <div class="gallery-comment">
@@ -76,11 +97,11 @@ $(document).ready(function() {
                     </div>
                 `;
                 source.html(source_html);
-                info.html(cat_img + info_html + comment_html + social_html);
+                info.html(cat_img + info_html + location_html + creator_html + comment_html + social_html);
                 var target = $('#details');
                 $('html, body').animate({
                     show: target,
-                    scrollTop: $(target).offset().top - 130
+                    scrollTop: $(target).offset().top - 220
                 }, 1000);
                 $('#video-back').slideDown();
             });
@@ -97,9 +118,16 @@ $(document).ready(function() {
                 <a href="#" class="details" data-id="${item.pk}">
                   <img src="/media/${item.fields.source_thumb}" alt="${item.fields.title}" class="gallery-thumb">
                 </a>
-              </div>
+                <p class="details-title">${item.fields.title}</p>
             `;
-            elements += element;
+            /*
+            if (item.fields.social_graph) {
+
+            }*/
+            var pubdate = `
+              <p class="details-created yellow-dark">${item.fields.created}</p></div>
+            `;
+            elements += (element + pubdate);
         });
 
         var rendered = `${elements}`;

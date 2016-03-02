@@ -1,8 +1,8 @@
 {% extends "gallery/gallery.html" %}
 {% load staticfiles %}
 
-{% block project-route-title %}
-  <div class="project-video-strip yellowish">
+{% block project-route-strip %}
+  <div class="project-video-strip">
     <div class="project-route-title">
       route video
     </div>
@@ -14,7 +14,9 @@
     {{ block.super }}
   {% endblock %}
 
-  {% block video-upload %}{% endblock %}
+  {% block video-upload %}
+    {{ block.super }}
+  {% endblock %}
 
   {% block details %}
     {{ block.super }}
@@ -28,22 +30,26 @@
 
   {% block galleries %}
     <div class="gallery-strip strip black text-center" id="gallery-strip">
-      <h2>galleries</h2>
+      <div>galleries</div>
     </div>
   {% endblock %}
 
   {% block gallery %}
     <div class="gallery container" id="gallery">
       <div class="row">
-        <div class="col-md-1" id="years">
+        <div class="col-md-2" id="years">
           <img src="{% static 'img/years.png' %}" alt="">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-7 gallery-details">
+          <div class="gallery-top-icons">
+            <img src="{% static 'img/riots_protests.png' %}" alt="riots">
+            <img src="{% static 'img/social_texts.png' %}" alt="social">
+          </div>
           <div id="gallery-items" data-category="{{ category }}">
           </div>
         </div>
-        <div class="col-md-3">
-          <h4>DATES AND LINKS</h4>
+        <div class="col-md-3 gallery-datelinks">
+          <div style="font-family:'Roboto';font-size:1.4em;margin-bottom:5px;margin-top:5px;">DATES AND LINKS</div>
           <p>2008 December 6 – Massive protests erupted after the killing of Alexandros Grigoropoulos, a 15-year-old youth, in Exarcheia district of central Athens by the police. Demonstrations and rioting soon spread to several other cities in Greece. Outside Greece, solidarity demonstrations, riots and, in some cases, clashes with local police also took place in more than 70 cities around the world, including London, Paris, Brussels, Rome, Dublin, Berlin, Frankfurt, Madrid, Barcelona, Amsterdam, The Hague, Copenhagen, Bordeaux, Cologne, Seville and Nicosia.</p>
           <p>2009 October 4 - Opposition socialist party PASOK wins snap election called by PM Kostas Karamanlis. George Papandreou takes over as new Prime Minister and introduces austerity measures.</p>
           <p>2009 December – One of the three main credit ratings agencies, Fitch, Standard & Poor's and Moody's, downgrade Greece's debt. PM Papandreou announces a program of tough public spending cuts.</p>
@@ -79,14 +85,14 @@
   {% endblock %}
 
   <div class="route-title strip text-center">
-    <h1>route</h1>
+    <div>route</div>
   </div>
 
   <div class="route">
     <div class="route-container">
       <img src="{% static 'img/route.jpg' %}" alt="Route" class="img-responsive">
       <div class="strip yellowish text-center">
-        Click on the map or the event indicator bar to go to selected spot or watch the whole video
+        Click on the map to go to selected spot or watch the whole video
       </div>
     </div>
   </div>
