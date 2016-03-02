@@ -12,6 +12,7 @@ class Item(models.Model):
     timestamp = models.TimeField(null=True, blank=True)
     credit = models.CharField(max_length=200, blank=True)
     creator_url = models.URLField(max_length=200, blank=True)
+    location = models.CharField(max_length=200, blank=True)
     created = models.DateField(null=True, blank=True)
     source = models.FileField(upload_to='items', blank=True, null=True)
     source_large = models.FileField(upload_to='items_large', blank=True, null=True)
