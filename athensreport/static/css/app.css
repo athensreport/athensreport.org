@@ -523,9 +523,52 @@ a:hover {
 ==================== */
 
 .flatpage {
-    padding: 30px;
+    padding: 10px 250px 10px 0px;
 }
 
+.flatpage a {
+    color: #F1B51D;
+}
+
+.flatpage p {
+    padding: 10px 0;
+}
+
+.flatpage-strip {
+    text-transform: uppercase;
+    text-align: right;
+    margin: auto;
+    padding-right: 10px;
+    margin-top: 20px;
+    background-color: #FAE500;
+}
+
+.flatpage-title {
+    font-size: 2em;
+    vertical-align: middle;
+    font-family: 'Roboto';
+}
+
+.flatpage-heading{
+    font-size: 1.5em;
+}
+
+.credits-gray {
+    background-color: #E4E5E7;
+    padding: 20px 0;
+}
+
+.credits-gray > .row {
+    margin: auto;
+}
+
+.credits-gray div {
+    padding: 0;
+}
+
+.credits-gray p {
+    padding: 10px 0;
+}
 
 /* Footer
 ==================== */

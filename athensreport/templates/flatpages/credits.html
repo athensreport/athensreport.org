@@ -1,0 +1,53 @@
+{% extends 'flatpages/default.html' %}
+
+{% load staticfiles %}
+
+{% block content %}
+  {% block carousel %}
+  {% endblock %}
+
+  {% block strip %}
+    {{ block.super }}
+  {% endblock %}
+
+  <div class="project-video text-center">
+    <video width="980" id="thevideo" controls>
+      <source src="{{ MEDIA_URL}}makingof.mp4">
+    </video>
+  </div>
+
+  {% block extratext %}
+  <div class="credits-gray">
+    <div class="row container">
+      <div class="col-md-8">
+        <p><strong>Concept and Project coordination:</strong> Anna Lascari<br>
+        <strong>Production:</strong> DEEP DISH TV and Anna Lascari</p>
+
+        <p><strong>Project consultants:</strong> Brian Drolet, Director, Deep Dish TV<br>
+        Peter Papathanasiou<br>
+        Prodromos Tsiavos, UCL Senior Research Fellow<br>
+        Spiros Kontogiorgis</p>
+
+        <p><strong>Web developer:</strong> Nicos Roussos<br>
+        <strong>Web designer:</strong> Harry Kirtsoglou<br>
+        <strong>Host:</strong> ΕΕΛ/ΛΑΚ</p>
+
+        <p><strong>Videographer:</strong> Panayiotis Tsagas<br>
+        <strong>Sound engineer:</strong> Panayotis Gatsougiannis<br>
+        <strong>Cameraman:</strong> Panos Vittorakis<br>
+        <strong>Main video editors:</strong> Yannis Daridis, Kostas Varnavopoulos</p>
+
+        <p><strong>Interviews, translation and voice over by:</strong> Ioanna Panagiotopoulou<br>
+        <strong>Photographs and video editing:</strong> Anna Lascari</p>
+      </div>
+      <div class="col-md-4">
+        <img src="{% static 'img/credits.jpg' %}" alt="" class="img-responsive">
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block text %}
+    {{ block.super }}
+  {% endblock %}
+{% endblock content %}

@@ -1,14 +1,38 @@
 {% extends 'base.html' %}
 
+{% load staticfiles %}
+
 {% block title %} - {{ flatpage.title }}{% endblock title %}
 
-
 {% block content %}
-  <div class="container flatpage">
-    <div class="row">
-      <div class="col-md-12">
-        {{ flatpage.content }}
+  {% block carousel %}
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img src="{% static 'img/slide1.jpg' %}" alt="">
+        </div>
       </div>
     </div>
-  </div>
+  {% endblock %}
+
+  {% block strip %}
+    <div class="flatpage-strip container">
+      <div class="flatpage-title">
+        {{ flatpage.title }}
+      </div>
+    </div>
+  {% endblock %}
+
+  {% block extratext %}
+  {% endblock %}
+
+  {% block text %}
+    <div class="container flatpage">
+      <div class="row">
+        <div class="col-md-12">
+          {{ flatpage.content }}
+        </div>
+      </div>
+    </div>
+  {% endblock %}
 {% endblock content %}
