@@ -37,7 +37,6 @@ $(document).ready(function() {
                 var info = $('#details-info');
                 var source_html = `
                     <img src="/media/${item.fields.source}" alt="${item.fields.title}" class="img-responsive">
-                    <div class="graffiti-credit">photo by: ${item.fields.credit}</div>
                 `;
                 var year = item.fields.created.substr(0, 4);
                 var info_html = `
@@ -83,7 +82,7 @@ $(document).ready(function() {
 
         params.forEach(function(item) {
             var element = `
-              <div class="col-md-4 gallery-item">
+              <div class="col-md-4 gallery-item graffiti-item">
                 <a href="#" class="details" data-id="${item.pk}">
                   <img src="/media/${item.fields.source_thumb}" alt="${item.fields.title}" class="gallery-thumb">
                 </a>

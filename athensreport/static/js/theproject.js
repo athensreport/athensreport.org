@@ -38,11 +38,10 @@ $(document).ready(function() {
                 if (item.fields.category == 'Photo') {
                     var source_html = `
                         <img src="/media/${item.fields.source}" alt="${item.fields.title}" class="img-responsive">
-                        <div class="graffiti-credit">photo by: ${item.fields.credit}</div>
                     `;
                 } else {
                     var source_html = `
-                        <video height="100%" width="640" controls>
+                        <video controls class="img-responsive">
                           <source src="/media/${item.fields.source}">
                         </video>
                     `;

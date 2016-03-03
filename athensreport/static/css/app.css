@@ -409,6 +409,10 @@ a:hover {
     overflow: hidden;
 }
 
+.graffiti-item {
+    height: 170px;
+}
+
 .gallery-thumb {
     display: block;
     max-width: 100%;
@@ -498,7 +502,7 @@ a:hover {
 }
 
 #details > .col-md-8 {
-    padding-left: 0px;
+    padding: 0px;
 }
 
 #video-back,
