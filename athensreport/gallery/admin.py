@@ -5,7 +5,7 @@ from athensreport.gallery.models import Item
 
 @admin.register(Item)
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category', 'video_timestamp')
+    list_display = ('name', 'category', 'video_timestamp', 'thumbnail')
     list_filter = ('category', 'timestamp')
     search_fields = ('title', )
 

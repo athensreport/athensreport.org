@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 
 
 ITEM_TYPE = ['Video', 'Photo', 'Graffiti']
@@ -27,3 +28,9 @@ class Item(models.Model):
 
     class Meta:
         ordering = ["timestamp", "title"]
+
+    def thumbnail(self):
+        return '<img src="{0}{1}" width="125" height="100">'.format(settings.MEDIA_URL,
+                                                                    self.source_thumb)
+    thumbnail.short_description = 'Thumbnail'
+    thumbnail.allow_tags = True
