@@ -26,13 +26,17 @@
   {% block extratext %}
   {% endblock %}
 
-  {% block text %}
-    <div class="container flatpage">
-      <div class="row">
-        <div class="col-md-12">
+  <div class="container flatpage">
+    <div class="row">
+      <div class="col-md-8">
+        {% block text %}
           {{ flatpage.content }}
-        </div>
+        {% endblock %}
+      </div>
+      <div class="col-md-4">
+        {% block image %}
+        {% endblock %}
       </div>
     </div>
-  {% endblock %}
+  </div>
 {% endblock content %}

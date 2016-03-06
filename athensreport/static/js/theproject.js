@@ -72,11 +72,19 @@ $(document).ready(function() {
                         <div class="gallery-creator">
                           <strong>Creator:</strong>
                           ${item.fields.credit}
-                          <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
-                        </div>
                     `;
                 } else {
                     var creator_html = ``;
+                }
+                if (item.fields.creator_url) {
+                    var creatorurl_html = `
+                          <a href="${item.fields.creator_url}" target="_blank" style="color:black;">
+                            <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                          </a>
+                        </div>
+                    `;
+                } else {
+                    var creatorurl_html = `</div>`;
                 }
                 if (item.fields.comment) {
                     var comment_html = `
@@ -85,6 +93,7 @@ $(document).ready(function() {
                           ${item.fields.comment}
                         </div>
                     `;
+
                 } else {
                     var comment_html = ``;
                 }
@@ -96,7 +105,7 @@ $(document).ready(function() {
                     </div>
                 `;
                 source.html(source_html);
-                info.html(cat_img + info_html + location_html + creator_html + comment_html + social_html);
+                info.html(cat_img + info_html + location_html + creator_html + creatorurl_html + comment_html + social_html);
                 var target = $('#details');
                 $('html, body').animate({
                     show: target,

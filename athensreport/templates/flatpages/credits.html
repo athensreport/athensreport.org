@@ -11,7 +11,7 @@
   {% endblock %}
 
   <div class="project-video text-center">
-    <video width="980" id="thevideo" controls>
+    <video width="950" id="thevideo" controls>
       <source src="{{ MEDIA_URL}}makingof.mp4">
     </video>
   </div>
@@ -24,11 +24,11 @@
         <strong>Production:</strong> DEEP DISH TV and Anna Lascari</p>
 
         <p><strong>Project consultants:</strong> Brian Drolet, Director, Deep Dish TV<br>
-        Peter Papathanasiou<br>
+        Peter Papathanasiou, Radiobubble<br>
         Prodromos Tsiavos, UCL Senior Research Fellow<br>
         Spiros Kontogiorgis</p>
 
-        <p><strong>Web developer:</strong> Nicos Roussos<br>
+        <p><strong>Web developer:</strong> Nicos Roussos, Hackerspace.gr<br>
         <strong>Web designer:</strong> Harry Kirtsoglou<br>
         <strong>Host:</strong> ΕΕΛ/ΛΑΚ</p>
 
@@ -47,7 +47,18 @@
   </div>
   {% endblock %}
 
-  {% block text %}
-    {{ block.super }}
-  {% endblock %}
+  <div class="container flatpage">
+    <div class="row">
+      <div class="col-md-8">
+        {% block text %}
+          {{ block.super }}
+        {% endblock %}
+      </div>
+      <div class="col-md-4">
+        {% block image %}
+          <img src="{% static 'img/credits2.jpg' %}" alt="" class="img-responsive">
+        {% endblock %}
+      </div>
+    </div>
+  </div>
 {% endblock content %}
