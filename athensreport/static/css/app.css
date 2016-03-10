@@ -508,7 +508,7 @@ a:hover {
 
 #details-source > .img-responsive {
     max-height: 500px;
-    margin: auto;
+    float: right;
 }
 
 #details-source > video.img-responsive {
