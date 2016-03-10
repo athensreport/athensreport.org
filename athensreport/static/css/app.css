@@ -497,6 +497,24 @@ a:hover {
     font-weight: bold;
 }
 
+.social-graph-date {
+    color: #8AC54E;
+}
+
+.details-cat-icon {
+    float: right;
+    margin-top: -30px;
+}
+
+#details-source > .img-responsive {
+    max-height: 500px;
+    margin: auto;
+}
+
+#details-source > video.img-responsive {
+    max-height: 380px;
+}
+
 .social-share > img {
     padding-right: 10px;
     margin-top: 20px;
@@ -529,7 +547,7 @@ a:hover {
 
 .flatpage {
     padding: 10px 15px 10px 0px;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 .flatpage .col-md-4 {
@@ -585,7 +603,7 @@ a:hover {
 
 .credits-gray p {
     padding: 10px 0;
-    font-size: 1.2em;
+    font-size: 1.1em;
 }
 
 /* Footer

@@ -46,11 +46,19 @@ $(document).ready(function() {
                         </video>
                     `;
                 }
-                var cat_img = `
-                    <div class="gallery-cat">
-                      <img src="/static/img/riots.png" alt="${item.fields.title}">
-                    </div>
-                `
+                if (item.fields.social_graph) {
+                    var cat_img = `
+                        <div class="gallery-cat">
+                          <img src="/static/img/social.png" alt="${item.fields.title}">
+                        </div>
+                    `;
+                } else {
+                    var cat_img = `
+                        <div class="gallery-cat">
+                          <img src="/static/img/riots.png" alt="${item.fields.title}">
+                        </div>
+                    `;
+                }
                 var info_html = `
                     <div class="gallery-title">${item.fields.title}</div>
                     <div class="gallery-year yellow-dark">
@@ -128,14 +136,31 @@ $(document).ready(function() {
                 </a>
                 <p class="details-title">${item.fields.title}</p>
             `;
-            /*
             if (item.fields.social_graph) {
-
-            }*/
-            var pubdate = `
-              <p class="details-created yellow-dark">${item.fields.created}</p></div>
-            `;
-            elements += (element + pubdate);
+                var pubdate = `
+                    <p class="details-created social-graph-date yellow-dark">${item.fields.created}</p>
+                `;
+            } else {
+                var pubdate = `
+                    <p class="details-created yellow-dark">${item.fields.created}</p>
+                `;
+            }
+            if (item.fields.category == 'Photo') {
+                var cat_icon = `
+                      <div class="details-cat-icon">
+                        <img src="/static/img/photo.png" alt="photo">
+                      </div>
+                    </div>
+                `;
+            } else {
+                var cat_icon = `
+                      <div class="details-cat-icon">
+                        <img src="/static/img/video.png" alt="video">
+                      </div>
+                    </div>
+                `;
+            }
+            elements += (element + pubdate + cat_icon);
         });
 
         var rendered = `${elements}`;
