@@ -1,0 +1,49 @@
+{% extends "gallery/gallery.html" %}
+{% load staticfiles %}
+
+{% block title %} - On Line 11{% endblock title %}
+
+{% block project-route-strip %}
+  <div class="project-video-strip">
+    <div class="project-route-title">
+      on line 11
+    </div>
+  </div>
+{% endblock %}
+
+{% block video-upload %}{% endblock %}
+
+{% block details %}
+  {{ block.super }}
+
+  <div class="container">
+    <div class="row interviews-script">
+      <div class="col-md-12">
+        <div class="script-reveal">
+          <a href="#" id="details-script-reveal">
+            <img src="{% static 'img/script.png' %}" alt="script">
+          </a>
+        </div>
+        <div id="details-script"></div>
+      </div>
+    </div>
+  </div>
+
+  {% block video-back %}
+    <div class="details-space">
+    </div>
+  {% endblock %}
+{% endblock %}
+
+{% block galleries %}
+  <div class="gallery-strip strip black text-center">
+    <div>galleries</div>
+  </div>
+{% endblock %}
+
+{% block gallery-extra %}graffiti-gallery{% endblock %}
+
+{% block javascript %}
+  {{ block.super }}
+  <script src="{% static 'js/interviews.js' %}"></script>
+{% endblock javascript %}

@@ -38,3 +38,8 @@ def graffiti(request):
     items = Item.objects.filter(category='Graffiti')
     return render(request, 'gallery/graffiti.html',
                   {'items': items, 'category': 'graffiti'})
+
+
+def upload(request):
+    """View to render upload form"""
+    return render(request, 'gallery/upload.html')

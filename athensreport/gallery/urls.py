@@ -7,4 +7,5 @@ gallery_urlpatterns = ([
     url(r'^graffiti/$', views.graffiti, name='graffiti'),
     url(r'^items/(?P<category>[\w]+)/$', views.items, name='items'),
     url(r'^item/(?P<pk>\d+)/$', views.item, name='item'),
+    url(r'^upload/$', views.upload, name='upload'),
 ], 'gallery')

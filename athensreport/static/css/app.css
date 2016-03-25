@@ -403,7 +403,7 @@ a:hover {
 
 .gallery-item {
     padding: 0 20px 0 5px;
-    height: 208px;
+    height: 210px;
     overflow: hidden;
 }
 
@@ -528,6 +528,37 @@ a:hover {
     padding: 0px;
 }
 
+.interviews-script {
+    margin: auto;
+    max-width: 950px;
+    margin-top: 20px;
+    padding-left: 60px;
+}
+
+#details-script {
+    font-size: 1.1em;
+    color: gray;
+}
+
+#details-script-reveal {
+    display: none;
+}
+
+.script-reveal {
+    margin: auto;
+    width: 320px;
+    text-align: center;
+    padding-right: 80px;
+}
+
+.script {
+    display: none;
+}
+
+audio {
+    max-width: 250px;
+}
+
 #video-back,
 #gallery,
 #gallery-strip {
@@ -561,7 +592,8 @@ a:hover {
 }
 
 .flatpage p {
-    padding: 10px 15px;
+    padding: 10px 15px 0 15px;
+    margin-bottom: 0px;
 }
 
 .flatpage-strip {
@@ -575,7 +607,7 @@ a:hover {
 }
 
 .flatpage-title {
-    font-size: 1.7em;
+    font-size: 1.6em;
     vertical-align: middle;
     font-family: 'Roboto';
 }
@@ -606,6 +638,25 @@ a:hover {
     font-size: 1.1em;
 }
 
+.upload-form {
+    background-color: #FFD936;
+    padding: 20px 0;
+}
+
+.upload .col-md-4 {
+    margin-top: inherit;
+}
+
+.makingof {
+    text-align: center;
+    max-width: 950px;
+    margin: auto;
+    padding-left: 0px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
 /* Footer
 ==================== */
 
@@ -635,7 +686,7 @@ footer > .container {
 }
 
 .footer-title {
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: bold;
 }
 

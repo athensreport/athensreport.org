@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} - Upload Media{% endblock title %}
+
+{% block content %}
+  <div class="flatpage-strip container">
+    <div class="flatpage-title">
+      Upload Media
+    </div>
+  </div>
+
+  <div class="container flatpage upload">
+    <div class="row">
+      <div class="col-md-8">
+        <p>
+          "Athens Report" seeks your participation to build a collective bottom-up project which,
+          by filing personal experiences in video format, will contribute to re-representation of
+          the years of recession and austerity in Athens against the dominant representation through
+          the traditional media.
+        </p>
+
+        <p>
+          Upload your videos in any format and quality. The material should record events that
+          occurred on the axis of the route of the trolley # 11.
+        </p>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
+
+  <div class="credits-gray">
+    <div class="row container">
+      <div class="col-md-12">
+        <img src="{% static 'img/route.jpg' %}" alt="Route" class="img-responsive">
+      </div>
+    </div>
+  </div>
+
+  <div class="container flatpage upload">
+    <div class="row">
+      <div class="col-md-8">
+        <p>
+          The curatorial team of "Athens Report" will check your material and archive them. The
+          curatorial team has the right to edit the original material for their duration but will
+          not modify them.<br>
+          Depending on the volume, uploaded media might take up to six weeks to be posted.
+        </p>
+
+        <p>
+          <strong>To upload photos, please contact us at: info@athensreport.org</strong><br>
+          With the following information: Location of the photo, date of the event, and description
+          if available.
+        </p>
+
+        <p>
+          To upload graffiti photos, fill in the fields: Location and Date of event in the
+          video form.
+        </p>
+
+        <p>
+          <span class="flatpage-heading">Creative Commons license</span>
+        </p>
+
+        <p>
+          The "Athens Report" platform (hereinafter Platform) is licensed under the Creative
+          Commons license: Creative Commons Attribution Noncommercial No Derivative version 4.0
+          The creators/authors agree and accept that by uploading content to the platform:
+          (a) they have the copyright or appropriate licenses to upload their material to the Platform
+          (b) their material, available through the Platform, will be distributed under the license Creative Commons Attribution Non-Commercial Share Alike 4.0
+          Under the terms of this license:
+          The name of the authors is mentioned in any occurrence of their material.
+          In any case original material which comes from the "Athens Report" platform is coping, redistributed and modificated, appropriate credit should be given to both "Athens Report" and the creator/author as well as a link to the license of creative commons must be provided. Also, there should be reference to the changes, if they are any, disclaiming that the "Athens Report" or the creator endorse the new result, or its use.
+        </p>
+
+        <p>
+          Commercial use of the downloaded material is not allowed.
+          In any case of remixing, modifing or building upon the material from the "Athens Report" platform, the new material must be distributed under the same license as the original.
+        </p>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
+
+  <div class="upload-form">
+    <div class="row container">
+      <div class="col-md-12">
+        <span class="flatpage-heading">UPLOAD MEDIA</span>
+      </div>
+    </div>
+  </div>
+{% endblock %}

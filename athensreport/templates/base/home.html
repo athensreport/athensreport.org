@@ -11,6 +11,8 @@
       <li data-target="#carousel-example-generic" data-slide-to="2"></li>
       <li data-target="#carousel-example-generic" data-slide-to="3"></li>
       <li data-target="#carousel-example-generic" data-slide-to="4"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="5"></li>
+      <li data-target="#carousel-example-generic" data-slide-to="6"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -29,6 +31,12 @@
       </div>
       <div class="item">
         <img src="{% static 'img/slide5.jpg' %}" alt="">
+      </div>
+      <div class="item">
+        <img src="{% static 'img/slide6.jpg' %}" alt="">
+      </div>
+      <div class="item">
+        <img src="{% static 'img/slide7.jpg' %}" alt="">
       </div>
     </div>
 
@@ -53,7 +61,7 @@
   </div>
 
   <div class="look text-center">
-    <img src="{% static 'img/see.png' %}" alt="See how it works">
+    <a href="{% url 'gallery:theproject' %}"><img src="{% static 'img/see.png' %}" alt="See how it works"></a>
   </div>
 
   <div class="route-title strip text-center">
@@ -96,8 +104,6 @@
   </div>
 
   <div class="entertheproject">
-    <a href="{% url 'gallery:theproject' %}">
-      <img src="{% static 'img/video-guide.png' %}" alt="video guide" class="video-guide img-responsive">
-    </a>
+    <img src="{% static 'img/video-guide.png' %}" alt="video guide" class="video-guide img-responsive">
   </div>
 {% endblock content %}

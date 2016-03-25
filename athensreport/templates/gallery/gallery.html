@@ -18,10 +18,10 @@
               <img src="{% static 'img/email.png' %}" alf="email">
             </div>
             <div class="video-icons">
-              <img src="{% static 'img/bus.png' %}" alf="bus">
-              <img src="{% static 'img/social.png' %}" alf="social">
-              <img src="{% static 'img/graffiti.png' %}" alf="graffiti">
-              <img src="{% static 'img/riots.png' %}" alf="riots">
+              <a href="{% url 'gallery:graffiti' %}"><img src="{% static 'img/bus.png' %}" alf="bus"></a>
+              <a href="{% url 'gallery:theproject' %}"><img src="{% static 'img/social.png' %}" alf="social"></a>
+              <a href="{% url 'gallery:graffiti' %}"><img src="{% static 'img/graffiti.png' %}" alf="graffiti"></a>
+              <a href="{% url 'gallery:theproject' %}"><img src="{% static 'img/riots.png' %}" alf="riots"></a>
             </div>
           </div>
         </div>
