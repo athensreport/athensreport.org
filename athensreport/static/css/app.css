@@ -643,6 +643,30 @@ audio {
     padding: 20px 0;
 }
 
+.upload-form > div {
+    margin: auto;
+}
+
+.help-block {
+    font-size: 0.8em;
+}
+
+#upload-form button {
+    color: yellow;
+    font-size:1.4em;
+    font-weight: bold;
+    font-style: italic;
+    padding: 5px 50px;
+}
+
+.upload-form .flatpage-heading {
+    margin-bottom: 10px;
+    display: block;
+    text-transform: uppercase;
+    font-family: 'Roboto';
+    font-size: 1.7em;
+}
+
 .upload .col-md-4 {
     margin-top: inherit;
 }

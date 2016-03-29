@@ -78,6 +78,10 @@
           Commercial use of the downloaded material is not allowed.
           In any case of remixing, modifing or building upon the material from the "Athens Report" platform, the new material must be distributed under the same license as the original.
         </p>
+
+        <p>
+          &nbsp;
+        </p>
       </div>
       <div class="col-md-4">
       </div>
@@ -85,10 +89,80 @@
   </div>
 
   <div class="upload-form">
-    <div class="row container">
-      <div class="col-md-12">
-        <span class="flatpage-heading">UPLOAD MEDIA</span>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <span class="flatpage-heading">UPLOAD MEDIA</span>
+        </div>
       </div>
+      <form id="upload-form">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="name">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="NAME">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="surname">Surname</label>
+              <input type="text" class="form-control" id="surname" placeholder="SURNAME">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="nickname">Nickname</label>
+              <input type="text" class="form-control" id="nickname" placeholder="NICKNAME">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="url">URL</label>
+              <input type="text" class="form-control" id="url" placeholder="URL">
+              <span id="urlHelpBlock" class="help-block">YouTube Channel or address to your material</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="EMAIL">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="title">Video Title</label>
+              <input type="text" class="form-control" id="title" placeholder="VIDEO TITLE">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="location">Location</label>
+              <input type="text" class="form-control" id="location" placeholder="LOCATION">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="created">Date of event</label>
+              <input type="text" class="form-control" id="created" placeholder="DATE OF EVENT">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="sr-only" for="description">Description if available</label>
+              <textarea class="form-control" rows="3" id="description" placeholder="DESCRIPTION IF AVAILABLE"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">UPLOAD</button>
+        </div>
+      </form>
     </div>
   </div>
 {% endblock %}
