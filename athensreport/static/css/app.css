@@ -378,6 +378,10 @@ a:hover {
     padding-right: 5px;
 }
 
+.graffiti-gallery {
+    max-width: 880px;
+}
+
 .gallery-details {
     padding-right: 0px;
 }
@@ -468,6 +472,10 @@ a:hover {
     border-left: 1px solid lightgray;
 }
 
+.gallery-datelinks > img {
+    margin-bottom: 10px;
+}
+
 .graffiti-credit {
     margin-top: -20px;
     color: white;
@@ -494,6 +502,10 @@ a:hover {
 
 .details {
     margin-bottom: 8px;
+}
+
+.details-space {
+    height: 40px;
 }
 
 .details-created {
@@ -524,6 +536,16 @@ a:hover {
     margin-top: 20px;
 }
 
+.details-social {
+    height: 40px;
+    text-align: right;
+}
+
+.gallery-details-text {
+    height: 367px;
+    margin-bottom: -40px;
+}
+
 #details {
     margin: 40px 0 0 0;
 }
@@ -542,6 +564,7 @@ a:hover {
 #details-script {
     font-size: 1.1em;
     color: gray;
+    margin-top: 20px;
 }
 
 #details-script-reveal {
@@ -561,6 +584,7 @@ a:hover {
 
 audio {
     max-width: 250px;
+    margin-top: 10px;
 }
 
 #video-back,

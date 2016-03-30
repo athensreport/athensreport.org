@@ -41,7 +41,10 @@
   </div>
 {% endblock %}
 
-{% block gallery-extra %}graffiti-gallery{% endblock %}
+{% block gallery %}
+  <div class="container gallery graffiti-gallery" id="gallery-items" data-category="{{ category }}">
+  </div>
+{% endblock %}
 
 {% block javascript %}
   {{ block.super }}
