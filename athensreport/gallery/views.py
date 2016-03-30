@@ -8,14 +8,24 @@ from django.db.models import Q
 from athensreport.gallery.models import Item
 
 
-def items(request, category):
+def items(request, category, timestamp, year):
     gallery = Item.objects.all()
     category = category[0].upper() + category[1:]
+    timestamp = int(timestamp.split('.')[0]) / 60
+    data = []
     if category == 'Project':
-        items = gallery.filter(Q(category='Video') | Q(category='Photo'))
+        items = gallery.filter(Q(category='Video') | Q(category='Photo')).filter(created__year=year)
     else:
         items = Item.objects.filter(category=category)
-    response = serializers.serialize('json', items)
+    for item in items:
+        minute = item.timestamp.minute
+        if item.timestamp.hour > 0:
+            minute = minute + 60
+        low = minute - 10
+        high = minute + 10
+        if low <= timestamp <= high:
+            data.append(item)
+    response = serializers.serialize('json', data)
     return JsonResponse(json.loads(response), safe=False)
 
 

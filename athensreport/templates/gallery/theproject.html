@@ -38,7 +38,18 @@
     <div class="gallery container" id="gallery">
       <div class="row">
         <div class="col-md-2" id="years">
-          <img src="{% static 'img/years.png' %}" alt="">
+          <img src="{% static 'img/years_2008.png' %}" alt="" usemap="#yearsmap">
+
+          <map name="yearsmap">
+            <area class="year-pick" shape="rect" coords="50, 80, 95, 100" href="#" alt="" data-year="2008">
+            <area class="year-pick" shape="rect" coords="50, 135, 95, 155" href="#" alt="" data-year="2009">
+            <area class="year-pick" shape="rect" coords="50, 192, 95, 210" href="#" alt="" data-year="2010">
+            <area class="year-pick" shape="rect" coords="50, 250, 95, 270" href="#" alt="" data-year="2011">
+            <area class="year-pick" shape="rect" coords="50, 300, 95, 325" href="#" alt="" data-year="2012">
+            <area class="year-pick" shape="rect" coords="50, 360, 95, 380" href="#" alt="" data-year="2013">
+            <area class="year-pick" shape="rect" coords="50, 415, 95, 435" href="#" alt="" data-year="2014">
+            <area class="year-pick" shape="rect" coords="50, 470, 95, 510" href="#" alt="" data-year="2015">
+          </map>
         </div>
         <div class="col-md-7 gallery-details">
           <div class="gallery-top-icons">
@@ -100,6 +111,7 @@
 
 {% block javascript %}
   {{ block.super }}
+  <script src="{% static 'js/lib/popcorn-complete.min.js' %}"></script>
   <script src="{% static 'js/theproject.js' %}"></script>
-  <script src="{% static 'js/video.js' %}"></script>
+  <!--<script src="{% static 'js/video.js' %}"></script>-->
 {% endblock javascript %}

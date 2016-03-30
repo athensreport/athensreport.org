@@ -356,6 +356,10 @@ a:hover {
     color: white;
 }
 
+.empty-gallery {
+    margin-left: 10px;
+}
+
 .upload-media,
 .video-back {
     width: 206px;
