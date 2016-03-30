@@ -101,7 +101,16 @@
 
   <div class="route">
     <div class="route-container">
-      <img src="{% static 'img/route.jpg' %}" alt="Route" class="img-responsive">
+      <img src="{% static 'img/route.jpg' %}" alt="Route" class="img-responsive" usemap="#routemap">
+
+      <map name="routemap">
+        <area class="route-pick" shape="rect" coords="490, 230, 590, 250" href="#" alt="" data-point="993">
+        <area class="route-pick" shape="rect" coords="583, 254, 613, 286" href="#" alt="" data-point="993">
+        <area class="route-pick" shape="rect" coords="700, 290, 796, 312" href="#" alt="" data-point="822">
+        <area class="route-pick" shape="rect" coords="682, 239, 720, 280" href="#" alt="" data-point="822">
+        <area class="route-pick" shape="rect" coords="373, 249, 406, 283" href="#" alt="" data-point="1391">
+        <area class="route-pick" shape="rect" coords="328, 291, 440, 331" href="#" alt="" data-point="1391">
+      </map>
       <div class="strip yellowish text-center">
         Click on the map to go to selected spot or watch the whole video
       </div>
@@ -111,7 +120,7 @@
 
 {% block javascript %}
   {{ block.super }}
+  <script src="{% static 'js/lib/jquery.rwdImageMaps.min.js' %}"></script>
   <script src="{% static 'js/lib/popcorn-complete.min.js' %}"></script>
   <script src="{% static 'js/theproject.js' %}"></script>
-  <!--<script src="{% static 'js/video.js' %}"></script>-->
 {% endblock javascript %}

@@ -236,4 +236,14 @@ $(document).ready(function() {
 
     // Start the video
     pop.play();
+
+    // Jump on map
+    $('.route-pick').on('click', function(event) {
+        event.preventDefault();
+        var point = $(this).data('point');
+        pop.currentTime(point);
+    });
+
+    // Responsive map
+    $('img[usemap]').rwdImageMaps();
 });
