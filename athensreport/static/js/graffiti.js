@@ -2,6 +2,7 @@ $(document).ready(function() {
     'use strict';
 
     // Fetch items
+    /*
     var items = {
         getItems: function(data) {
             var url = '/items/' + data.category + '/';
@@ -83,7 +84,7 @@ $(document).ready(function() {
         params.forEach(function(item) {
             var element = `
               <div class="col-md-4 gallery-item graffiti-item">
-                <a href="#" class="details" data-id="${item.pk}">
+                <a href="${item.fields.source}" class="lightbox_trigger" data-id="${item.pk}">
                   <img src="/media/${item.fields.source_thumb}" alt="${item.fields.title}" class="gallery-thumb">
                 </a>
               </div>
@@ -104,5 +105,33 @@ $(document).ready(function() {
     }).done(function(data) {
         gallery.html(render(data));
         $('body').trigger('itemsloaded');
+    });
+    */
+
+    $('.lightbox_trigger').click(function(e) {
+        e.preventDefault();
+        var image_href = $(this).attr("href");
+        if ($('#lightbox').length > 0) { // #lightbox exists
+            //insert img tag with clicked link's href as src value
+            $('#content').html('<img src="' + image_href + '" />');
+
+            //show lightbox window - you can use a transition here if you want, i.e. .show('fast')
+            $('#lightbox').show();
+        } else {
+            //create HTML markup for lightbox window
+            var lightbox =
+            '<div id="lightbox">' +
+                '<div id="content">' + //insert clicked link's href into img src
+                    '<img src="' + image_href +'" />' +
+                '</div>' +
+            '</div>';
+
+            //insert lightbox HTML into page
+            $('.graffiti-gallery').append(lightbox);
+        }
+    });
+
+    $(document).on('click', '#lightbox', function() {
+        $('#lightbox').hide();
     });
 });
