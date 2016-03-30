@@ -242,6 +242,9 @@ $(document).ready(function() {
         event.preventDefault();
         var point = $(this).data('point');
         pop.currentTime(point);
+        $('body, html').animate({
+            scrollTop: 0
+        }, 800);
     });
 
     // Responsive map
