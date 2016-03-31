@@ -360,6 +360,11 @@ a:hover {
     margin-left: 10px;
 }
 
+.empty-details {
+    text-align: center;
+    padding: 100px;
+}
+
 #lightbox {
     position:fixed; /* keeps the lightbox window in the current viewport */
     top:0;

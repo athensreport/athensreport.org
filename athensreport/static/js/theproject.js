@@ -27,12 +27,14 @@ $(document).ready(function() {
     $('body').on('itemsloaded', function() {
         $('.details').on('click', function(event) {
             event.preventDefault();
+            var source = $('#details-source');
+            var info = $('#details-info');
+            source.html('<div class="empty-details" id="load">LOADING...</div>');
+            info.html('');
             var id = $(this).data('id');
             items.getItem({
                 id: id
             }).done(function(item) {
-                var source = $('#details-source');
-                var info = $('#details-info');
                 var source_html = ``;
                 var info_html = ``;
                 if (item.fields.category == 'Photo') {
@@ -193,6 +195,7 @@ $(document).ready(function() {
     // Filter by year
     $('.year-pick').on('click', function(event) {
         event.preventDefault();
+        gallery.html('<div class="empty-gallery" id="load">LOADING...</div>');
         currentYear = $(this).data('year');
         $('#years > img').attr('src', '/static/img/years_' + currentYear + '.png');
         items.getItems({
