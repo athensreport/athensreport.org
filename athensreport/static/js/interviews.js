@@ -87,10 +87,10 @@ $(document).ready(function() {
                 var year = item.fields.created.substr(0, 4);
                 var info_html = `
                     <div class="gallery-details-text">
-                    <div class="gallery-title">${item.fields.name}</div>
-                    <div class="gallery-year yellow-dark">
-                      ${year}
-                    </div>
+                        <div class="gallery-title">${item.fields.name}</div>
+                        <div class="gallery-year yellow-dark">
+                            ${year}
+                        </div>
                     `;
                 if (item.fields.location) {
                     info_html += `

@@ -33,91 +33,107 @@ $(document).ready(function() {
             }).done(function(item) {
                 var source = $('#details-source');
                 var info = $('#details-info');
+                var source_html = ``;
+                var info_html = ``;
                 if (item.fields.category == 'Photo') {
-                    var source_html = `
-                        <img src="/media/${item.fields.source}" alt="${item.fields.title}" class="img-responsive">
+                    source_html = `
+                        <img id="details-src" src="/media/${item.fields.source}" alt="${item.fields.title}" class="img-responsive">
                     `;
                 } else {
-                    var source_html = `
-                        <video controls class="img-responsive">
+                    source_html = `
+                        <video id="details-src" controls class="img-responsive">
                           <source src="/media/${item.fields.source}">
                         </video>
+
+                        <div class="video-back" id="video-back">
+                            <a href="#"><img src="/static/img/back.png" alt="Back to the Project"></a>
+                        </div>
                     `;
                 }
+                info_html += `<div class="gallery-details-text">`;
                 if (item.fields.social_graph) {
-                    var cat_img = `
+                    info_html += `
                         <div class="gallery-cat">
                           <img src="/static/img/social.png" alt="${item.fields.title}">
                         </div>
                     `;
                 } else {
-                    var cat_img = `
+                    info_html += `
                         <div class="gallery-cat">
                           <img src="/static/img/riots.png" alt="${item.fields.title}">
                         </div>
                     `;
                 }
-                var info_html = `
+                info_html += `
                     <div class="gallery-title">${item.fields.title}</div>
                     <div class="gallery-year yellow-dark">
                       ${item.fields.created}
                     </div>
                 `;
                 if (item.fields.location) {
-                    var location_html = `
+                    info_html += `
                         <div class="gallery-location">
                           <strong>Location:</strong>
                           ${item.fields.location}
                         </div>
                     `;
-                } else {
-                    var location_html = ``;
                 }
                 if (item.fields.credit) {
-                    var creator_html = `
+                    info_html += `
                         <div class="gallery-creator">
                           <strong>Creator:</strong>
                           ${item.fields.credit}
                     `;
-                } else {
-                    var creator_html = ``;
-                }
-                if (item.fields.creator_url) {
-                    var creatorurl_html = `
-                          <a href="${item.fields.creator_url}" target="_blank" style="color:black;">
-                            <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
-                          </a>
-                        </div>
-                    `;
-                } else {
-                    var creatorurl_html = `</div>`;
+                    if (item.fields.creator_url) {
+                        info_html += `
+                              <a href="${item.fields.creator_url}" target="_blank" style="color:black;">
+                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                              </a>
+                        `;
+                    }
+                    info_html += `</div>`;
                 }
                 if (item.fields.comment) {
-                    var comment_html = `
+                    var short_comment = '';
+                    comment = item.fields.comment;
+                    if ((item.fields.comment).length > 70) {
+                        short_comment = (item.fields.comment).substr(1, 70) + ' ...';
+                    }
+                    info_html += `
                         <div class="gallery-comment">
                           <strong>Description:</strong>
-                          ${item.fields.comment}
+                          <span id="comment">${short_comment}</span>
                         </div>
                     `;
 
-                } else {
-                    var comment_html = ``;
                 }
-                var social_html = `
-                    <div class="social-share">
+                info_html += `<div class="details-bottom">`;
+                if (short_comment) {
+                    info_html += `
+                        <div class="col-md-4">
+                            <a href="#" id="comment-plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                        </div>
+                    `;
+                }
+                info_html += `
+                    <div class="col-md-8 social-share details-social">
                       <img src="/static/img/facebook.png" alf="facebook">
                       <img src="/static/img/twitter.png" alf="twitter">
                       <img src="/static/img/email.png" alf="email">
-                    </div>
+                    </div></div>
                 `;
+                info_html += `</div>`;
                 source.html(source_html);
-                info.html(cat_img + info_html + location_html + creator_html + creatorurl_html + comment_html + social_html);
+                info.html(info_html);
+                $('#details-src').resize(function() {
+                    var height = $('#details-src').height();
+                    $('.gallery-details-text').css('height', height);
+                });
                 var target = $('#details');
                 $('html, body').animate({
                     show: target,
                     scrollTop: $(target).offset().top - 220
                 }, 1000);
-                $('#video-back').slideDown();
             });
         });
     });
@@ -172,12 +188,12 @@ $(document).ready(function() {
 
     var gallery = $('#gallery-items');
     var category = $(gallery).data('category');
+    var comment = '';
 
     // Filter by year
     $('.year-pick').on('click', function(event) {
         event.preventDefault();
         currentYear = $(this).data('year');
-        console.log(currentYear);
         $('#years > img').attr('src', '/static/img/years_' + currentYear + '.png');
         items.getItems({
             category: category,
@@ -187,6 +203,21 @@ $(document).ready(function() {
             gallery.html(render(data));
             $('body').trigger('itemsloaded');
         });
+    });
+
+    // Show full comment
+    $(document).on('click', '#comment-plus', function(event) {
+        event.preventDefault();
+        $('#comment').text(comment);
+        $('.details-bottom').css('position', 'relative');
+    });
+
+    // Back to video
+    $(document).on('click', '#video-back', function () {
+        $('body, html').animate({
+            scrollTop: 0
+        }, 800);
+        return false;
     });
 
     // Select all things
@@ -207,7 +238,6 @@ $(document).ready(function() {
     // Catch pause event and send over the current position
     pop.on('pause', function() {
         currentTime = this.currentTime();
-        console.log(currentTime);
         elm_gallery.slideDown();
         elm_strip.slideDown();
         route.hide();
@@ -248,5 +278,5 @@ $(document).ready(function() {
     });
 
     // Responsive map
-    $('img[usemap]').rwdImageMaps();
+    $('img.route-img[usemap]').rwdImageMaps();
 });

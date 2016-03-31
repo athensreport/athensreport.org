@@ -1,6 +1,20 @@
 {% extends "gallery/gallery.html" %}
 {% load staticfiles %}
 
+{% block meta %}
+  <link rel="prefetch" href="{% static 'img/years_2008.png' %}">
+  <link rel="prefetch" href="{% static 'img/years_2009.png' %}">
+  <link rel="prefetch" href="{% static 'img/years_2010.png' %}">
+  <link rel="prefetch" href="{% static 'img/years_2011.png' %}">
+  <link rel="prefetch" href="{% static 'img/years_2012.png' %}">
+  <link rel="prefetch" href="{% static 'img/years_2013.png' %}">
+  <link rel="prefetch" href="{% static 'img/years_2014.png' %}">
+  <link rel="prefetch" href="{% static 'img/years_2015.png' %}">
+  {% for item in items %}
+    <link rel="prefetch" href="/media/{{ item.source_thumb }}">
+  {% endfor %}
+{% endblock %}
+
 {% block project-route-strip %}
   <div class="project-video-strip">
     <div class="project-route-title">
@@ -20,12 +34,6 @@
 
   {% block details %}
     {{ block.super }}
-
-    {% block video-back %}
-      <div class="video-back" id="video-back">
-        <a href="#"><img src="{% static 'img/back.png' %}" alt="Back to the Project"></a>
-      </div>
-    {% endblock %}
   {% endblock %}
 
   {% block galleries %}
@@ -101,7 +109,7 @@
 
   <div class="route">
     <div class="route-container">
-      <img src="{% static 'img/route.jpg' %}" alt="Route" class="img-responsive" usemap="#routemap">
+      <img src="{% static 'img/route.jpg' %}" alt="Route" class="route-img img-responsive" usemap="#routemap">
 
       <map name="routemap">
         <area class="route-pick" shape="rect" coords="490, 230, 590, 250" href="#" alt="" data-point="993">

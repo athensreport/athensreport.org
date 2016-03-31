@@ -15,17 +15,18 @@ def items(request, category, timestamp, year):
     data = []
     if category == 'Project':
         items = gallery.filter(Q(category='Video') | Q(category='Photo')).filter(created__year=year)
+        for item in items:
+            minute = item.timestamp.minute
+            if item.timestamp.hour > 0:
+                minute = minute + 60
+            low = minute - 10
+            high = minute + 10
+            if low <= timestamp <= high:
+                data.append(item)
+        response = serializers.serialize('json', data)
     else:
         items = Item.objects.filter(category=category)
-    for item in items:
-        minute = item.timestamp.minute
-        if item.timestamp.hour > 0:
-            minute = minute + 60
-        low = minute - 10
-        high = minute + 10
-        if low <= timestamp <= high:
-            data.append(item)
-    response = serializers.serialize('json', data)
+        response = serializers.serialize('json', items)
     return JsonResponse(json.loads(response), safe=False)
 
 

@@ -385,6 +385,9 @@ a:hover {
 
 .video-back {
     margin-bottom: 20px;
+    padding-top: 10px;
+    clear: both;
+    text-align: center;
 }
 
 .gallery {
@@ -400,6 +403,10 @@ a:hover {
 
 .gallery-details {
     padding-right: 0px;
+}
+
+#comment-plus {
+    color: black;
 }
 
 .gallery-strip {
@@ -553,13 +560,27 @@ a:hover {
 }
 
 .details-social {
-    height: 40px;
     text-align: right;
+}
+
+.details-social > img {
+    margin-top: 0px;
 }
 
 .gallery-details-text {
     height: 367px;
-    margin-bottom: -40px;
+    position: relative;
+}
+
+.details-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.details-bottom > div {
+    padding-left: 0;
+    padding-right: 0;
 }
 
 #details {
@@ -603,14 +624,9 @@ audio {
     margin-top: 10px;
 }
 
-#video-back,
 #gallery,
 #gallery-strip {
     display: none;
-}
-
-#video-back {
-    text-align: center;
 }
 
 #years {
