@@ -19,8 +19,8 @@ def items(request, category, timestamp, year):
             minute = item.timestamp.minute
             if item.timestamp.hour > 0:
                 minute = minute + 60
-            low = minute - 10
-            high = minute + 10
+            low = minute - 4
+            high = minute + 4
             if low <= timestamp <= high:
                 data.append(item)
         response = serializers.serialize('json', data)
@@ -54,3 +54,8 @@ def graffiti(request):
 def upload(request):
     """View to render upload form"""
     return render(request, 'gallery/upload.html')
+
+
+def upload_gr(request):
+    """View to render upload form"""
+    return render(request, 'gallery/upload_gr.html')

@@ -199,13 +199,21 @@ a:hover {
     color: #F1B51D;
 }
 
+.green {
+    color: #8BC53F;
+}
+
+.bus-color {
+    color: #DCA01E;
+}
+
 .look {
     background-image: url('/static/img/look-bg.jpg');
     height: 400px;
     padding: 30px;
 }
 
-.look > img {
+.look img {
     margin-right: 90px;
 }
 
@@ -358,6 +366,8 @@ a:hover {
 
 .empty-gallery {
     margin-left: 10px;
+    margin-top: 50px;
+    font-size: 1.2em;
 }
 
 .empty-details {
@@ -366,19 +376,53 @@ a:hover {
 }
 
 #lightbox {
-    position:fixed; /* keeps the lightbox window in the current viewport */
+    position:fixed;
     top:0;
     left:0;
     width:100%;
     height:100%;
     background:url('/static/img/overlay.png') repeat;
+    display: none;
+}
+
+#lightbox .content {
+    max-width: 600px;
+    margin: auto;
+    margin-top: 200px;
+    box-shadow:0 0 25px #111;
+}
+
+.lightbox-img {
     text-align:center;
 }
 
-#lightbox img {
-    box-shadow:0 0 25px #111;
-    max-width: 690px;
-    margin-top: 200px;
+.lightbox-info {
+    background-color: #FAE500;
+    color: black;
+    font-weight: bold;
+    font-size: 1.6em;
+    text-transform: uppercase;
+    font-family: 'Roboto';
+    padding: 10px;
+    min-height: 42px;
+}
+
+.lightbox-comment {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    font-size: 1.2em;
+}
+
+#lightbox-close {
+    color: white;
+    font-size: 1.7em;
+    float: right;
+    margin-right: -45px;
+    cursor: pointer;
+    color: black;
+    background-color: #FAE500;
+    padding: 5px;
 }
 
 .upload-media,
@@ -391,19 +435,21 @@ a:hover {
 .video-back {
     margin-bottom: 20px;
     padding-top: 10px;
+    padding-left: 150px;
     clear: both;
     text-align: center;
 }
 
 .gallery {
-    margin-top: 50px;
+    margin-top: 40px;
     margin-bottom: 20px;
     padding-left: 5px;
     padding-right: 5px;
 }
 
 .graffiti-gallery {
-    max-width: 880px;
+    max-width: 800px;
+    margin-bottom: 0px;
 }
 
 .gallery-details {
@@ -412,6 +458,7 @@ a:hover {
 
 #comment-plus {
     color: black;
+    font-size: 1.2em;
 }
 
 .gallery-strip {
@@ -430,15 +477,15 @@ a:hover {
 
 .gallery-top-icons {
     padding-left: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .gallery-top-icons img {
-    padding-right: 30px;
+    padding-right: 70px;
 }
 
 .gallery-item {
-    padding: 0 20px 0 5px;
+    padding: 0 12px 0 12px;
     height: 210px;
     overflow: hidden;
 }
@@ -450,7 +497,11 @@ a:hover {
 }
 
 .graffiti-item {
-    height: 170px;
+    height: 175px;
+}
+
+.graffiti-item .details-title {
+    padding-top: 5px;
 }
 
 .gallery-thumb {
@@ -501,7 +552,7 @@ a:hover {
 }
 
 .gallery-datelinks > img {
-    margin-bottom: 10px;
+    margin-bottom: 25px;
 }
 
 .graffiti-credit {
@@ -596,17 +647,93 @@ a:hover {
     padding: 0px;
 }
 
+.interviews-strip {
+    background-color: #DCA01E;
+    color: white;
+}
+
+#carousel-interviews {
+    margin-left: 90px;
+}
+
+.interview-item {
+    height: 180px;
+}
+
+.interview-item .details-title {
+    padding-top: 0px;
+}
+
+.interviews-details-text .gallery-title {
+    margin-top: 15px;
+}
+
+.interviews-details-text .allery-year {
+    font-size: 1.7em;
+}
+
+.interviews-title {
+    margin-bottom: 0;
+}
+
+.interviews-title span {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.interviews-name {
+    color: gray;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-weight: bold;
+    font-style: italic;
+    margin-top: -10px;
+    margin-bottom: 10px;
+}
+
+.interviews-lang {
+    font-weight: bold;
+    font-style: italic;
+    display: block;
+    text-align: right;
+}
+
+.interviews-audio {
+    max-width: 250px;
+}
+
+.interviews-audio audio {
+    max-width: 250px;
+}
+
 .interviews-script {
     margin: auto;
     max-width: 950px;
-    margin-top: 20px;
     padding-left: 60px;
+}
+
+.interviews-social {
+    position: absolute;
+    bottom: 0;
+    text-align: left;
+}
+
+.interviews-social img {
+    margin-top: 20px;
+}
+
+.interviews-details-text {
+    /*412*/
+    height: 362px;
 }
 
 #details-script {
     font-size: 1.1em;
-    color: gray;
-    margin-top: 20px;
+    color: #333;
+    margin-top: 30px;
+    padding-left: 140px;
+    display: none;
 }
 
 #details-script-reveal {
@@ -618,15 +745,27 @@ a:hover {
     width: 320px;
     text-align: center;
     padding-right: 80px;
+    margin-bottom: 20px;
 }
 
-.script {
-    display: none;
+.script-options {
+    margin: 40px 0;
 }
 
-audio {
-    max-width: 250px;
-    margin-top: 10px;
+#script-close {
+    display: inline-block;
+    background-color: #888;
+    color: white;
+    padding: 5px 20px;
+    font-size: 1.2em;
+}
+
+#script-top {
+    font-weight: bold;
+    font-size: 1.4em;
+    color: black;
+    display: inline-block;
+    margin-right: 40px;
 }
 
 #gallery,
@@ -642,7 +781,7 @@ audio {
 ==================== */
 
 .flatpage {
-    padding: 10px 15px 10px 0px;
+    padding: 10px 15px 10px 20px;
     font-size: 1.1em;
 }
 
@@ -669,6 +808,8 @@ audio {
     margin-top: 20px;
     background-color: #FAE500;
     max-width: 950px;
+    position: relative;
+    left: 18px;
 }
 
 .flatpage-title {
@@ -677,8 +818,9 @@ audio {
     font-family: 'Roboto';
 }
 
-.flatpage-heading{
-    font-size: 1.5em;
+.flatpage-heading {
+    font-size: 1.4em;
+    line-height: 1.1;
 }
 
 .credits-gray {
@@ -688,6 +830,11 @@ audio {
 
 .credits-gray > .container {
     padding: 15px;
+    padding-left: 37px;
+}
+
+.credits-gray .col-md-8 p:last-child {
+    margin-bottom: 0px;
 }
 
 .credits-gray > .row {
@@ -703,9 +850,17 @@ audio {
     font-size: 1.1em;
 }
 
+.upload-lang {
+    text-align: right;
+    font-size: 1.2em;
+    position: relative;
+    left: 10px;
+    font-weight: bold;
+}
+
 .upload-form {
     background-color: #FFD936;
-    padding: 20px 0;
+    padding: 20px 0 20px 20px;
 }
 
 .upload-form > div {
@@ -743,6 +898,17 @@ audio {
     padding-left: 0px;
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.upload {
+    margin-top: 80px
+    display: inline-block;
+    padding-left: 20px;
+}
+
+.upload .flatpage-title {
+    font-size: 1.4em;
+    padding-bottom: 20px;
 }
 
 
@@ -796,9 +962,4 @@ footer > .container {
 
 .footer-text p {
     padding-right: 80px;
-}
-
-.upload {
-    margin-top: 80px
-    display: inline-block;
 }

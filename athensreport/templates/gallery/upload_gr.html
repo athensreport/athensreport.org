@@ -1,0 +1,182 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+{% block title %} - Upload Media{% endblock title %}
+
+{% block content %}
+  <div class="flatpage-strip container">
+    <div class="flatpage-title">
+      Upload Media
+    </div>
+  </div>
+
+  <div class="upload-lang yellow-dark container">
+    <a href="{% url 'gallery:upload' %}" class="yellow-dark">EN</a> /
+    <a href="{% url 'gallery:upload_gr' %}" class="yellow-dark">ΕΛ</a>
+  </div>
+
+  <div class="container flatpage upload">
+    <div class="row">
+      <div class="col-md-8">
+        <p class="flatpage-title">
+          To "Athens Report" ζητά τη συμμετοχή σας ώστε να συνταχθεί ένα συλλογικό εγχείρημα από τα
+          κάτω, το οποίο με την αρχειοθέτηση προσωπικών εμπειριών σε μορφή βίντεο, θα συμβάλλει στην
+          εκ νέου αναπαράσταση των χρόνων της ύφεσης και της λιτότητας στην Αθήνα ενάντια στη κυρίαρχη
+          εκπροσώπηση όπως αυτή έχει εκφραστεί μέσα από τα παραδοσιακά μέσα μαζικής ενημέρωσης.
+          Ανεβάστε τα βίντεό σας σε όποια μορφή το έχετε και σε όποια ποιότητα και αν είναι. Το
+          υλικό θα πρέπει να καταγράφει γεγονότα τα οποία συνέβηκαν στον άξονα της διαδρομής του
+          τρόλεϊ #11.
+        </p>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
+
+  <div class="credits-gray">
+    <div class="row container">
+      <div class="col-md-12">
+        <img src="{% static 'img/route.jpg' %}" alt="Route" class="img-responsive">
+      </div>
+    </div>
+  </div>
+
+  <div class="container flatpage upload">
+    <div class="row">
+      <div class="col-md-8">
+        <p class="flatpage-title">
+          Η επιμελητική ομάδα του "Athens Report"  θα ελέγξει το υλικό σας και θα το αρχειοθετήσει.
+          Η επιμελητική ομάδα έχει το δικαίωμα να επεξεργαστεί (edit) το πρωτότυπο υλικό όσον αφορά
+          τη διάρκεια του αλλά δεν το τροποποιεί. Ανάλογα με τον όγκο, το υλικό (uploaded media)
+          μπορεί να πάρει έως και τέσσερις εβδομάδες για να δημοσιευθεί.
+        </p>
+
+        <p class="flatpage-title">
+          <strong>Για να ανεβάσετε φωτογραφικό υλικό, επικοινωνήστε μαζί μας στο: upload@athensreport.org</strong><br>
+          Με τις πληροφορίες: Τοποθεσία φωτογραφίας, ημερομηνία γεγονότος και περιγραφή αν υπάρχει.
+        </p>
+
+        <p class="flatpage-title">
+          Για να ανεβάσετε φωτογραφίες γκράφιτι συμπληρώστε τα πεδία: Τοποθεσία και Ημερομηνία
+          γεγονότος στη φόρμα του βίντεο.
+        </p>
+
+        <p>
+          <span class="flatpage-heading">Άδεια Creative Commons</span>
+        </p>
+
+        <p>
+          Η πλατφόρμα "Athens Report"  (εφεξής Πλατφόρμα) παρέχεται με τους όρους της άδειας
+          Creative Commons Αναφορά Μη Εμπορική Χρήση Όχι Παράγωγά έργα έκδοση 4.0.
+          Oι δημιουργοί συμφωνούν και αποδέχονται με την πράξη της μεταφόρτωσης του περιεχομένου
+          τους στην Πλατφόρμα ότι:
+          (α) έχουν τα πνευματικά δικαιώματα ή τις κατάλληλες άδειες προκειμένου να μεταφορτώνουν
+          το περιεχόμενό τους στην Πλατφόρμα.
+          (β) να διατίθεται το περιεχόμενό τους μέσω της Πλατφόρμας με άδεια Creative Commons
+          Αναφορά Μη Εμπορική Χρήση Παρόμοια Διανομή έκδοση 4.0.
+          Σύμφωνα με τους όρους της άδειας αυτής:
+          Το όνομα των δημιουργών αναφέρεται σε κάθε εμφάνιση του υλικού τους.
+          Σε κάθε περίπτωση αντιγραφής, αναδιανομής και τροποποίησης του πρωτότυπου υλικού το οποίο
+          προέρχεται από τη πλατφόρμα “Athens Report,”  θα πρέπει να καταχωρείται αναφορά στο
+          "Athens Report" και στο δημιουργό, καθώς και καταχώριση της άδειας των creative commons.
+          Επίσης θα πρέπει να υπάρχει αναφορά στις αλλαγές, αν έχουν γίνει, με τέτοιο τρόπο ώστε να
+          μην υπονοείται ότι το “Athens Report” ή ο δημιουργός αποδέχονται το νέο αποτέλεσμα ή
+          τη χρήση του.
+        </p>
+
+        <p>
+          Δεν επιτρέπεται η εμπορική χρήση του περιεχομένου που μεταφορτώνουν οι δημιουργοί.
+          Σε κάθε περίπτωση ανάμειξης, τροποποίησης και δημιουργίας νέου υλικού βασισμένο στο
+          πρωτότυπο υλικό του “Athens Report”, το νέο υλικό πρέπει να διανέμεται κάτω από την ίδια
+          άδεια όπως και το πρωτότυπο.
+        </p>
+
+        <p>
+          &nbsp;
+        </p>
+      </div>
+      <div class="col-md-4">
+      </div>
+    </div>
+  </div>
+
+  <div class="upload-form">
+    <div class="container upload">
+      <div class="row">
+        <div class="col-md-12">
+          <span class="flatpage-heading">UPLOAD MEDIA</span>
+        </div>
+      </div>
+      <form id="upload-form">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="name">Όνομα</label>
+              <input type="text" class="form-control" id="name" placeholder="ΟΝΟΜΑ">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="surname">Επώνυμο</label>
+              <input type="text" class="form-control" id="surname" placeholder="ΕΠΩΝΥΜΟ">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="EMAIL">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="url">URL</label>
+              <input type="text" class="form-control" id="url" placeholder="URL">
+              <span id="urlHelpBlock" class="help-block">Το κανάλι σας στο YOUTUBE ή όπου αλλού βρίσκεται</span>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="nickname">Nickname</label>
+              <input type="text" class="form-control" id="nickname" placeholder="NICKNAME">
+              <span id="urlHelpBlock" class="help-block">Πως θέλετε να εμφανίζεται το όνομά σας</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="title">Τίτλος βίντεο</label>
+              <input type="text" class="form-control" id="title" placeholder="ΤΙΤΛΟΣ ΒΙΝΤΕΟ">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="location">Τοποθεσία</label>
+              <input type="text" class="form-control" id="location" placeholder="ΤΟΠΟΘΕΣΙΑ">
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <label class="sr-only" for="created">Ημερομηνία γεγονότος</label>
+              <input type="text" class="form-control" id="created" placeholder="ΗΜΕΡΟΜΗΝΙΑ ΓΕΓΟΝΟΤΟΣ">
+              <span id="urlHelpBlock" class="help-block">Ημέρα / Μήνας / Χρόνος</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="form-group">
+              <label class="sr-only" for="description">Περιγραφή αν υπάρχει</label>
+              <textarea class="form-control" rows="3" id="description" placeholder="ΠΕΡΙΓΡΑΦΗ ΑΝ ΥΠΑΡΧΕΙ"></textarea>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-default">ΣΥΜΦΩΝΩ &amp; UPLOAD</button>
+        </div>
+      </form>
+    </div>
+  </div>
+{% endblock %}

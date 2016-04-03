@@ -3,8 +3,8 @@ from django.conf import settings
 
 
 SEX = (
-    ('m', 'Male'),
-    ('f', 'Female'),
+    ('Male', 'Male'),
+    ('Female', 'Female'),
 )
 
 
@@ -16,7 +16,7 @@ class Item(models.Model):
     age = models.PositiveIntegerField(null=True, blank=True)
     created = models.DateField(null=True, blank=True)
     script = models.TextField(blank=True)
-    sex = models.CharField(choices=SEX, max_length=10, default='m')
+    sex = models.CharField(choices=SEX, max_length=10, default='Male')
     years = models.PositiveIntegerField(null=True, blank=True, help_text='Years living in the area')
     mp3_en = models.FileField(upload_to='items', blank=True, null=True)
     mp3_gr = models.FileField(upload_to='items', blank=True, null=True)

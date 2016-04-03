@@ -1,6 +1,9 @@
 $(document).ready(function() {
     'use strict';
 
+    var pop = Popcorn('#thevideo');
+    pop.play();
+
     // Fetch items
     var items = {
         getItems: function(data) {
@@ -86,64 +89,86 @@ $(document).ready(function() {
                 `;
                 var year = item.fields.created.substr(0, 4);
                 var info_html = `
-                    <div class="gallery-details-text">
-                        <div class="gallery-title">${item.fields.name}</div>
-                        <div class="gallery-year yellow-dark">
-                            ${year}
+                    <div class="gallery-details-text interviews-details-text">
+                        <div class="gallery-cat">
+                          <img src="/static/img/bus.png" alt="online11">
+                        </div>
+                        <div class="gallery-title interviews-title">
+                            ${item.fields.location}
+                            <span class="bus-color">${year}</span>
+                        </div>
+                        <div class="interviews-name">
+                            ${item.fields.name}
                         </div>
                     `;
-                if (item.fields.location) {
-                    info_html += `
-                    <div>
-                      <label>Location:</label> ${item.fields.location}
-                    </div>
-                    `;
-                }
-                if (item.fields.age) {
-                    info_html += `
-                    <div>
-                      <label>Age:</label> ${item.fields.age}
-                    </div>
-                    `;
-                }
-                if (item.fields.sex) {
-                    info_html += `
-                    <div>
-                      <label>Sex:</label> ${item.fields.sex}
-                    </div>
-                    `;
-                }
                 info_html += `
-                    <div><audio src="/media/${item.fields.mp3_en}" controls></div>
-                    <div><audio src="/media/${item.fields.mp3_gr}" controls></div>
+                    <div>
+                        <label>Years in the area:</label> ${item.fields.years}<br>
+                        <label>Age:</label> ${item.fields.age}
+                    </div>
+                `;
+                info_html += `
+                    <div>
+                        <label>Nationality:</label> ${item.fields.nationality}<br>
+                        <label>Sex:</label> ${item.fields.sex}
                     </div>
                 `;
                 var social_html = `
-                    <div class="social-share details-social">
-                      <img src="/static/img/facebook.png" alf="facebook">
-                      <img src="/static/img/twitter.png" alf="twitter">
-                      <img src="/static/img/email.png" alf="email">
+                    <div class="social-share details-social interviews-social">
+                        <div class="interviews-audio"><span class="interviews-lang yellow-dark">GREEK</span><audio src="/media/${item.fields.mp3_gr}" controls></div>
+                        <div class="interviews-audio"><span class="interviews-lang yellow-dark">ENGLISH</span><audio src="/media/${item.fields.mp3_gr}" controls></div>
+                            <img src="/static/img/facebook.png" alf="facebook">
+                            <img src="/static/img/twitter.png" alf="twitter">
+                            <img src="/static/img/email.png" alf="email">
+
                     </div>
                 `;
                 var script_html = `
                     <div class="script">${item.fields.script}</div>
+                    <div class="pull-right script-options">
+                        <a href="#" id="script-top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
+                        <a href="#" id="script-close">close</a>
+                    </div>
                 `;
                 source.html(source_html);
                 info.html(info_html + social_html);
                 script.html(script_html);
+                $('.interviews-script').css('margin-top', '20px');
                 $('#details-script-reveal').show();
                 var target = $('#details');
                 $('html, body').animate({
                     show: target,
                     scrollTop: $(target).offset().top - 130
                 }, 1000);
+                $('.carousel').carousel({
+                    interval: 3000
+                });
             });
         });
     });
 
     $(document).on('click', '#details-script-reveal', function(event) {
         event.preventDefault();
-        $('.script').toggle();
+        $('#details-script').slideDown();
+    });
+
+    $(document).on('click', '#script-close', function(event) {
+        event.preventDefault();
+        $('#details-script').hide();
+        var target = $('#details');
+        $('html, body').animate({
+            show: target,
+            scrollTop: $(target).offset().top - 130
+        }, 1000);
+    });
+
+    $(document).on('click', '#script-top', function(event) {
+        event.preventDefault();
+        var target = $('#details');
+        $('html, body').animate({
+            show: target,
+            scrollTop: $(target).offset().top - 130
+        }, 1000);
     });
 
     // Render gallery
@@ -152,10 +177,11 @@ $(document).ready(function() {
 
         params.forEach(function(item) {
             var element = `
-              <div class="col-md-4 gallery-item graffiti-item">
+              <div class="col-md-4 gallery-item graffiti-item interview-item">
                 <a href="fdsfdsf" class="details" data-id="${item.pk}">
                   <img src="/media/${item.fields.source_thumb}" alt="${item.fields.name}" class="gallery-thumb">
                 </a>
+                <div class="details-title">${item.fields.location}</div>
               </div>
             `;
             elements += element;

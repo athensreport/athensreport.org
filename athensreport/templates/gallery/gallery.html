@@ -18,7 +18,7 @@
               <img src="{% static 'img/email.png' %}" alf="email">
             </div>
             <div class="video-icons">
-              <a href="{% url 'gallery:graffiti' %}"><img src="{% static 'img/bus.png' %}" alf="bus"></a>
+              <a href="{% url 'interviews:online11' %}"><img src="{% static 'img/bus.png' %}" alf="bus"></a>
               <a href="{% url 'gallery:theproject' %}"><img src="{% static 'img/social.png' %}" alf="social"></a>
               <a href="{% url 'gallery:graffiti' %}"><img src="{% static 'img/graffiti.png' %}" alf="graffiti"></a>
               <a href="{% url 'gallery:theproject' %}"><img src="{% static 'img/riots.png' %}" alf="riots"></a>
@@ -31,7 +31,7 @@
 
   {% block video-upload %}
     <div class="upload-media">
-      <a href="#"><img src="{% static 'img/upload.jpg' %}" alt="Upload Media"></a>
+      <a href="{% url 'gallery:upload' %}"><img src="{% static 'img/upload.jpg' %}" alt="Upload Media"></a>
     </div>
   {% endblock %}
 
@@ -58,11 +58,17 @@
     <div class="container gallery {% block gallery-extra %}{% endblock %}" id="gallery-items" data-category="{{ category }}">
       {% for item in items %}
         <div class="col-md-4 gallery-item graffiti-item">
-         <a href="/media/{{ item.source }}" class="lightbox_trigger">
+         <a href="/media/{{ item.source }}" class="lightbox_trigger" data-id="{{ item.pk }}" data-point="{{ item.timestamp }}">
            <img src="/media/{{ item.source_thumb }}" class="gallery-thumb">
          </a>
+         <div class="details-title">{{ item.title }}</div>
        </div>
      {% endfor %}
     </div>
+    <div id="lightbox"></div>
   {% endblock %}
+{% endblock %}
+
+{% block javascript %}
+  <script src="{% static 'js/lib/popcorn-complete.min.js' %}"></script>
 {% endblock %}

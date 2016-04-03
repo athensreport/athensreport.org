@@ -40,6 +40,10 @@ $(document).ready(function() {
                 if (item.fields.category == 'Photo') {
                     source_html = `
                         <img id="details-src" src="/media/${item.fields.source}" alt="${item.fields.title}" class="img-responsive">
+
+                        <div class="video-back" id="video-back">
+                            <a href="#"><img src="/static/img/back.png" alt="Back to the Project"></a>
+                        </div>
                     `;
                 } else {
                     source_html = `
@@ -66,12 +70,22 @@ $(document).ready(function() {
                         </div>
                     `;
                 }
-                info_html += `
-                    <div class="gallery-title">${item.fields.title}</div>
-                    <div class="gallery-year yellow-dark">
-                      ${item.fields.created}
-                    </div>
-                `;
+                var created = moment(item.fields.created).format('MMMM D, YYYY');
+                if (item.fields.social_graph) {
+                    info_html += `
+                        <div class="gallery-title">${item.fields.title}</div>
+                        <div class="gallery-year green">
+                          ${created}
+                        </div>
+                    `;
+                } else {
+                    info_html += `
+                        <div class="gallery-title">${item.fields.title}</div>
+                        <div class="gallery-year yellow-dark">
+                          ${created}
+                        </div>
+                    `;
+                }
                 if (item.fields.location) {
                     info_html += `
                         <div class="gallery-location">
@@ -96,10 +110,9 @@ $(document).ready(function() {
                     info_html += `</div>`;
                 }
                 if (item.fields.comment) {
-                    var short_comment = '';
                     comment = item.fields.comment;
-                    if ((item.fields.comment).length > 70) {
-                        short_comment = (item.fields.comment).substr(1, 70) + ' ...';
+                    if ((item.fields.comment).length > 100) {
+                        short_comment = (item.fields.comment).substr(1, 100) + ' ...';
                     }
                     info_html += `
                         <div class="gallery-comment">
@@ -153,13 +166,15 @@ $(document).ready(function() {
                     </a>
                     <p class="details-title">${item.fields.title}</p>
                 `;
+                var pubdate = ``;
+                var created = moment(item.fields.created).format('MMMM D, YYYY');
                 if (item.fields.social_graph) {
-                    var pubdate = `
-                        <p class="details-created social-graph-date yellow-dark">${item.fields.created}</p>
+                    pubdate = `
+                        <p class="details-created social-graph-date yellow-dark">${created}</p>
                     `;
                 } else {
-                    var pubdate = `
-                        <p class="details-created yellow-dark">${item.fields.created}</p>
+                    pubdate = `
+                        <p class="details-created yellow-dark">${created}</p>
                     `;
                 }
                 if (item.fields.category == 'Photo') {
@@ -180,7 +195,7 @@ $(document).ready(function() {
                 elements += (element + pubdate + cat_icon);
             });
         } else {
-            elements = `<p class="empty-gallery">No gallery items on this specific time or year.</p>`;
+            elements = `<p class="empty-gallery">No gallery items on this location or year.</p>`;
         }
 
         var rendered = `${elements}`;
@@ -191,6 +206,7 @@ $(document).ready(function() {
     var gallery = $('#gallery-items');
     var category = $(gallery).data('category');
     var comment = '';
+    var short_comment = '';
 
     // Filter by year
     $('.year-pick').on('click', function(event) {
@@ -211,8 +227,14 @@ $(document).ready(function() {
     // Show full comment
     $(document).on('click', '#comment-plus', function(event) {
         event.preventDefault();
-        $('#comment').text(comment);
-        $('.details-bottom').css('position', 'relative');
+        var comment_box = $('#comment');
+        if (comment_box.text().length > 105) {
+            comment_box.html(short_comment);
+            $('.details-bottom').css('position', 'absolute');
+        } else {
+            comment_box.html(comment);
+            $('.details-bottom').css('position', 'relative');
+        }
     });
 
     // Back to video

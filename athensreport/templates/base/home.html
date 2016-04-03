@@ -3,7 +3,7 @@
 {% load staticfiles %}
 
 {% block content %}
-  <div id="carousel" class="carousel slide" data-ride="carousel">
+  <div id="carousel" class="carousel slide" data-ride="carousel" data-interval="3000">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -72,7 +72,7 @@
     <div class="route-container">
       <img src="{% static 'img/route.jpg' %}" alt="Route" class="img-responsive">
       <div class="strip yellowish text-center container">
-        Click on the map to go to selected spot or watch the whole video
+        Click on the map to go to major riot zones | pause video to go to galleries
       </div>
       <div class="row route-info">
         <div class="col-md-4">
