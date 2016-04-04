@@ -302,6 +302,15 @@ a:hover {
     margin-top: -4px;
 }
 
+.video-help {
+    float: left;
+    margin: 5px 0 0 20px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #666;
+    text-transform: uppercase;
+}
+
 .entertheproject {
     background-image: url('/static/img/enter-bg.jpg');
 }
@@ -400,11 +409,11 @@ a:hover {
     background-color: #FAE500;
     color: black;
     font-weight: bold;
-    font-size: 1.6em;
+    font-size: 1.4em;
     text-transform: uppercase;
     font-family: 'Roboto';
-    padding: 10px;
-    min-height: 42px;
+    padding: 6px;
+    overflow: hidden;
 }
 
 .lightbox-comment {
@@ -418,11 +427,15 @@ a:hover {
     color: white;
     font-size: 1.7em;
     float: right;
-    margin-right: -45px;
+    margin-right: -50px;
     cursor: pointer;
     color: black;
     background-color: #FAE500;
     padding: 5px;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .upload-media,
@@ -657,7 +670,7 @@ a:hover {
 }
 
 .interview-item {
-    height: 180px;
+    height: 190px;
 }
 
 .interview-item .details-title {
@@ -745,7 +758,6 @@ a:hover {
     width: 320px;
     text-align: center;
     padding-right: 80px;
-    margin-bottom: 20px;
 }
 
 .script-options {

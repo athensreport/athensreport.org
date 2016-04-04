@@ -134,6 +134,7 @@ $(document).ready(function() {
                 info.html(info_html + social_html);
                 script.html(script_html);
                 $('.interviews-script').css('margin-top', '20px');
+                $('.script-reveal').css('margin-bottom', '20px');
                 $('#details-script-reveal').show();
                 var target = $('#details');
                 $('html, body').animate({

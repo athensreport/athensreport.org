@@ -17,6 +17,11 @@
               <img src="{% static 'img/twitter.png' %}" alf="twitter">
               <img src="{% static 'img/email.png' %}" alf="email">
             </div>
+            {% block video-help %}
+              <div class="video-help">
+                Pause video to go to galleries
+              </div>
+            {% endblock %}
             <div class="video-icons">
               <a href="{% url 'interviews:online11' %}"><img src="{% static 'img/bus.png' %}" alf="bus"></a>
               <a href="{% url 'gallery:theproject' %}"><img src="{% static 'img/social.png' %}" alf="social"></a>
