@@ -9,7 +9,7 @@
           <div class="project-video text-center">
             {% block project-route-strip %}
             {% endblock %}
-            <video height="535" width="950" id="thevideo" controls>
+            <video height="535" width="950" id="thevideo" controls autoplay>
               <source src="{{ MEDIA_URL}}thevideo.mp4">
             </video>
             <div class="social-share video-social">
@@ -58,7 +58,7 @@
     <div class="container gallery {% block gallery-extra %}{% endblock %}" id="gallery-items" data-category="{{ category }}">
       {% for item in items %}
         <div class="col-md-4 gallery-item graffiti-item">
-         <a href="/media/{{ item.source }}" class="lightbox_trigger" data-id="{{ item.pk }}" data-point="{{ item.timestamp }}">
+         <a href="/media/{{ item.source }}" class="lightbox_trigger" data-id="{{ item.pk }}">
            <img src="/media/{{ item.source_thumb }}" class="gallery-thumb">
          </a>
          <div class="details-title">{{ item.title }}</div>
@@ -67,8 +67,4 @@
     </div>
     <div id="lightbox"></div>
   {% endblock %}
-{% endblock %}
-
-{% block javascript %}
-  <script src="{% static 'js/lib/popcorn-complete.min.js' %}"></script>
 {% endblock %}

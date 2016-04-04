@@ -1,8 +1,8 @@
 $(document).ready(function() {
     'use strict';
 
-    var pop = Popcorn('#thevideo');
-    pop.play();
+    var pop = document.getElementById("thevideo");
+    pop.volume = 0.4;
 
     // Fetch item detals
     var items = {
@@ -25,7 +25,6 @@ $(document).ready(function() {
         items.getItem({
             id: id
         }).done(function(item) {
-            console.log(item.fields.title);
             var lightbox = `
 
                     <div class="content">
@@ -59,8 +58,16 @@ $(document).ready(function() {
             $('#lightbox').show();
 
             // Seek video
-            var point = $(this).data('point');
-            pop.currentTime(point);
+            var point = new Date('01/01/2016 ' + item.fields.timestamp);
+            var h = parseInt(moment(point).format('h'));
+            var m = parseInt(moment(point).format('m'));
+            var s = parseInt(moment(point).format('s'));
+            if (h == 1) {
+                m += 60;
+            }
+            var ctime = (m * 60) + s;
+            pop.pause();
+            pop.currentTime = ctime;
         });
     });
 

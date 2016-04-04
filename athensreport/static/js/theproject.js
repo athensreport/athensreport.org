@@ -246,8 +246,7 @@ $(document).ready(function() {
     });
 
     // Select all things
-    var pop = Popcorn('#thevideo');
-    var video = $('#thevideo');
+    var pop = document.getElementById("thevideo");
     var route = $('.route');
     var route_title = $('.route-title');
     var elm_gallery = $('#gallery');
@@ -261,8 +260,8 @@ $(document).ready(function() {
     var currentYear = 2008;
 
     // Catch pause event and send over the current position
-    pop.on('pause', function() {
-        currentTime = this.currentTime();
+    pop.onpause = function() {
+        currentTime = this.currentTime;
         elm_gallery.slideDown();
         elm_strip.slideDown();
         route.hide();
@@ -276,10 +275,10 @@ $(document).ready(function() {
             gallery.html(render(data));
             $('body').trigger('itemsloaded');
         });
-    });
+    };
 
     // Hide elements on play
-    pop.on('play', function() {
+    pop.onplay = function() {
         route.show();
         route_title.show();
         elm_gallery.slideUp();
@@ -287,16 +286,16 @@ $(document).ready(function() {
         elm_detailsSource.text('');
         elm_detailsInfo.text('');
         elm_back.slideUp();
-    });
+    };
 
     // Start the video
-    pop.play();
+    pop.volume = 0.4;
 
     // Jump on map
     $('.route-pick').on('click', function(event) {
         event.preventDefault();
         var point = $(this).data('point');
-        pop.currentTime(point);
+        pop.currentTime = point;
         $('body, html').animate({
             scrollTop: 0
         }, 800);

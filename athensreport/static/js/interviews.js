@@ -1,8 +1,8 @@
 $(document).ready(function() {
     'use strict';
 
-    var pop = Popcorn('#thevideo');
-    pop.play();
+    var pop = document.getElementById("thevideo");
+    pop.volume = 0.4;
 
     // Fetch items
     var items = {
@@ -143,6 +143,18 @@ $(document).ready(function() {
                 $('.carousel').carousel({
                     interval: 3000
                 });
+
+                // Seek video
+                var point = new Date('01/01/2016 ' + item.fields.timestamp);
+                var h = parseInt(moment(point).format('h'));
+                var m = parseInt(moment(point).format('m'));
+                var s = parseInt(moment(point).format('s'));
+                if (h == 1) {
+                    m += 60;
+                }
+                var ctime = (m * 60) + s;
+                pop.pause();
+                pop.currentTime = ctime;
             });
         });
     });
@@ -178,7 +190,7 @@ $(document).ready(function() {
         params.forEach(function(item) {
             var element = `
               <div class="col-md-4 gallery-item graffiti-item interview-item">
-                <a href="fdsfdsf" class="details" data-id="${item.pk}">
+                <a href="#" class="details" data-id="${item.pk}">
                   <img src="/media/${item.fields.source_thumb}" alt="${item.fields.name}" class="gallery-thumb">
                 </a>
                 <div class="details-title">${item.fields.location}</div>
