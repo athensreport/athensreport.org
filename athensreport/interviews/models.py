@@ -12,6 +12,7 @@ class Item(models.Model):
     name = models.CharField(max_length=200, blank=True)
     timestamp = models.TimeField(null=True, blank=True)
     location = models.CharField(max_length=200, blank=True)
+    location_minor = models.CharField(max_length=200, blank=True)
     nationality = models.CharField(max_length=100, blank=True)
     age = models.PositiveIntegerField(null=True, blank=True)
     created = models.DateField(null=True, blank=True)

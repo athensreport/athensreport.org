@@ -194,7 +194,7 @@ $(document).ready(function() {
                 <a href="#" class="details" data-id="${item.pk}">
                   <img src="/media/${item.fields.source_thumb}" alt="${item.fields.name}" class="gallery-thumb">
                 </a>
-                <div class="details-title">${item.fields.location}</div>
+                <div class="details-title">${item.fields.location_minor}</div>
               </div>
             `;
             elements += element;
