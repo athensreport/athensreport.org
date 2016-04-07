@@ -1,0 +1,6 @@
+Nickname: {{ data.nickname }}
+URL: {{ data.url }}
+Video Title: {{ data.video_title }}
+Location: {{ data.location }}
+Event Date: {{ data.event_date }}
+Description: {{ data.description }}

@@ -862,6 +862,13 @@ a:hover {
     font-size: 1.1em;
 }
 
+.upload-messages {
+    position: relative;
+    left: 18px;
+    max-width: 950px;
+    margin-top: 20px;
+}
+
 .upload-lang {
     text-align: right;
     font-size: 1.2em;
@@ -888,7 +895,7 @@ a:hover {
     font-size:1.4em;
     font-weight: bold;
     font-style: italic;
-    padding: 5px 50px;
+    padding: 5px 30px;
 }
 
 .upload-form .flatpage-heading {

@@ -4,6 +4,14 @@
 {% block title %} - Upload Media{% endblock title %}
 
 {% block content %}
+  {% if messages %}
+    {% for message in messages %}
+      <div class="container upload-messages alert alert-{% if message.tags %}{{ message.tags }}{% endif %}" role="alert">
+        {{ message }}
+      </div>
+    {% endfor %}
+  {% endif %}
+
   <div class="flatpage-strip container">
     <div class="flatpage-title">
       Upload Media
@@ -107,69 +115,70 @@
           <span class="flatpage-heading">UPLOAD MEDIA</span>
         </div>
       </div>
-      <form id="upload-form">
+      <form id="upload-form" method="post" action={% url 'gallery:upload_gr' %}>
+        {% csrf_token %}
         <div class="row">
           <div class="col-md-4">
-            <div class="form-group">
+            <div class="form-group {% if form.name.errors %}has-error{% endif %}">
               <label class="sr-only" for="name">Όνομα</label>
-              <input type="text" class="form-control" id="name" placeholder="ΟΝΟΜΑ">
+              <input type="text" class="form-control" id="name" placeholder="ΟΝΟΜΑ" name="name" value="{{ form.name.value|default:'' }}" required>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="form-group">
+            <div class="form-group {% if form.surname.errors %}has-error{% endif %}">
               <label class="sr-only" for="surname">Επώνυμο</label>
-              <input type="text" class="form-control" id="surname" placeholder="ΕΠΩΝΥΜΟ">
+              <input type="text" class="form-control" id="surname" placeholder="ΕΠΩΝΥΜΟ" name="surname" value="{{ form.surname.value|default:'' }}">
             </div>
           </div>
           <div class="col-md-4">
-            <div class="form-group">
+            <div class="form-group {% if form.email.errors %}has-error{% endif %}">
               <label class="sr-only" for="email">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="EMAIL">
+              <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="{{ form.email.value|default:'' }}" required>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <div class="form-group">
+            <div class="form-group {% if form.url.errors %}has-error{% endif %}">
               <label class="sr-only" for="url">URL</label>
-              <input type="text" class="form-control" id="url" placeholder="URL">
+              <input type="url" class="form-control" id="url" placeholder="URL" name="url" value="{{ form.url.value|default:'' }}">
               <span id="urlHelpBlock" class="help-block">Το κανάλι σας στο YOUTUBE ή όπου αλλού βρίσκεται</span>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="form-group">
+            <div class="form-group {% if form.nickname.errors %}has-error{% endif %}">
               <label class="sr-only" for="nickname">Nickname</label>
-              <input type="text" class="form-control" id="nickname" placeholder="NICKNAME">
+              <input type="text" class="form-control" id="nickname" placeholder="NICKNAME" name="nickname" value="{{ form.nickname.value|default:'' }}">
               <span id="urlHelpBlock" class="help-block">Πως θέλετε να εμφανίζεται το όνομά σας</span>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-4">
-            <div class="form-group">
-              <label class="sr-only" for="title">Τίτλος βίντεο</label>
-              <input type="text" class="form-control" id="title" placeholder="ΤΙΤΛΟΣ ΒΙΝΤΕΟ">
+            <div class="form-group {% if form.video_title.errors %}has-error{% endif %}">
+              <label class="sr-only" for="video_title">Τίτλος βίντεο</label>
+              <input type="text" class="form-control" id="video_title" placeholder="ΤΙΤΛΟΣ ΒΙΝΤΕΟ" name="video_title" value="{{ form.video_title.value|default:'' }}" required>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="form-group">
+            <div class="form-group {% if form.location.errors %}has-error{% endif %}">
               <label class="sr-only" for="location">Τοποθεσία</label>
-              <input type="text" class="form-control" id="location" placeholder="ΤΟΠΟΘΕΣΙΑ">
+              <input type="text" class="form-control" id="location" placeholder="ΤΟΠΟΘΕΣΙΑ" name="location" value="{{ form.location.value|default:'' }}" required>
             </div>
           </div>
           <div class="col-md-4">
-            <div class="form-group">
-              <label class="sr-only" for="created">Ημερομηνία γεγονότος</label>
-              <input type="text" class="form-control" id="created" placeholder="ΗΜΕΡΟΜΗΝΙΑ ΓΕΓΟΝΟΤΟΣ">
+            <div class="form-group {% if form.event_date.errors %}has-error{% endif %}">
+              <label class="sr-only" for="event_date">Ημερομηνία γεγονότος</label>
+              <input type="text" class="form-control" id="event_date" placeholder="ΗΜΕΡΟΜΗΝΙΑ ΓΕΓΟΝΟΤΟΣ" name="event_date" value="{{ form.event_date.value|default:'' }}" required>
               <span id="urlHelpBlock" class="help-block">Ημέρα / Μήνας / Χρόνος</span>
             </div>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
-            <div class="form-group">
+            <div class="form-group {% if form.description.errors %}has-error{% endif %}">
               <label class="sr-only" for="description">Περιγραφή αν υπάρχει</label>
-              <textarea class="form-control" rows="3" id="description" placeholder="ΠΕΡΙΓΡΑΦΗ ΑΝ ΥΠΑΡΧΕΙ"></textarea>
+              <textarea class="form-control" rows="3" id="description" placeholder="ΠΕΡΙΓΡΑΦΗ ΑΝ ΥΠΑΡΧΕΙ" name="description">{{ form.description.value|default:'' }}</textarea>
             </div>
           </div>
         </div>
