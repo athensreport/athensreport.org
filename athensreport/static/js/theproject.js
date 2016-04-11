@@ -279,7 +279,7 @@ $(document).ready(function() {
             scrollTop: 0
         }, 800);
         pop.play();
-        $('#details.-info').css('height', 'auto');
+        $('#details-info').css('height', 'auto');
         $('.gallery-details-text').css('height', 'auto');
         return false;
     });
