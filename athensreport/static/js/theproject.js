@@ -153,7 +153,7 @@ $(document).ready(function() {
                 $('html, body').animate({
                     show: target,
                     scrollTop: $(target).offset().top - 220
-                }, 1000);
+                }, 2000);
             });
         });
     });
