@@ -3,6 +3,8 @@ $(document).ready(function() {
 
     var pop = document.getElementById("thevideo");
     pop.volume = 0.4;
+    var g_target = null;
+    var g_scroll = false;
 
     // Fetch item detals
     var items = {
@@ -68,10 +70,26 @@ $(document).ready(function() {
             var ctime = (m * 60) + s;
             pop.pause();
             pop.currentTime = ctime;
+            $('body, html').animate({
+                scrollTop: 0
+            }, 800);
+            g_target = '#g-' + item.pk;
         });
     });
 
     $(document).on('click', '#lightbox-close', function() {
         $('#lightbox').hide();
+        pop.play();
+        g_scroll = true;
+    });
+
+    $(document).scroll(function() {
+        if (g_scroll) {
+            $('html, body').animate({
+                show: g_target,
+                scrollTop: $(g_target).offset().top - 220
+            }, 1000);
+            g_scroll = false;
+        }
     });
 });
