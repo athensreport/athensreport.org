@@ -75,6 +75,12 @@ $(document).ready(function() {
                     `;
                 }
                 var created = moment(item.fields.created).format('MMMM D, YYYY');
+                if (item.fields.pick_date == 'Year') {
+                    created = moment(item.fields.created).format('YYYY');
+                }
+                if (item.fields.pick_date == 'YearMonth') {
+                    created = moment(item.fields.created).format('MMMM, YYYY');
+                }
                 if (item.fields.social_graph) {
                     info_html += `
                         <div class="gallery-title">${item.fields.title}</div>
@@ -173,6 +179,12 @@ $(document).ready(function() {
                 `;
                 var pubdate = ``;
                 var created = moment(item.fields.created).format('MMMM D, YYYY');
+                if (item.fields.pick_date == 'Year') {
+                    created = moment(item.fields.created).format('YYYY');
+                }
+                if (item.fields.pick_date == 'YearMonth') {
+                    created = moment(item.fields.created).format('MMMM, YYYY');
+                }
                 if (item.fields.social_graph) {
                     pubdate = `
                         <p class="details-created social-graph-date yellow-dark">${created}</p>
