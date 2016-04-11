@@ -3,6 +3,7 @@ from django.conf import settings
 
 
 ITEM_TYPE = ['Video', 'Photo', 'Graffiti']
+DATE_TYPE = ['Full', 'YearMonth', 'Year']
 
 
 class Item(models.Model):
@@ -15,6 +16,8 @@ class Item(models.Model):
     creator_url = models.URLField(max_length=200, blank=True)
     location = models.CharField(max_length=200, blank=True)
     created = models.DateField(null=True, blank=True)
+    pick_date = models.CharField(choices=zip(DATE_TYPE, DATE_TYPE),
+                                max_length=10, default='Full')
     source = models.FileField(upload_to='items', blank=True, null=True)
     source_large = models.FileField(upload_to='items_large', blank=True, null=True)
     source_thumb = models.FileField(upload_to='items_thumb', blank=True, null=True)
