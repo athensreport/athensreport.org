@@ -30,7 +30,7 @@ class Item(models.Model):
             return str(self.id)
 
     class Meta:
-        ordering = ["timestamp", "title"]
+        ordering = ["created", "timestamp", "title"]
 
     def thumbnail(self):
         return '<img src="{0}{1}" width="125" height="100">'.format(settings.MEDIA_URL,

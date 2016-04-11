@@ -305,10 +305,14 @@ a:hover {
 .video-help {
     float: left;
     margin: 5px 0 0 40px;
-    font-size: 1.1em;
+    font-size: 1.2em;
     font-weight: bold;
-    color: #666;
+    color: #999;
     text-transform: uppercase;
+}
+
+.interviews-help {
+    color: #DCA01E;
 }
 
 .entertheproject {
@@ -375,8 +379,10 @@ a:hover {
 
 .empty-gallery {
     margin-left: 10px;
-    margin-top: 50px;
-    font-size: 1.2em;
+    margin-top: 90px;
+    font-size: 1.4em;
+    color: #999;
+    font-weight: bold;
 }
 
 .empty-details {
@@ -412,7 +418,7 @@ a:hover {
     font-size: 1.4em;
     text-transform: uppercase;
     font-family: 'Roboto';
-    padding: 6px;
+    padding: 1px 6px;
     overflow: hidden;
 }
 
@@ -436,6 +442,10 @@ a:hover {
     height: 40px;
     text-align: center;
     vertical-align: middle;
+}
+
+#lightbox-close span {
+    color: #888;
 }
 
 .upload-media,
@@ -462,7 +472,7 @@ a:hover {
 
 .graffiti-gallery {
     max-width: 800px;
-    margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 
 .gallery-details {
@@ -499,7 +509,7 @@ a:hover {
 
 .gallery-item {
     padding: 0 12px 0 12px;
-    height: 210px;
+    height: 202px;
     overflow: hidden;
 }
 
@@ -510,7 +520,7 @@ a:hover {
 }
 
 .graffiti-item {
-    height: 175px;
+    height: 180px;
 }
 
 .graffiti-item .details-title {
@@ -593,7 +603,7 @@ a:hover {
 }
 
 .details {
-    margin-bottom: 8px;
+    margin-bottom: 4px;
 }
 
 .details-space {
@@ -670,7 +680,11 @@ a:hover {
 }
 
 .interview-item {
-    height: 190px;
+    height: 180px;
+}
+
+.interview-item .details {
+    margin-bottom: 4px;
 }
 
 .interview-item .details-title {
@@ -689,9 +703,9 @@ a:hover {
     margin-bottom: 0;
 }
 
-.interviews-title span {
+.interviews-title span:first-child {
     display: inline-block;
-    margin-left: 10px;
+    margin-right: 10px;
 }
 
 .interviews-name {
@@ -766,16 +780,16 @@ a:hover {
 
 #script-close {
     display: inline-block;
-    background-color: #888;
+    background-color: #999;
     color: white;
-    padding: 5px 20px;
+    padding: 1px 5px;
     font-size: 1.2em;
+    text-transform: uppercase;
 }
 
 #script-top {
-    font-weight: bold;
-    font-size: 1.4em;
-    color: black;
+    font-size: 1.8em;
+    color: #999;
     display: inline-block;
     margin-right: 40px;
 }
@@ -895,7 +909,7 @@ a:hover {
     font-size:1.4em;
     font-weight: bold;
     font-style: italic;
-    padding: 5px 30px;
+    padding: 5px 10px;
 }
 
 .upload-form .flatpage-heading {
@@ -926,7 +940,7 @@ a:hover {
 }
 
 .upload .flatpage-title {
-    font-size: 1.4em;
+    font-size: 1.2em;
     padding-bottom: 20px;
 }
 

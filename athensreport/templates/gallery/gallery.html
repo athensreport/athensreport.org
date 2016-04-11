@@ -19,7 +19,7 @@
             </div>
             {% block video-help %}
               <div class="video-help">
-                Pause video to go to galleries
+                Click on the map to go to riot zones
               </div>
             {% endblock %}
             <div class="video-icons">
@@ -62,7 +62,7 @@
   {% block gallery %}
     <div class="container gallery {% block gallery-extra %}{% endblock %}" id="gallery-items" data-category="{{ category }}">
       {% for item in items %}
-        <div class="col-md-4 gallery-item graffiti-item">
+        <div class="col-md-4 gallery-item graffiti-item" id="g-{{ item.id }}">
          <a href="/media/{{ item.source }}" class="lightbox_trigger" data-id="{{ item.pk }}">
            <img src="/media/{{ item.source_thumb }}" class="gallery-thumb">
          </a>

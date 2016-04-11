@@ -94,7 +94,7 @@ $(document).ready(function() {
                           <img src="/static/img/bus.png" alt="online11">
                         </div>
                         <div class="gallery-title interviews-title">
-                            ${item.fields.location}
+                            <span class="interviews-details=location">${item.fields.location}</span>
                             <span class="bus-color">${year}</span>
                         </div>
                         <div class="interviews-name">
@@ -116,7 +116,7 @@ $(document).ready(function() {
                 var social_html = `
                     <div class="social-share details-social interviews-social">
                         <div class="interviews-audio"><span class="interviews-lang yellow-dark">GREEK</span><audio src="/media/${item.fields.mp3_gr}" controls></div>
-                        <div class="interviews-audio"><span class="interviews-lang yellow-dark">ENGLISH</span><audio src="/media/${item.fields.mp3_gr}" controls></div>
+                        <div class="interviews-audio"><span class="interviews-lang yellow-dark">ENGLISH</span><audio src="/media/${item.fields.mp3}" controls></div>
                             <img src="/static/img/facebook.png" alf="facebook">
                             <img src="/static/img/twitter.png" alf="twitter">
                             <img src="/static/img/email.png" alf="email">
@@ -126,7 +126,7 @@ $(document).ready(function() {
                 var script_html = `
                     <div class="script">${item.fields.script}</div>
                     <div class="pull-right script-options">
-                        <a href="#" id="script-top"><span class="glyphicon glyphicon-chevron-up" aria-hidden="true"></span></a>
+                        <a href="#" id="script-top"><span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span></a>
                         <a href="#" id="script-close">close</a>
                     </div>
                 `;
@@ -162,7 +162,7 @@ $(document).ready(function() {
 
     $(document).on('click', '#details-script-reveal', function(event) {
         event.preventDefault();
-        $('#details-script').slideDown();
+        $('#details-script').slideToggle();
     });
 
     $(document).on('click', '#script-close', function(event) {

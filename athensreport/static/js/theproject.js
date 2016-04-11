@@ -1,6 +1,9 @@
 $(document).ready(function() {
     'use strict';
 
+    var plus = false;
+    var src_height = 380;
+
     // Fetch items
     var items = {
         getItems: function(data) {
@@ -27,6 +30,7 @@ $(document).ready(function() {
     $('body').on('itemsloaded', function() {
         $('.details').on('click', function(event) {
             event.preventDefault();
+            plus = false;
             var source = $('#details-source');
             var info = $('#details-info');
             source.html('<div class="empty-details" id="load">LOADING...</div>');
@@ -111,39 +115,40 @@ $(document).ready(function() {
                 }
                 if (item.fields.comment) {
                     comment = item.fields.comment;
-                    if ((item.fields.comment).length > 100) {
-                        short_comment = (item.fields.comment).substr(1, 100) + ' ...';
-                    }
                     info_html += `
                         <div class="gallery-comment">
                           <strong>Description:</strong>
-                          <span id="comment">${short_comment}</span>
+                          <span id="comment">${comment}</span>
                         </div>
                     `;
 
                 }
-                info_html += `<div class="details-bottom">`;
-                if (short_comment) {
-                    info_html += `
-                        <div class="col-md-4">
-                            <a href="#" id="comment-plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                        </div>
-                    `;
-                }
-                info_html += `
+                info_html += `</div>`;
+                var bottom_html = `<div class="details-bottom">`;
+                bottom_html += `
+                    <div class="col-md-4">
+                        <a href="#" id="comment-plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                    </div>
+                `;
+                bottom_html += `
                     <div class="col-md-8 social-share details-social">
                       <img src="/static/img/facebook.png" alf="facebook">
                       <img src="/static/img/twitter.png" alf="twitter">
                       <img src="/static/img/email.png" alf="email">
                     </div></div>
                 `;
-                info_html += `</div>`;
+                bottom_html += `</div>`;
                 source.html(source_html);
-                info.html(info_html);
-                $('#details-src').resize(function() {
-                    var height = $('#details-src').height();
-                    $('.gallery-details-text').css('height', height);
-                });
+                setTimeout(function() {
+                    info.html(info_html + bottom_html);
+                    src_height = $('#details-src').height();
+                    console.log(src_height);
+                    var width = $('.gallery-cat').width();
+                    $('.details-bottom').css('width', width);
+                    $('#details-info').css('height', src_height);
+                    $('.gallery-details-text').css('height', src_height - 30);
+                    $('.gallery-details-text').css('overflow', 'hidden');
+                }, 1000);
                 var target = $('#details');
                 $('html, body').animate({
                     show: target,
@@ -195,7 +200,10 @@ $(document).ready(function() {
                 elements += (element + pubdate + cat_icon);
             });
         } else {
-            elements = `<p class="empty-gallery">No gallery items on this location or year.</p>`;
+            elements = `<p class="empty-gallery">
+                No Gallery items on this location or year yet.<br>
+                <a href="/upload/" class="yellow-dark">Upload</a> your archives.
+            </p>`;
         }
 
         var rendered = `${elements}`;
@@ -227,6 +235,20 @@ $(document).ready(function() {
     // Show full comment
     $(document).on('click', '#comment-plus', function(event) {
         event.preventDefault();
+        if (plus) {
+            $('#details-info').css('height', src_height);
+            $('.gallery-details-text').css('height', src_height - 30);
+            $('.gallery-details-text').css('overflow', 'hidden');
+            $('.details-bottom').css('position', 'absolute');
+            plus = false;
+        } else {
+            $('#details-info').css('height', 'auto');
+            $('.gallery-details-text').css('height', 'auto');
+            $('.gallery-details-text').css('overflow', 'show');
+            $('.details-bottom').css('position', 'relative');
+            plus = true;
+        }
+        /*
         var comment_box = $('#comment');
         if (comment_box.text().length > 105) {
             comment_box.html(short_comment);
@@ -234,15 +256,7 @@ $(document).ready(function() {
         } else {
             comment_box.html(comment);
             $('.details-bottom').css('position', 'relative');
-        }
-    });
-
-    // Back to video
-    $(document).on('click', '#video-back', function () {
-        $('body, html').animate({
-            scrollTop: 0
-        }, 800);
-        return false;
+        }*/
     });
 
     // Select all things
@@ -258,6 +272,17 @@ $(document).ready(function() {
     // Keep the moments
     var currentTime;
     var currentYear = 2008;
+
+    // Back to video
+    $(document).on('click', '#video-back', function () {
+        $('body, html').animate({
+            scrollTop: 0
+        }, 800);
+        pop.play();
+        $('#details.-info').css('height', 'auto');
+        $('.gallery-details-text').css('height', 'auto');
+        return false;
+    });
 
     // Catch pause event and send over the current position
     pop.onpause = function() {
@@ -295,7 +320,10 @@ $(document).ready(function() {
     $('.route-pick').on('click', function(event) {
         event.preventDefault();
         var point = $(this).data('point');
+        console.log(point);
         pop.currentTime = point;
+        $('.video-help').text('Pause video to go to galleries');
+        console.log(point);
         $('body, html').animate({
             scrollTop: 0
         }, 800);
