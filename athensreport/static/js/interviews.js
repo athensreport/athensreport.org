@@ -116,7 +116,7 @@ $(document).ready(function() {
                 var social_html = `
                     <div class="social-share details-social interviews-social">
                         <div class="interviews-audio"><span class="interviews-lang yellow-dark">GREEK</span><audio src="/media/${item.fields.mp3_gr}" controls></div>
-                        <div class="interviews-audio"><span class="interviews-lang yellow-dark">ENGLISH</span><audio src="/media/${item.fields.mp3}" controls></div>
+                        <div class="interviews-audio"><span class="interviews-lang yellow-dark">ENGLISH</span><audio src="/media/${item.fields.mp3_en}" controls></div>
                             <img src="/static/img/facebook.png" alf="facebook">
                             <img src="/static/img/twitter.png" alf="twitter">
                             <img src="/static/img/email.png" alf="email">
