@@ -301,8 +301,6 @@ $(document).ready(function() {
             scrollTop: 0
         }, 800);
         pop.play();
-        $('#details-info').css('height', 'auto');
-        $('.gallery-details-text').css('height', 'auto');
         return false;
     });
 
@@ -337,6 +335,8 @@ $(document).ready(function() {
         elm_detailsSource.text('');
         elm_detailsInfo.text('');
         elm_back.slideUp();
+        $('#details-info').css('height', 'auto');
+        $('.gallery-details-text').css('height', 'auto');
     };
 
     // Start the video

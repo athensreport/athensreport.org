@@ -698,8 +698,7 @@ a:hover {
 }
 
 .interviews-title span:first-child {
-    display: inline-block;
-    margin-right: 10px;
+    padding-right: 10px;
 }
 
 .interviews-name {
