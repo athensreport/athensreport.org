@@ -84,7 +84,8 @@ $(document).ready(function() {
     });
 
     $(document).scroll(function() {
-        if (g_scroll) {
+        var pos = $(document).scrollTop();
+        if (g_scroll && (pos > 400)) {
             $('html, body').animate({
                 show: g_target,
                 scrollTop: $(g_target).offset().top - 220

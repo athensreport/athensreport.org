@@ -310,10 +310,6 @@ a:hover {
     text-transform: uppercase;
 }
 
-.interviews-help {
-    color: #DCA01E;
-}
-
 .entertheproject {
     background-image: url('/static/img/enter-bg.jpg');
 }
@@ -478,7 +474,7 @@ a:hover {
 }
 
 #comment-plus {
-    color: black;
+    color: #999;
     font-size: 1.2em;
 }
 
