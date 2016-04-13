@@ -60,106 +60,109 @@ $(document).ready(function() {
                         </div>
                     `;
                 }
-                info_html += `<div class="gallery-details-text">`;
-                if (item.fields.social_graph) {
-                    info_html += `
-                        <div class="gallery-cat">
-                          <img src="/static/img/social.png" alt="${item.fields.title}">
-                        </div>
-                    `;
-                } else {
-                    info_html += `
-                        <div class="gallery-cat">
-                          <img src="/static/img/riots.png" alt="${item.fields.title}">
-                        </div>
-                    `;
-                }
-                var created = moment(item.fields.created).format('MMMM D, YYYY');
-                if (item.fields.pick_date == 'Year') {
-                    created = moment(item.fields.created).format('YYYY');
-                }
-                if (item.fields.pick_date == 'YearMonth') {
-                    created = moment(item.fields.created).format('MMMM, YYYY');
-                }
-                if (item.fields.social_graph) {
-                    info_html += `
-                        <div class="gallery-title">${item.fields.title}</div>
-                        <div class="gallery-year green">
-                          ${created}
-                        </div>
-                    `;
-                } else {
-                    info_html += `
-                        <div class="gallery-title">${item.fields.title}</div>
-                        <div class="gallery-year yellow-dark">
-                          ${created}
-                        </div>
-                    `;
-                }
-                if (item.fields.location) {
-                    info_html += `
-                        <div class="gallery-location">
-                          <strong>Location:</strong>
-                          ${item.fields.location}
-                        </div>
-                    `;
-                }
-                if (item.fields.credit) {
-                    info_html += `
-                        <div class="gallery-creator">
-                          <strong>Creator:</strong>
-                          ${item.fields.credit}
-                    `;
-                    if (item.fields.creator_url) {
+                source.html(source_html);
+
+                source.ready(function() {
+                    var target = $('#details');
+                    $('html, body').animate({
+                        show: target,
+                        scrollTop: $(target).offset().top - 220
+                    }, 1000);
+                    info_html += `<div class="gallery-details-text">`;
+                    if (item.fields.social_graph) {
                         info_html += `
-                              <a href="${item.fields.creator_url}" target="_blank" style="color:black;">
-                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
-                              </a>
+                            <div class="gallery-cat">
+                              <img src="/static/img/social.png" alt="${item.fields.title}">
+                            </div>
+                        `;
+                    } else {
+                        info_html += `
+                            <div class="gallery-cat">
+                              <img src="/static/img/riots.png" alt="${item.fields.title}">
+                            </div>
                         `;
                     }
+                    var created = moment(item.fields.created).format('MMMM D, YYYY');
+                    if (item.fields.pick_date == 'Year') {
+                        created = moment(item.fields.created).format('YYYY');
+                    }
+                    if (item.fields.pick_date == 'YearMonth') {
+                        created = moment(item.fields.created).format('MMMM, YYYY');
+                    }
+                    if (item.fields.social_graph) {
+                        info_html += `
+                            <div class="gallery-title">${item.fields.title}</div>
+                            <div class="gallery-year green">
+                              ${created}
+                            </div>
+                        `;
+                    } else {
+                        info_html += `
+                            <div class="gallery-title">${item.fields.title}</div>
+                            <div class="gallery-year yellow-dark">
+                              ${created}
+                            </div>
+                        `;
+                    }
+                    if (item.fields.location) {
+                        info_html += `
+                            <div class="gallery-location">
+                              <strong>Location:</strong>
+                              ${item.fields.location}
+                            </div>
+                        `;
+                    }
+                    if (item.fields.credit) {
+                        info_html += `
+                            <div class="gallery-creator">
+                              <strong>Creator:</strong>
+                              ${item.fields.credit}
+                        `;
+                        if (item.fields.creator_url) {
+                            info_html += `
+                                  <a href="${item.fields.creator_url}" target="_blank" style="color:black;">
+                                    <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                                  </a>
+                            `;
+                        }
+                        info_html += `</div>`;
+                    }
+                    if (item.fields.comment) {
+                        comment = item.fields.comment;
+                        info_html += `
+                            <div class="gallery-comment">
+                              <strong>Description:</strong>
+                              <span id="comment">${comment}</span>
+                            </div>
+                        `;
+
+                    }
                     info_html += `</div>`;
-                }
-                if (item.fields.comment) {
-                    comment = item.fields.comment;
-                    info_html += `
-                        <div class="gallery-comment">
-                          <strong>Description:</strong>
-                          <span id="comment">${comment}</span>
+                    var bottom_html = `<div class="details-bottom">`;
+                    bottom_html += `
+                        <div class="col-md-4">
+                            <a href="#" id="comment-plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                         </div>
                     `;
-
-                }
-                info_html += `</div>`;
-                var bottom_html = `<div class="details-bottom">`;
-                bottom_html += `
-                    <div class="col-md-4">
-                        <a href="#" id="comment-plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                    </div>
-                `;
-                bottom_html += `
-                    <div class="col-md-8 social-share details-social">
-                      <img src="/static/img/facebook.png" alf="facebook">
-                      <img src="/static/img/twitter.png" alf="twitter">
-                      <img src="/static/img/email.png" alf="email">
-                    </div></div>
-                `;
-                bottom_html += `</div>`;
-                source.html(source_html);
-                info.html('<div class="empty-details"><img src="/static/img/loader.gif" alt="loading..."></div>');
-                setTimeout(function() {
-                    info.html(info_html + bottom_html);
-                    src_height = $('#details-src').height();
-                    var width = $('.gallery-cat').width();
-                    $('.details-bottom').css('width', width);
-                    $('#details-info').css('height', src_height);
-                    $('.gallery-details-text').css('height', src_height - 30);
-                    $('.gallery-details-text').css('overflow', 'hidden');
-                }, 3000);
-                var target = $('#details');
-                $('html, body').animate({
-                    show: target,
-                    scrollTop: $(target).offset().top - 220
-                }, 2000);
+                    bottom_html += `
+                        <div class="col-md-8 social-share details-social">
+                          <img src="/static/img/facebook.png" alf="facebook">
+                          <img src="/static/img/twitter.png" alf="twitter">
+                          <img src="/static/img/email.png" alf="email">
+                        </div></div>
+                    `;
+                    bottom_html += `</div>`;
+                    info.html('<div class="empty-details"><img src="/static/img/loader.gif" alt="loading..."></div>');
+                    setTimeout(function() {
+                        info.html(info_html + bottom_html);
+                        src_height = $('#details-src').height();
+                        var width = $('.gallery-cat').width();
+                        $('.details-bottom').css('width', width);
+                        $('#details-info').css('height', src_height);
+                        $('.gallery-details-text').css('height', src_height - 30);
+                        $('.gallery-details-text').css('overflow', 'hidden');
+                    }, 3000);
+                });
             });
         });
     });
