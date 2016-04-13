@@ -309,8 +309,12 @@ $(document).ready(function() {
             timestamp: currentTime,
             year: currentYear
         }).done(function(data) {
-            gallery.html(render(data));
-            $('body').trigger('itemsloaded');
+            if (Modernizr.templatestrings) {
+                gallery.html(render(data));
+                $('body').trigger('itemsloaded');
+            } else {
+                gallery.html('<div class="empty-details" id="load">Please update your browser to the latest version, or use a more modern one like <a href="https://www.mozilla.org/firefox/" target="_blank">Firefox</a></div>');
+            }
         });
     };
 
