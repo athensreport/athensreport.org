@@ -145,16 +145,16 @@ $(document).ready(function() {
                 `;
                 bottom_html += `</div>`;
                 source.html(source_html);
+                info.html('<div class="empty-details"><img src="/static/img/loader.gif" alt="loading..."></div>');
                 setTimeout(function() {
                     info.html(info_html + bottom_html);
                     src_height = $('#details-src').height();
-                    console.log(src_height);
                     var width = $('.gallery-cat').width();
                     $('.details-bottom').css('width', width);
                     $('#details-info').css('height', src_height);
                     $('.gallery-details-text').css('height', src_height - 30);
                     $('.gallery-details-text').css('overflow', 'hidden');
-                }, 1000);
+                }, 3000);
                 var target = $('#details');
                 $('html, body').animate({
                     show: target,
