@@ -198,6 +198,16 @@ $(document).ready(function() {
               </div>
             `;
             elements += element;
+            $.get('/media/' + item.fields.photo1);
+            $.get('/media/' + item.fields.photo2);
+            $.get('/media/' + item.fields.photo3);
+            $.get('/media/' + item.fields.photo4);
+            $.get('/media/' + item.fields.photo5);
+            $.get('/media/' + item.fields.photo6);
+            $.get('/media/' + item.fields.photo7);
+            $.get('/media/' + item.fields.photo8);
+            $.get('/media/' + item.fields.photo9);
+            $.get('/media/' + item.fields.photo10);
         });
 
         var rendered = `${elements}`;
@@ -211,5 +221,6 @@ $(document).ready(function() {
     }).done(function(data) {
         gallery.html(render(data));
         $('body').trigger('itemsloaded');
+
     });
 });
