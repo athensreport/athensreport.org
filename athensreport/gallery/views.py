@@ -76,7 +76,7 @@ def theproject(request):
 
 def graffiti(request):
     """View to render the graffiti page."""
-    items = Item.objects.filter(category='Graffiti')
+    items = Item.objects.filter(category='Graffiti').order_by('timestamp')
     return render(request, 'gallery/graffiti.html',
                   {'items': items, 'category': 'graffiti'})
 
