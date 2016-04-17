@@ -53,4 +53,47 @@
 {% block javascript %}
   {{ block.super }}
   <script src="{% static 'js/interviews.js' %}"></script>
+
+  {% for item in items %}
+    <div id="preload-{{item.pk}}-1"></div>
+    <style>
+      #preload-{{item.pk}}-1 { background: url('/media/{{ item.photo1 }}') no-repeat -9999px -9999px; }
+    </style>
+    <div id="preload-{{item.pk}}-2"></div>
+    <style>
+      #preload-{{item.pk}}-2 { background: url('/media/{{ item.photo2 }}') no-repeat -9999px -9999px; }
+    </style>
+    <div id="preload-{{item.pk}}-3"></div>
+    <style>
+      #preload-{{item.pk}}-3 { background: url('/media/{{ item.photo3 }}') no-repeat -9999px -9999px; }
+    </style>
+    <div id="preload-{{item.pk}}-4"></div>
+    <style>
+      #preload-{{item.pk}}-4 { background: url('/media/{{ item.photo4 }}') no-repeat -9999px -9999px; }
+    </style>
+    <div id="preload-{{item.pk}}-5"></div>
+    <style>
+      #preload-{{item.pk}}-5 { background: url('/media/{{ item.photo5 }}') no-repeat -9999px -9999px; }
+    </style>
+    <div id="preload-{{item.pk}}-6"></div>
+    <style>
+      #preload-{{item.pk}}-6 { background: url('/media/{{ item.photo6 }}') no-repeat -9999px -9999px; }
+    </style>
+    <div id="preload-{{item.pk}}-7"></div>
+    <style>
+      #preload-{{item.pk}}-7 { background: url('/media/{{ item.photo7 }}') no-repeat -9999px -9999px; }
+    </style>
+    <div id="preload-{{item.pk}}-8"></div>
+    <style>
+      #preload-{{item.pk}}-8 { background: url('/media/{{ item.photo8 }}') no-repeat -9999px -9999px; }
+    </style>
+    <div id="preload-{{item.pk}}-9"></div>
+    <style>
+      #preload-{{item.pk}}-9 { background: url('/media/{{ item.photo9 }}') no-repeat -9999px -9999px; }
+    </style>
+    <div id="preload-{{item.pk}}-10"></div>
+    <style>
+      #preload-{{item.pk}}-10 { background: url('/media/{{ item.photo10 }}') no-repeat -9999px -9999px; }
+    </style>
+  {% endfor %}
 {% endblock javascript %}
