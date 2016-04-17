@@ -310,6 +310,10 @@ a:hover {
     text-transform: uppercase;
 }
 
+#help-pause {
+    color: #999;
+}
+
 .entertheproject {
     background-image: url('/static/img/enter-bg.jpg');
 }

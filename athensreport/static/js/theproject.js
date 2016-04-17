@@ -348,11 +348,17 @@ $(document).ready(function() {
         var point = $(this).data('point');
         console.log(point);
         pop.currentTime = point;
-        $('.video-help').text('Pause video to go to galleries');
+        var help = `<a href="#" id="help-pause">Pause video to go to galleries</a>`;
+        $('.video-help').html(help);
         console.log(point);
         $('body, html').animate({
             scrollTop: 0
         }, 800);
+    });
+
+    $(document).on('click', '#help-pause', function(event) {
+        event.preventDefault();
+        pop.pause();
     });
 
     // Responsive map
