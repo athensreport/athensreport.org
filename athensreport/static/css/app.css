@@ -293,7 +293,7 @@ a:hover {
     float: left;
 }
 
-.video-social > img {
+.video-social img {
     margin-top: 4px !important;
 }
 
@@ -631,7 +631,7 @@ a:hover {
     max-height: 380px;
 }
 
-.social-share > img {
+.social-share img {
     padding-right: 10px;
     margin-top: 20px;
 }
@@ -640,7 +640,7 @@ a:hover {
     text-align: right;
 }
 
-.details-social > img {
+.details-social img {
     margin-top: 0px;
 }
 

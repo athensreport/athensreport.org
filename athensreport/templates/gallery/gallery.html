@@ -12,10 +12,10 @@
             <video height="535" width="950" id="thevideo" controls autoplay>
               <source src="{{ MEDIA_URL}}thevideo.mp4">
             </video>
-            <div class="social-share video-social">
-              <img src="{% static 'img/facebook.png' %}" alf="facebook">
-              <img src="{% static 'img/twitter.png' %}" alf="twitter">
-              <img src="{% static 'img/email.png' %}" alf="email">
+            <div class="social-share video-social" data-siteurl="{{ current_url }}">
+              <a href="https://www.facebook.com/sharer.php?u={{ current_url }}" target="_blank"><img src="{% static 'img/facebook.png' %}" alf="facebook"></a>
+              <a href="https://twitter.com/share?text=Athens Report&amp;url={{ current_url }}" target="_blank"><img src="{% static 'img/twitter.png' %}" alf="twitter"></a>
+              <a href="mailto:?subject=Athens Report&amp;body={{ current_url }}"><img src="{% static 'img/email.png' %}" alf="email"></a>
             </div>
             {% block video-help %}
               <div class="video-help">

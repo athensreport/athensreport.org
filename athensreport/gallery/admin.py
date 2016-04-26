@@ -24,6 +24,6 @@ class ItemAdmin(admin.ModelAdmin):
 
 @admin.register(UploadedItem)
 class ItemAdmin(admin.ModelAdmin):
-    list_display = ('name', 'surname', 'uploaded', 'processed')
+    list_display = ('name', 'surname', 'uploaded', 'has_source', 'has_source_url', 'processed')
     list_filter = ('processed', )
     search_fields = ('video_title', )

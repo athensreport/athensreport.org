@@ -53,3 +53,17 @@ class UploadedItem(models.Model):
     description = models.TextField(blank=True)
     processed = models.BooleanField(default=False)
     uploaded = models.DateTimeField(auto_now_add=True, editable=False)
+
+    @property
+    def has_source(self):
+        if self.source:
+            return True
+        else:
+            return False
+
+    @property
+    def has_source_url(self):
+        if self.source_url:
+            return True
+        else:
+            return False

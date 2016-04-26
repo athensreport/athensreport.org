@@ -4,6 +4,8 @@ $(document).ready(function() {
     var plus = false;
     var src_height = 380;
 
+    var siteurl = $('.video-social').data('siteurl');
+
     // Fetch items
     var items = {
         getItems: function(data) {
@@ -26,151 +28,157 @@ $(document).ready(function() {
         },
     };
 
+    function detail_load(id) {
+        plus = false;
+        var source = $('#details-source');
+        var info = $('#details-info');
+        source.html('<div class="empty-details" id="load">LOADING...</div>');
+        info.html('');
+        items.getItem({
+            id: id
+        }).done(function(item) {
+            var source_html = ``;
+            var info_html = ``;
+            if (item.fields.category == 'Photo') {
+                source_html = `
+                    <img id="details-src" src="/media/${item.fields.source}" alt="${item.fields.title}" class="img-responsive">
+
+                    <div class="video-back" id="video-back">
+                        <a href="#"><img src="/static/img/back.png" alt="Back to the Project"></a>
+                    </div>
+                `;
+            } else {
+                source_html = `
+                    <video id="details-src" controls class="img-responsive">
+                      <source src="/media/${item.fields.source}">
+                    </video>
+
+                    <div class="video-back" id="video-back">
+                        <a href="#"><img src="/static/img/back.png" alt="Back to the Project"></a>
+                    </div>
+                `;
+            }
+            source.html(source_html);
+
+            source.ready(function() {
+                var target = $('#details');
+                $('html, body').animate({
+                    show: target,
+                    scrollTop: $(target).offset().top - 220
+                }, 1000);
+                info_html += `<div class="gallery-details-text" id="detail-${item.pk}" data-timestamp="${item.fields.timestamp}">`;
+                if (item.fields.social_graph) {
+                    info_html += `
+                        <div class="gallery-cat">
+                          <img src="/static/img/social.png" alt="${item.fields.title}">
+                        </div>
+                    `;
+                } else {
+                    info_html += `
+                        <div class="gallery-cat">
+                          <img src="/static/img/riots.png" alt="${item.fields.title}">
+                        </div>
+                    `;
+                }
+                var created = moment(item.fields.created).format('MMMM D, YYYY');
+                if (item.fields.pick_date == 'Year') {
+                    created = moment(item.fields.created).format('YYYY');
+                }
+                if (item.fields.pick_date == 'YearMonth') {
+                    created = moment(item.fields.created).format('MMMM, YYYY');
+                }
+                if (item.fields.social_graph) {
+                    info_html += `
+                        <div class="gallery-title">${item.fields.title}</div>
+                        <div class="gallery-year green">
+                          ${created}
+                        </div>
+                    `;
+                } else {
+                    info_html += `
+                        <div class="gallery-title">${item.fields.title}</div>
+                        <div class="gallery-year yellow-dark">
+                          ${created}
+                        </div>
+                    `;
+                }
+                if (item.fields.location) {
+                    info_html += `
+                        <div class="gallery-location">
+                          <strong>Location:</strong>
+                          ${item.fields.location}
+                        </div>
+                    `;
+                }
+                if (item.fields.credit) {
+                    info_html += `
+                        <div class="gallery-creator">
+                          <strong>Creator:</strong>
+                          ${item.fields.credit}
+                    `;
+                    if (item.fields.creator_url) {
+                        info_html += `
+                              <a href="${item.fields.creator_url}" target="_blank" style="color:black;">
+                                <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
+                              </a>
+                        `;
+                    }
+                    info_html += `</div>`;
+                }
+                if (item.fields.comment) {
+                    comment = item.fields.comment;
+                    info_html += `
+                        <div class="gallery-comment">
+                          <strong>Description:</strong>
+                          <span id="comment">${comment}</span>
+                        </div>
+                    `;
+
+                }
+                info_html += `</div>`;
+                var bottom_html = `<div class="details-bottom">`;
+                bottom_html += `
+                    <div class="col-md-4">
+                        <a href="#" id="comment-plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                    </div>
+                `;
+                var item_title = item.fields.title.replace(/["']/g, "");
+                bottom_html += `
+                    <div class="col-md-8 social-share details-social">
+                      <a href="https://www.facebook.com/sharer.php?u=${siteurl}#${item.pk}&amp;t=Athens Report: ${item_title}" target="_blank"><img src="/static/img/facebook.png" alf="facebook"></a>
+                      <a href="https://twitter.com/share?text=Athens Report: ${item_title}&amp;url=${siteurl}#${item.pk}" target="_blank"><img src="/static/img/twitter.png" alf="twitter"></a>
+                      <a href="mailto:?subject=Athens Report: ${item_title}&amp;body=${siteurl}#${item.pk}"><img src="/static/img/email.png" alf="email"></a>
+                    </div></div>
+                `;
+                bottom_html += `</div>`;
+                info.html('<div class="empty-details"><img src="/static/img/loader.gif" alt="loading..."></div>');
+                function details_content() {
+                    info.html(info_html + bottom_html);
+                    src_height = $('#details-src').height();
+                    var width = $('.gallery-cat').width();
+                    $('.details-bottom').css('width', width);
+                    $('#details-info').css('height', src_height);
+                    $('.gallery-details-text').css('height', src_height - 30);
+                    $('.gallery-details-text').css('overflow', 'hidden');
+                }
+                var refreshId = setInterval(function() {
+                    if ($('#details-src').height() > 300) {
+                        clearInterval(refreshId);
+                        details_content();
+                    }
+                }, 1000);
+            });
+        });
+    }
+
     // Initiate Item details
     $('body').on('itemsloaded', function() {
         $('.details').on('click', function(event) {
             event.preventDefault();
-            plus = false;
-            var source = $('#details-source');
-            var info = $('#details-info');
-            source.html('<div class="empty-details" id="load">LOADING...</div>');
-            info.html('');
             var id = $(this).data('id');
-            items.getItem({
-                id: id
-            }).done(function(item) {
-                var source_html = ``;
-                var info_html = ``;
-                if (item.fields.category == 'Photo') {
-                    source_html = `
-                        <img id="details-src" src="/media/${item.fields.source}" alt="${item.fields.title}" class="img-responsive">
-
-                        <div class="video-back" id="video-back">
-                            <a href="#"><img src="/static/img/back.png" alt="Back to the Project"></a>
-                        </div>
-                    `;
-                } else {
-                    source_html = `
-                        <video id="details-src" controls class="img-responsive">
-                          <source src="/media/${item.fields.source}">
-                        </video>
-
-                        <div class="video-back" id="video-back">
-                            <a href="#"><img src="/static/img/back.png" alt="Back to the Project"></a>
-                        </div>
-                    `;
-                }
-                source.html(source_html);
-
-                source.ready(function() {
-                    var target = $('#details');
-                    $('html, body').animate({
-                        show: target,
-                        scrollTop: $(target).offset().top - 220
-                    }, 1000);
-                    info_html += `<div class="gallery-details-text">`;
-                    if (item.fields.social_graph) {
-                        info_html += `
-                            <div class="gallery-cat">
-                              <img src="/static/img/social.png" alt="${item.fields.title}">
-                            </div>
-                        `;
-                    } else {
-                        info_html += `
-                            <div class="gallery-cat">
-                              <img src="/static/img/riots.png" alt="${item.fields.title}">
-                            </div>
-                        `;
-                    }
-                    var created = moment(item.fields.created).format('MMMM D, YYYY');
-                    if (item.fields.pick_date == 'Year') {
-                        created = moment(item.fields.created).format('YYYY');
-                    }
-                    if (item.fields.pick_date == 'YearMonth') {
-                        created = moment(item.fields.created).format('MMMM, YYYY');
-                    }
-                    if (item.fields.social_graph) {
-                        info_html += `
-                            <div class="gallery-title">${item.fields.title}</div>
-                            <div class="gallery-year green">
-                              ${created}
-                            </div>
-                        `;
-                    } else {
-                        info_html += `
-                            <div class="gallery-title">${item.fields.title}</div>
-                            <div class="gallery-year yellow-dark">
-                              ${created}
-                            </div>
-                        `;
-                    }
-                    if (item.fields.location) {
-                        info_html += `
-                            <div class="gallery-location">
-                              <strong>Location:</strong>
-                              ${item.fields.location}
-                            </div>
-                        `;
-                    }
-                    if (item.fields.credit) {
-                        info_html += `
-                            <div class="gallery-creator">
-                              <strong>Creator:</strong>
-                              ${item.fields.credit}
-                        `;
-                        if (item.fields.creator_url) {
-                            info_html += `
-                                  <a href="${item.fields.creator_url}" target="_blank" style="color:black;">
-                                    <span class="glyphicon glyphicon-link" aria-hidden="true"></span>
-                                  </a>
-                            `;
-                        }
-                        info_html += `</div>`;
-                    }
-                    if (item.fields.comment) {
-                        comment = item.fields.comment;
-                        info_html += `
-                            <div class="gallery-comment">
-                              <strong>Description:</strong>
-                              <span id="comment">${comment}</span>
-                            </div>
-                        `;
-
-                    }
-                    info_html += `</div>`;
-                    var bottom_html = `<div class="details-bottom">`;
-                    bottom_html += `
-                        <div class="col-md-4">
-                            <a href="#" id="comment-plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
-                        </div>
-                    `;
-                    bottom_html += `
-                        <div class="col-md-8 social-share details-social">
-                          <img src="/static/img/facebook.png" alf="facebook">
-                          <img src="/static/img/twitter.png" alf="twitter">
-                          <img src="/static/img/email.png" alf="email">
-                        </div></div>
-                    `;
-                    bottom_html += `</div>`;
-                    info.html('<div class="empty-details"><img src="/static/img/loader.gif" alt="loading..."></div>');
-                    function details_content() {
-                        info.html(info_html + bottom_html);
-                        src_height = $('#details-src').height();
-                        var width = $('.gallery-cat').width();
-                        $('.details-bottom').css('width', width);
-                        $('#details-info').css('height', src_height);
-                        $('.gallery-details-text').css('height', src_height - 30);
-                        $('.gallery-details-text').css('overflow', 'hidden');
-                    }
-                    var refreshId = setInterval(function() {
-                        if ($('#details-src').height() > 300) {
-                            console.log("Exists!");
-                            clearInterval(refreshId);
-                            details_content();
-                        }
-                    }, 1000);
-                });
-            });
+            var loc = window.location.href;
+            window.location.hash = id;
+            detail_load(id);
         });
     });
 
@@ -346,11 +354,9 @@ $(document).ready(function() {
     $('.route-pick').on('click', function(event) {
         event.preventDefault();
         var point = $(this).data('point');
-        console.log(point);
         pop.currentTime = point;
         var help = `<a href="#" id="help-pause">Pause video to go to galleries</a>`;
         $('.video-help').html(help);
-        console.log(point);
         $('body, html').animate({
             scrollTop: 0
         }, 800);
@@ -363,4 +369,11 @@ $(document).ready(function() {
 
     // Responsive map
     $('img.route-img[usemap]').rwdImageMaps();
+
+    var uri = URI(location.href);
+    var item_pick = uri.hash().split('#')[1];
+    if (item_pick) {
+        detail_load(item_pick);
+        pop.pause();
+    }
 });
