@@ -37,3 +37,19 @@ class Item(models.Model):
                                                                     self.source_thumb)
     thumbnail.short_description = 'Thumbnail'
     thumbnail.allow_tags = True
+
+
+class UploadedItem(models.Model):
+    name = models.CharField(max_length=100)
+    surname = models.CharField(max_length=100)
+    nickname = models.CharField(max_length=100, blank=True)
+    email = models.EmailField(max_length=100)
+    url = models.URLField(max_length=200, blank=True)
+    source = models.FileField(upload_to='uploaded_items', blank=True, null=True)
+    source_url = models.URLField(max_length=200, blank=True)
+    video_title = models.CharField(max_length=100)
+    location = models.CharField(max_length=100)
+    event_date = models.CharField(max_length=100)
+    description = models.TextField(blank=True)
+    processed = models.BooleanField(default=False)
+    uploaded = models.DateTimeField(auto_now_add=True, editable=False)

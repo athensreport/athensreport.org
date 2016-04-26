@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from athensreport.gallery.models import Item
+from athensreport.gallery.models import Item, UploadedItem
 
 
 @admin.register(Item)
@@ -20,3 +20,10 @@ class ItemAdmin(admin.ModelAdmin):
             return obj.timestamp.strftime('%H:%M:%S')
         except:
             return ''
+
+
+@admin.register(UploadedItem)
+class ItemAdmin(admin.ModelAdmin):
+    list_display = ('name', 'surname', 'uploaded', 'processed')
+    list_filter = ('processed', )
+    search_fields = ('video_title', )

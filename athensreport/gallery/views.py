@@ -84,8 +84,9 @@ def graffiti(request):
 def upload(request):
     """View to render upload form"""
     if request.method == 'POST':
-        form = UploadForm(request.POST)
+        form = UploadForm(request.POST, request.FILES)
         if form.is_valid():
+            form.save()
             _send_upload(form)
             messages.info(request, 'Thank you. Your submussion has been sent.')
             return redirect(reverse('gallery:upload'))
@@ -98,8 +99,9 @@ def upload(request):
 def upload_gr(request):
     """View to render upload form in Greek"""
     if request.method == 'POST':
-        form = UploadForm(request.POST)
+        form = UploadForm(request.POST, request.FILES)
         if form.is_valid():
+            form.save()
             _send_upload(form)
             messages.info(request, 'Ευχαριστούμε. Η πρόταση σου εστάλη.')
             return redirect(reverse('gallery:upload_gr'))

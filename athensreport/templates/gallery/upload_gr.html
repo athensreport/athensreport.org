@@ -106,7 +106,7 @@
           <span class="flatpage-heading">UPLOAD MEDIA</span>
         </div>
       </div>
-      <form id="upload-form" method="post" action={% url 'gallery:upload_gr' %}>
+      <form id="upload-form" method="post" action={% url 'gallery:upload_gr' %} enctype="multipart/form-data">
         {% csrf_token %}
         <div class="row">
           <div class="col-md-4">
@@ -162,6 +162,22 @@
               <label class="sr-only" for="event_date">Ημερομηνία γεγονότος</label>
               <input type="text" class="form-control" id="event_date" placeholder="ΗΜΕΡΟΜΗΝΙΑ ΓΕΓΟΝΟΤΟΣ" name="event_date" value="{{ form.event_date.value|default:'' }}" required>
               <span id="urlHelpBlock" class="help-block">Ημέρα / Μήνας / Χρόνος</span>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group {% if form.source_url.errors %}has-error{% endif %}">
+              <label class="sr-only" for="source_url">SOURCE URL</label>
+              <input type="url" class="form-control" id="source_url" placeholder="SOURCE URL" name="source_url" value="{{ form.source_url.value|default:'' }}">
+              <span id="sourceurlHelpBlock" class="help-block">URL για το video/photo που θες να υποβάλεις</span>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group file {% if form.source.errors %}has-error{% endif %}">
+              <label class="sr-only" for="source">SOURCE FILE</label>
+              <input type="file" id="source" name="source" class="form-control">
+              <span id="sourceHelpBlock" class="help-block">Ανέβασε το αρχείο αν δεν υπάρχει κάπου online</span>
             </div>
           </div>
         </div>
