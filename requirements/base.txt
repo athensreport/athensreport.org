@@ -1,5 +1,5 @@
 # Basic stuff
-django==1.9.5
+django==1.9.6
 
 # Configuration
 django_dotenv==1.4.1
