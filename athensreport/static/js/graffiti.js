@@ -6,6 +6,10 @@ $(document).ready(function() {
     var g_target = null;
     var g_scroll = false;
 
+    var video_width = 950;
+    if (screen.width < 950) { video_width = screen.width - 50; }
+    $('#thevideo').attr('width', video_width);
+
     // Fetch item detals
     var items = {
         getItem: function(data) {

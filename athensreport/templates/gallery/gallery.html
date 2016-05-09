@@ -9,7 +9,7 @@
           <div class="project-video text-center">
             {% block project-route-strip %}
             {% endblock %}
-            <video height="535" width="950" id="thevideo" controls autoplay>
+            <video width="950" id="thevideo" controls autoplay>
               <source src="{{ MEDIA_URL}}thevideo.mp4">
             </video>
             <div class="social-share video-social" data-siteurl="{{ current_url }}">
@@ -43,10 +43,10 @@
   {% block details %}
     <div class="container">
       <div class="row" id="details">
-        <div class="col-md-8">
+        <div class="col-sm-8">
           <div id="details-source"></div>
         </div>
-        <div class="col-md-4 details-info-container">
+        <div class="col-sm-4 details-info-container">
           <div id="details-info"></div>
         </div>
       </div>
@@ -62,7 +62,7 @@
   {% block gallery %}
     <div class="container gallery {% block gallery-extra %}{% endblock %}" id="gallery-items" data-category="{{ category }}">
       {% for item in items %}
-        <div class="col-md-4 gallery-item graffiti-item" id="g-{{ item.id }}">
+        <div class="col-sm-4 gallery-item graffiti-item" id="g-{{ item.id }}">
          <a href="/media/{{ item.source }}" class="lightbox_trigger" data-id="{{ item.pk }}">
            <img src="/media/{{ item.source_thumb }}" class="gallery-thumb">
          </a>

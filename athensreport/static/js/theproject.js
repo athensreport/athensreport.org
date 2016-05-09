@@ -4,6 +4,10 @@ $(document).ready(function() {
     var plus = false;
     var src_height = 380;
 
+    var video_width = 950;
+    if (screen.width < 950) { video_width = screen.width - 50; }
+    $('#thevideo').attr('width', video_width);
+
     var siteurl = $('.video-social').data('siteurl');
 
     // Fetch items
@@ -138,13 +142,13 @@ $(document).ready(function() {
                 info_html += `</div>`;
                 var bottom_html = `<div class="details-bottom">`;
                 bottom_html += `
-                    <div class="col-md-4">
+                    <div class="col-sm-4">
                         <a href="#" id="comment-plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                     </div>
                 `;
                 var item_title = item.fields.title.replace(/["']/g, "");
                 bottom_html += `
-                    <div class="col-md-8 social-share details-social">
+                    <div class="col-sm-8 social-share details-social">
                       <a href="https://www.facebook.com/sharer.php?u=${siteurl}#${item.pk}&amp;t=Athens Report: ${item_title}" target="_blank"><img src="/static/img/facebook.png" alf="facebook"></a>
                       <a href="https://twitter.com/share?text=Athens Report: ${item_title}&amp;url=${siteurl}#${item.pk}" target="_blank"><img src="/static/img/twitter.png" alf="twitter"></a>
                       <a href="mailto:?subject=Athens Report: ${item_title}&amp;body=${siteurl}#${item.pk}"><img src="/static/img/email.png" alf="email"></a>
@@ -189,7 +193,7 @@ $(document).ready(function() {
         if (params.length) {
             params.forEach(function(item) {
                 var element = `
-                  <div class="col-md-6 gallery-item">
+                  <div class="col-sm-6 gallery-item">
                     <a href="#" class="details" data-id="${item.pk}">
                       <img src="/media/${item.fields.source_thumb}" alt="${item.fields.title}" class="gallery-thumb">
                     </a>
@@ -278,15 +282,6 @@ $(document).ready(function() {
             $('.details-bottom').css('position', 'relative');
             plus = true;
         }
-        /*
-        var comment_box = $('#comment');
-        if (comment_box.text().length > 105) {
-            comment_box.html(short_comment);
-            $('.details-bottom').css('position', 'absolute');
-        } else {
-            comment_box.html(comment);
-            $('.details-bottom').css('position', 'relative');
-        }*/
     });
 
     // Select all things

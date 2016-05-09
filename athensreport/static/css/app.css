@@ -109,6 +109,15 @@ a:hover {
     clear: right;
 }
 
+@media screen and (max-width:768px) {
+    .navbar-collapse {
+        position: relative;
+        top: 0px;
+        right: -18px;
+        clear: right;
+    }
+}
+
 .navbar-brand {
     padding: 10px;
 }
@@ -677,6 +686,12 @@ a:hover {
     margin-left: 90px;
 }
 
+@media screen and (max-width:768px) {
+    #carousel-interviews {
+        margin-left: 20px;
+    }
+}
+
 .interview-item {
     height: 180px;
 }
@@ -731,6 +746,22 @@ a:hover {
     max-width: 250px;
 }
 
+@media screen and (max-width:768px) {
+    .interviews-mobile-social .interviews-audio {
+        max-width: 200px;
+        display: inline-block !important;
+    }
+
+    .interviews-mobile-social .interviews-audio:first-child {
+        margin-right: 20px;
+    }
+
+    .interviews-mobile-social .interviews-audio audio {
+        max-width: 200px;
+        display: inline !important;
+    }
+}
+
 .interviews-script {
     margin: auto;
     max-width: 950px;
@@ -741,6 +772,20 @@ a:hover {
     position: absolute;
     bottom: 0;
     text-align: left;
+}
+
+.interviews-mobile-social {
+    margin-left: 20px;
+}
+
+.interviews-mobile-social > .interviews-audio {
+    display: inline;
+}
+
+@media screen and (max-width:768px) {
+    .interviews-social {
+        margin-bottom: 30px;
+    }
 }
 
 .interviews-social img {
@@ -808,12 +853,12 @@ a:hover {
     font-size: 1.1em;
 }
 
-.flatpage .col-md-4 {
+.flatpage .col-sm-4 {
     padding-left: 0;
     margin-top: 500px;
 }
 
-.flatpage .col-md-4 img:first-child {
+.flatpage .col-sm-4 img:first-child {
     margin-bottom: 100px;
 }
 
@@ -845,6 +890,12 @@ a:hover {
     font-family: 'Roboto';
 }
 
+@media screen and (max-width:768px) {
+    .flatpage-strip {
+        max-width: 700px;
+    }
+}
+
 .flatpage-heading {
     font-size: 1.4em;
     line-height: 1.1;
@@ -860,7 +911,7 @@ a:hover {
     padding-left: 37px;
 }
 
-.credits-gray .col-md-8 p:last-child {
+.credits-gray .col-sm-8 p:last-child {
     margin-bottom: 0px;
 }
 
@@ -939,6 +990,8 @@ a:hover {
     padding-left: 0px;
     margin-top: 20px;
     margin-bottom: 20px;
+    position: relative;
+    left: 18px;
 }
 
 .upload {
@@ -1003,4 +1056,21 @@ footer > .container {
 
 .footer-text p {
     padding-right: 80px;
+}
+
+@media screen and (max-width:768px) {
+    footer {
+        height: 360px;
+    }
+
+    .footer-nav {
+        text-align: left;
+        padding-top: 10px;
+    }
+
+    .footer-text p {
+        padding-left: 20px;
+        margin-right: 20px;
+        max-width: 768px;
+    }
 }

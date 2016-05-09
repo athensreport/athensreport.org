@@ -19,7 +19,7 @@
   {% block extratext %}
   <div class="credits-gray">
     <div class="row container">
-      <div class="col-md-8">
+      <div class="col-sm-8">
         <p><strong>Concept and Project coordination:</strong> Anna Lascari<br>
         <strong>Production:</strong> DEEP DISH TV and Anna Lascari</p>
 
@@ -41,7 +41,7 @@
 
         <p><strong>Photography and video editing:</strong> Anna Lascari</p>
       </div>
-      <div class="col-md-4">
+      <div class="col-sm-4">
         <img src="{% static 'img/credits2.jpg' %}" alt="" class="img-responsive">
       </div>
     </div>
@@ -50,12 +50,12 @@
 
   <div class="container flatpage">
     <div class="row">
-      <div class="col-md-8">
+      <div class="col-sm-8">
         {% block text %}
           {{ block.super }}
         {% endblock %}
       </div>
-      <div class="col-md-4">
+      <div class="col-sm-4">
         {% block image %}
           <img src="{% static 'img/credits3.jpg' %}" alt="" class="img-responsive">
           <img src="{% static 'img/credits.jpg' %}" alt="" class="img-responsive">
