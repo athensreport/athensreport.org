@@ -269,6 +269,7 @@ $(document).ready(function() {
     // Show full comment
     $(document).on('click', '#comment-plus', function(event) {
         event.preventDefault();
+        var plus_pos = $(this).position();
         if (plus) {
             $('#details-info').css('height', src_height);
             $('.gallery-details-text').css('height', src_height - 30);
@@ -280,6 +281,14 @@ $(document).ready(function() {
             $('.gallery-details-text').css('height', 'auto');
             $('.gallery-details-text').css('overflow', 'show');
             $('.details-bottom').css('position', 'relative');
+            var new_plus_pos = $('#comment-plus').position();
+            if (Math.abs(new_plus_pos.top) < Math.abs(plus_pos.top)) {
+                $('#details-info').css('height', src_height);
+                $('.gallery-details-text').css('height', src_height - 30);
+                $('.gallery-details-text').css('overflow', 'hidden');
+                $('.details-bottom').css('position', 'absolute');
+                plus = false;
+            }
             plus = true;
         }
     });
