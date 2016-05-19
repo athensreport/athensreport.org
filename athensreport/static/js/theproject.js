@@ -166,7 +166,11 @@ $(document).ready(function() {
                     $('.gallery-details-text').css('overflow', 'hidden');
                 }
                 var refreshId = setInterval(function() {
-                    if ($('#details-src').height() > 300) {
+                    var check_height = 300;
+                    if (screen.width < 950) {
+                        check_height = 220;
+                    }
+                    if ($('#details-src').height() > check_height) {
                         clearInterval(refreshId);
                         details_content();
                     }
