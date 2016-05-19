@@ -774,6 +774,12 @@ a:hover {
     text-align: left;
 }
 
+@media screen and (max-width:768px) {
+    .interviews-social {
+        position: relative;
+    }
+}
+
 .interviews-mobile-social {
     margin-left: 20px;
 }
