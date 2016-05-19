@@ -4,10 +4,6 @@ $(document).ready(function() {
     var plus = false;
     var src_height = 380;
 
-    var video_width = 950;
-    if (screen.width < 950) { video_width = screen.width - 50; }
-    $('#thevideo').attr('width', video_width);
-
     var siteurl = $('.video-social').data('siteurl');
 
     // Fetch items

@@ -4,10 +4,6 @@ $(document).ready(function() {
     var pop = document.getElementById("thevideo");
     pop.volume = 0.4;
 
-    var video_width = 950;
-    if (screen.width < 950) { video_width = screen.width - 50; }
-    $('#thevideo').attr('width', video_width);
-
     var siteurl = $('.video-social').data('siteurl');
 
     // Fetch items
