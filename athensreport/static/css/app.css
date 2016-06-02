@@ -746,6 +746,28 @@ a:hover {
     max-width: 250px;
 }
 
+
+
+.mejs-container,
+.mejs-container .mejs-controls,
+.mejs-controls .mejs-time-rail .mejs-time-total {
+    background: #aaa !important;
+}
+
+.mejs-controls .mejs-button button {
+    background: transparent url('/static/audio/controls.png') no-repeat;
+    background-position: 0 0;
+}
+
+.mejs-controls .mejs-pause button {
+    background-position: 0 -16px;
+}
+
+.mejs-time-loaded {
+    background: inherit !important;
+}
+
+
 @media screen and (max-width:768px) {
     .interviews-mobile-social .interviews-audio {
         max-width: 200px;
@@ -759,6 +781,10 @@ a:hover {
     .interviews-mobile-social .interviews-audio audio {
         max-width: 200px;
         display: inline !important;
+    }
+
+    .mejs-audio {
+        width: 200px !important;
     }
 }
 

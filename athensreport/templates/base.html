@@ -7,6 +7,7 @@
     <title>Athens Report{% block title %}{% endblock title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,700,700italic,400italic&subset=latin,greek' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'audio/mediaelementplayer.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/lib/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/app.css' %}">
     {% block meta %}{% endblock %}
@@ -84,6 +85,8 @@
     </footer>
 
     <script src="{% static 'js/lib/jquery-1.11.2.min.js' %}"></script>
+    <script src="{% static 'audio/mediaelement-and-player.min.js' %}"></script>
+
     <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/lib/moment.min.js' %}"></script>
     <script src="{% static 'js/lib/modernizr-custom.js' %}"></script>
