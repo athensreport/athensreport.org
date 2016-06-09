@@ -266,30 +266,37 @@ $(document).ready(function() {
         });
     });
 
+    function show_full_comment() {
+        $('#details-info').css('height', 'auto');
+        $('.gallery-details-text').css('height', 'auto');
+        $('.gallery-details-text').css('overflow', 'show');
+        $('.details-bottom').css('position', 'relative');
+        plus = true;
+    }
+
+    function hide_full_comment() {
+        $('#details-info').css('height', src_height);
+        $('.gallery-details-text').css('height', src_height - 30);
+        $('.gallery-details-text').css('overflow', 'hidden');
+        $('.details-bottom').css('position', 'absolute');
+        plus = false;
+    }
+
     // Show full comment
     $(document).on('click', '#comment-plus', function(event) {
         event.preventDefault();
-        var plus_pos = $(this).position();
+        var plus_pos = $('.details-bottom').position().top;
+        console.log(plus_pos);
         if (plus) {
-            $('#details-info').css('height', src_height);
-            $('.gallery-details-text').css('height', src_height - 30);
-            $('.gallery-details-text').css('overflow', 'hidden');
-            $('.details-bottom').css('position', 'absolute');
-            plus = false;
+            hide_full_comment();
         } else {
-            $('#details-info').css('height', 'auto');
-            $('.gallery-details-text').css('height', 'auto');
-            $('.gallery-details-text').css('overflow', 'show');
-            $('.details-bottom').css('position', 'relative');
-            var new_plus_pos = $('#comment-plus').position();
-            if (Math.abs(new_plus_pos.top) < Math.abs(plus_pos.top)) {
-                $('#details-info').css('height', src_height);
-                $('.gallery-details-text').css('height', src_height - 30);
-                $('.gallery-details-text').css('overflow', 'hidden');
-                $('.details-bottom').css('position', 'absolute');
+            show_full_comment();
+            var new_plus_pos = $('.details-bottom').position().top;
+            console.log(new_plus_pos);
+            if (new_plus_pos < plus_pos) {
+                hide_full_comment();
                 plus = false;
             }
-            plus = true;
         }
     });
 
