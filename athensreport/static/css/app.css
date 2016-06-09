@@ -959,6 +959,10 @@ a:hover {
     font-size: 1.1em;
 }
 
+.credits-first {
+    max-width: 325px;
+}
+
 .upload-messages {
     position: relative;
     left: 18px;
