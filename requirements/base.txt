@@ -7,4 +7,4 @@ dj-database-url==0.4.1
 django-text==1.7.6
 
 # Deployment
-Fabric==1.11.1
+Fabric==1.12.0
