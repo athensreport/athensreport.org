@@ -101,19 +101,19 @@
       <form id="upload-form" method="post" action={% url 'gallery:upload' %} enctype="multipart/form-data">
         {% csrf_token %}
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6">
             <div class="form-group {% if form.name.errors %}has-error{% endif %}">
               <label class="sr-only" for="name">Name</label>
               <input type="text" class="form-control" id="name" placeholder="NAME" name="name" value="{{ form.name.value|default:'' }}" required>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6">
             <div class="form-group {% if form.surname.errors %}has-error{% endif %}">
               <label class="sr-only" for="surname">Surname</label>
               <input type="text" class="form-control" id="surname" placeholder="SURNAME" name="surname" value="{{ form.surname.value|default:'' }}" required>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6">
             <div class="form-group {% if form.email.errors %}has-error{% endif %}">
               <label class="sr-only" for="email">Email</label>
               <input type="email" class="form-control" id="email" placeholder="EMAIL" name="email" value="{{ form.email.value|default:'' }}" required>
@@ -121,14 +121,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6">
             <div class="form-group {% if form.url.errors %}has-error{% endif %}">
               <label class="sr-only" for="url">URL</label>
               <input type="url" class="form-control" id="url" placeholder="URL" name="url" value="{{ form.url.value|default:'' }}">
               <span id="urlHelpBlock" class="help-block">YouTube Channel or address to your material</span>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6">
             <div class="form-group {% if form.nickname.errors %}has-error{% endif %}">
               <label class="sr-only" for="nickname">Nickname</label>
               <input type="text" class="form-control" id="nickname" placeholder="NICKNAME" name="nickname" value="{{ form.nickname.value|default:'' }}">
@@ -137,19 +137,19 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6">
             <div class="form-group {% if form.video_title.errors %}has-error{% endif %}">
               <label class="sr-only" for="video_title">Video Title</label>
               <input type="text" class="form-control" id="video_title" placeholder="VIDEO TITLE" name="video_title" value="{{ form.video_title.value|default:'' }}" required>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6">
             <div class="form-group {% if form.location.errors %}has-error{% endif %}">
               <label class="sr-only" for="location">Location</label>
               <input type="text" class="form-control" id="location" placeholder="LOCATION" name="location" value="{{ form.location.value|default:'' }}" required>
             </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6">
             <div class="form-group {% if form.event_date.errors %}has-error{% endif %}">
               <label class="sr-only" for="event_date">Date of event</label>
               <input type="text" class="form-control" id="event_date" placeholder="DATE OF EVENT" name="event_date" value="{{ form.event_date.value|default:'' }}" required>
@@ -158,14 +158,14 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-md-4">
+          <div class="col-md-4 col-sm-6">
             <div class="form-group {% if form.source_url.errors %}has-error{% endif %}">
               <label class="sr-only" for="source_url">SOURCE URL</label>
               <input type="url" class="form-control" id="source_url" placeholder="SOURCE URL" name="source_url" value="{{ form.source_url.value|default:'' }}">
               <span id="sourceurlHelpBlock" class="help-block">URL for the video/photo you want to submit</span>
             </div>
           </div>
-          <div class="col-md-6">
+          <div class="col-md-6 col-sm-6">
             <div class="form-group file {% if form.source.errors %}has-error{% endif %}">
               <label class="sr-only" for="source">SOURCE FILE</label>
               <input type="file" id="source" name="source" class="form-control">
