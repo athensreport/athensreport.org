@@ -87,7 +87,7 @@ $(document).ready(function() {
 
                 <div class="interviews-mobile-social">
                     <div class="interviews-audio visible-sm"><span class="interviews-lang yellow-dark">GREEK</span><audio src="/media/${item.fields.mp3_gr}" controls></div>
-                    <div class="interviews-audio visible-sm"><span class="interviews-lang yellow-dark">ENGLISH</span><audio src="/media/${item.fields.mp3_gr}" controls></div>
+                    <div class="interviews-audio visible-sm"><span class="interviews-lang yellow-dark">ENGLISH</span><audio src="/media/${item.fields.mp3_en}" controls></div>
                 </div>
             `;
             var year = item.fields.created.substr(0, 4);
