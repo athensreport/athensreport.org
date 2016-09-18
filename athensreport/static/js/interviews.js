@@ -119,7 +119,7 @@ $(document).ready(function() {
             var social_html = `
                 <div class="social-share details-social interviews-social">
                     <div class="interviews-audio hidden-sm"><span class="interviews-lang yellow-dark">GREEK</span><audio src="/media/${item.fields.mp3_gr}" controls></div>
-                    <div class="interviews-audio hidden-sm"><span class="interviews-lang yellow-dark">ENGLISH</span><audio src="/media/${item.fields.mp3_gr}" controls></div>
+                    <div class="interviews-audio hidden-sm"><span class="interviews-lang yellow-dark">ENGLISH</span><audio src="/media/${item.fields.mp3_en}" controls></div>
                       <a href="https://www.facebook.com/sharer.php?u=${siteurl}#${item.pk}&amp;t=Athens Report: ${item.fields.name}" target="_blank"><img src="/static/img/facebook.png" alf="facebook"></a>
                       <a href="https://twitter.com/share?text=Athens Report: ${item.fields.name}&amp;url=${siteurl}#${item.pk} #athensreport" target="_blank"><img src="/static/img/twitter.png" alf="twitter"></a>
                       <a href="mailto:?subject=Athens Report: ${item.fields.name}&amp;body=${siteurl}#${item.pk}"><img src="/static/img/email.png" alf="email"></a>
