@@ -1125,6 +1125,11 @@ footer > .container {
     font-size: 1.3em;
 }
 
+a.footer-email {
+    color: white;
+    text-decoration: none;
+}
+
 .footer-title {
     font-size: 1.2em;
     font-weight: bold;
@@ -1134,7 +1139,9 @@ footer > .container {
     margin-left: -5px;
 }
 
-.footer-left p {
+.footer-left p,
+.footer-left a {
+    display: block;
     padding-left: 24px;
     padding-right: 10px;
 }
