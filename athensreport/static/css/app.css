@@ -1123,6 +1123,8 @@ footer > .container {
 .footer-email {
     font-weight: bold;
     font-size: 1.3em;
+    padding-top: 10px;
+    display: block;
 }
 
 a.footer-email {
@@ -1139,8 +1141,7 @@ a.footer-email {
     margin-left: -5px;
 }
 
-.footer-left p,
-.footer-left a {
+.footer-left p {
     display: block;
     padding-left: 24px;
     padding-right: 10px;
