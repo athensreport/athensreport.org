@@ -138,13 +138,13 @@ $(document).ready(function() {
                 info_html += `</div>`;
                 var bottom_html = `<div class="details-bottom">`;
                 bottom_html += `
-                    <div class="col-sm-4">
+                    <div class="col-xs-4">
                         <a href="#" id="comment-plus"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
                     </div>
                 `;
                 var item_title = item.fields.title.replace(/["']/g, "");
                 bottom_html += `
-                    <div class="col-sm-8 social-share details-social">
+                    <div class="col-xs-8 social-share details-social">
                       <a href="https://www.facebook.com/sharer.php?u=${siteurl}#${item.pk}&amp;t=Athens Report: ${item_title}" target="_blank"><img src="/static/img/facebook.png" alf="facebook"></a>
                       <a href="https://twitter.com/share?text=Athens Report: ${item_title}&amp;url=${siteurl}#${item.pk} #athensreport" target="_blank"><img src="/static/img/twitter.png" alf="twitter"></a>
                       <a href="mailto:?subject=Athens Report: ${item_title}&amp;body=${siteurl}#${item.pk}"><img src="/static/img/email.png" alf="email"></a>

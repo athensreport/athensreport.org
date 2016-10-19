@@ -18,7 +18,7 @@
               <a href="mailto:?subject=Athens Report&amp;body={{ current_url }}"><img src="{% static 'img/email.png' %}" alf="email"></a>
             </div>
             {% block video-help %}
-              <div class="video-help">
+              <div class="video-help hidden-xs hidden-sm">
                 Click on the map to go to riot zones and pause to go to galleries
               </div>
             {% endblock %}
@@ -28,6 +28,11 @@
               <a href="{% url 'gallery:graffiti' %}"><img src="{% static 'img/graffiti.png' %}" alf="graffiti"></a>
               <a href="{% url 'gallery:theproject' %}"><img src="{% static 'img/riots.png' %}" alf="riots"></a>
             </div>
+            {% block video-help-mobile %}
+              <div class="video-help hidden-md hidden-lg">
+                Click on the map to go to riot zones and pause to go to galleries
+              </div>
+            {% endblock %}
           </div>
         </div>
       </div>

@@ -40,7 +40,7 @@
         <div class="collapse navbar-collapse" id="navbar-collapse-menu">
           <ul class="nav navbar-nav navbar-right nav-top">
             <li><a href="{% url 'base:home' %}">home</a></li>
-            <li><a href="{% url 'gallery:theproject' %}">the project</a></li>
+            <li><a href="{% url 'gallery:theproject' %}">video route</a></li>
             <li><a href="{% url 'interviews:online11' %}">on line 11</a></li>
             <li><a href="{% url 'gallery:graffiti' %}">graffiti route</a></li>
           </ul>
@@ -69,17 +69,17 @@
           </div>
 
           <div class="footer-text col-sm-5">
-            <a href="{% url 'gallery:upload' %}" class="upload hidden-md hidden-lg"><img src="{% static 'img/upload_y.jpg' %}" alt="Upload Media"></a>
-
             <p class="footer-title">
               CROWDSOURCING
             </p>
             <p>
               "Athens Report" seeks your participation to build a collective bottom-up project which, by filing personal experiences, will contribute to re-representation of the years of recession and austerity in Athens against the dominant representation as it is expressed through the traditional media.
             </p>
+
+            <a href="{% url 'gallery:upload' %}" class="upload hidden-md hidden-lg"><img src="{% static 'img/upload_y.jpg' %}" alt="Upload Media"></a>
           </div>
 
-          <div class="col-md-3 hidden-sm footer-nav">
+          <div class="col-md-3 hidden-sm hidden-xs footer-nav">
             <a href="{% url 'gallery:upload' %}" class="upload"><img src="{% static 'img/upload_y.jpg' %}" alt="Upload Media"></a>
           </div>
         </div>

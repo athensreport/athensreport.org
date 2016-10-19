@@ -45,8 +45,8 @@
   {% block gallery %}
     <div class="gallery container" id="gallery">
       <div class="row">
-        <div class="col-md-2 col-sm-2" id="years">
-          <img src="{% static 'img/years_2008.png' %}" alt="" usemap="#yearsmap">
+        <div class="col-md-2 col-sm-2 col-xs-4" id="years">
+          <img src="{% static 'img/years_2008.png' %}" alt="" usemap="#yearsmap" class="img-responsive">
 
           <map name="yearsmap">
             <area class="year-pick" shape="rect" coords="50, 80, 95, 100" href="#" alt="" data-year="2008">
@@ -59,7 +59,7 @@
             <area class="year-pick" shape="rect" coords="50, 470, 95, 510" href="#" alt="" data-year="2015">
           </map>
         </div>
-        <div class="col-md-7 col-sm-10 gallery-details">
+        <div class="col-md-7 col-sm-10 col-xs-8 gallery-details">
           <div class="gallery-top-icons">
             <img src="{% static 'img/riots_protests.png' %}" alt="riots">
             <img src="{% static 'img/social_texts.png' %}" alt="social">
@@ -126,6 +126,8 @@
         <area class="route-pick" shape="rect" coords="390, 290, 500, 330" href="#" alt="" data-point="1401">
         <!-- PANTELEIMONAS -->
         <area class="route-pick" shape="rect" coords="270, 330, 400, 367" href="#" alt="" data-point="3570">
+        <!-- EXARCHEIA -->
+        <area class="route-pick" shape="rect" coords="427, 170, 518, 192" href="#" alt="" data-point="1401">
         <!-- OMONIA -->
         <area class="route-pick" shape="rect" coords="538, 289, 557, 307" href="#" alt="" data-point="3931">
         <area class="route-pick" shape="rect" coords="533, 317, 611, 335" href="#" alt="" data-point="3931">
@@ -146,7 +148,7 @@
         <!-- PAGRATI -->
         <area class="route-pick" shape="rect" coords="785, 89, 880, 129" href="#" alt="" data-point="267">
       </map>
-      <div class="strip yellowish text-center">
+      <div class="strip yellowish text-center map-click">
         Click on the map to go to riot zones | pause video to go to galleries
       </div>
     </div>
