@@ -343,7 +343,7 @@ $(document).ready(function() {
                 gallery.html('<div class="empty-details" id="load">Please update your browser to the latest version, or use a more modern one like <a href="https://www.mozilla.org/firefox/" target="_blank">Firefox</a></div>');
             }
         });
-        var help = `<a href="#" id="help-pause">Play to go to map</a>`;
+        var help = `<a href="#" id="help-play">Play to go to map</a>`;
         $('.video-help').html(help);
     };
 
@@ -358,7 +358,7 @@ $(document).ready(function() {
         elm_back.slideUp();
         $('#details-info').css('height', 'auto');
         $('.gallery-details-text').css('height', 'auto');
-        var help = `<a href="#" id="help-pause">Click on the map to go to riot zones and pause to go to galleries</a>`;
+        var help = `Click on the map to go to riot zones and pause to go to galleries`;
         $('.video-help').html(help);
     };
 
@@ -382,8 +382,13 @@ $(document).ready(function() {
         pop.pause();
     });
 
+    $(document).on('click', '#help-play', function(event) {
+        event.preventDefault();
+        pop.play();
+    });
+
     // Responsive map
-    $('img.route-img[usemap]').rwdImageMaps();
+    $('img[usemap]').rwdImageMaps();
 
     var uri = URI(location.href);
     var item_pick = uri.hash().split('#')[1];

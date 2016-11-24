@@ -396,7 +396,8 @@ a:hover {
     }
 }
 
-#help-pause {
+#help-pause,
+#help-play {
     color: #999;
 }
 
