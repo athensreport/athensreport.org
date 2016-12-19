@@ -345,6 +345,7 @@ $(document).ready(function() {
         });
         var help = `<a href="#" id="help-play">Play to go to map</a>`;
         $('.video-help').html(help);
+        $('img[usemap]').rwdImageMaps();
     };
 
     // Hide elements on play
@@ -360,6 +361,7 @@ $(document).ready(function() {
         $('.gallery-details-text').css('height', 'auto');
         var help = `Click on the map to go to riot zones and pause to go to galleries`;
         $('.video-help').html(help);
+        $('img[usemap]').rwdImageMaps();
     };
 
     // Start the video
