@@ -3,7 +3,7 @@ django==1.10.5
 
 # Configuration
 django_dotenv==1.4.1
-dj-database-url==0.4.1
+dj-database-url==0.4.2
 django-text==1.7.6
 
 # Deployment
