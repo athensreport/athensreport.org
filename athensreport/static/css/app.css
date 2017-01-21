@@ -1266,9 +1266,23 @@ a.footer-email {
     padding-right: 80px;
 }
 
+.fb-page {
+    margin-top: 30px;
+    display: block;
+}
+
+.fb-page img {
+    max-width: 170px;
+}
+
+
 @media screen and (max-width:992px) {
     footer {
         height: 300px;
+    }
+
+    .fb-page {
+        margin-top: inherit;
     }
 }
 
