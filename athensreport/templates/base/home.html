@@ -64,43 +64,7 @@
   </div>
 
   <div class="look text-center">
-    <a href="{% url 'gallery:theproject' %}"><img src="{% static 'img/see.png' %}" alt="See how it works"></a>
-  </div>
-
-  <div class="route-title strip text-center">
-    <div>route</div>
-  </div>
-
-  <div class="route">
-    <div class="route-container">
-      <img src="{% static 'img/route.jpg' %}" alt="Route" class="img-responsive">
-      <div class="strip yellowish text-center container">
-        Click on the map to go to riot zones <span class="hidden-sm">|</span><br class="visible-sm"> pause video to go to galleries
-      </div>
-      <div class="row route-info">
-        <div class="col-sm-4">
-          <h2>Follow the trolley<br> bus route</h2>
-        </div>
-        <div class="col-sm-4 route-info-first-text">
-          <p>
-            The digital archive produced by the "Athens Report" surfaces along the route of a popular
-            trolley bus line, number 11, which runs through the historical center of Athens and connects
-            two densely populated neighborhoods, Pagrati and Patissia. The trolley bus route and main
-            navigation of the platform, mapped through a video establishes the main topographical structure
-            for the collection of audiovisual archives.
-          </p>
-        </div>
-        <div class="col-sm-4">
-          <p>
-            The route of trolley bus number 11 is selected as the main video navigation of the platform
-            because of the emblematic significance of the neighborhoods it traverses: the center of the
-            city, the Greek Parliament and Syntagma Square – the heart of the Greek 'occupy movement'-
-            lower middle class and middle class districts and poorer areas populated by a high percentage
-            of undocumented migrants.
-          </p>
-        </div>
-      </div>
-    </div>
+    <a href="{% url 'gallery:theproject' %}"><img src="{% static 'img/see.png' %}" alt="See how it works" class="img-responsive"></a>
   </div>
 
   <div class="project-title strip black text-center">
@@ -109,5 +73,42 @@
 
   <div class="entertheproject">
     <img src="{% static 'img/video-guide.png' %}" alt="video guide" class="video-guide img-responsive">
+  </div>
+
+  <div class="route-title strip text-center">
+    <div>trolley route</div>
+  </div>
+
+  <div class="route">
+    <div class="route-container">
+      <img src="{% static 'img/route.jpg' %}" alt="Route" class="img-responsive">
+      <div class="strip yellowish text-center container">
+        On Video Route: click on the map to go to riot zones <span class="hidden-sm">|</span><br class="visible-sm"> pause video to go to galleries
+      </div>
+      <div class="row route-info">
+        <div class="col-sm-4">
+          <h2>Follow the trolley<br> bus route</h2>
+        </div>
+        <div class="col-sm-4 route-info-first-text">
+          <p>
+            The classification of the Athens Report archive is organically associated to the public space.
+             The VIDEO ROUTE of the historical trolley bus number 11 that crosses the center of Athens,
+             connecting two of the oldest neighborhoods Pagrati and Patissia, functions here as a map.
+             Clicking on the area of your interest the video automatically moves to the responding part
+             of the route and by pausing it, you access the visual material attached to it.
+          </p>
+        </div>
+        <div class="col-sm-4">
+          <p>
+            On the ONLINE 11 section interviews-fragments of personal experiences of space and protest
+            can be found, documented according to the location of the interviewees. On the GRAFFITI ROUTE
+            there is available a digitized collection of street art, photographed around the boundaries of
+            the trolley bus route. The Athens Report platform is a crowdsourcing project, continuously
+            updated by the visitors’ uploads. Click on the UPLOAD MEDIA section to upload your own material
+            and be a part of it.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 {% endblock content %}
