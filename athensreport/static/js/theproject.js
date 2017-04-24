@@ -48,15 +48,15 @@ $(document).ready(function() {
                     </div>
                 `;
             } else {
-                var source = '';
+                var source_url = '';
                 if (item.fields.source) {
-                    source = item.fields.source
+                    source_url = item.fields.source
                 } else {
-                    source = item.fields.source_large;
+                    source_url = item.fields.source_large;
                 }
                 source_html = `
                     <video id="details-src" controls class="img-responsive">
-                      <source src="/media/${source}">
+                      <source src="/media/${source_url}">
                     </video>
 
                     <div class="video-back" id="video-back">
