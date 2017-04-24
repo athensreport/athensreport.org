@@ -48,9 +48,15 @@ $(document).ready(function() {
                     </div>
                 `;
             } else {
+                var source = '';
+                if (item.fields.source) {
+                    source = item.fields.source
+                } else {
+                    source = item.fields.source_large;
+                }
                 source_html = `
                     <video id="details-src" controls class="img-responsive">
-                      <source src="/media/${item.fields.source}">
+                      <source src="/media/${source}">
                     </video>
 
                     <div class="video-back" id="video-back">
