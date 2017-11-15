@@ -49,7 +49,16 @@ $(document).ready(function() {
             }
             if (item.fields.comment) {
                 lightbox += `
-                        <div class="lightbox-comment">${item.fields.comment}</div>
+                        <div class="lightbox-comment">
+                `;
+                if(item.fields.credit) {
+                    lightbox += `
+                        [${item.fields.credit}]
+                    `;
+                    console.log(item.fields.credit);
+                }
+                lightbox += `
+                    ${item.fields.comment}</div>
                 `;
             }
             lightbox +=`
