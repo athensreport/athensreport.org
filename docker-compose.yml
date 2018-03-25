@@ -1,22 +1,28 @@
-db:
-  image: mariadb:5.5
-  environment:
-  - MYSQL_DATABASE=athensreport
-  - MYSQL_USER=athensreport
-  - MYSQL_PASSWORD=athensreport
-  - MYSQL_ROOT_PASSWORD=toor
-web:
-  build: .
-  ports:
-    - "8000:8000"
-  volumes:
-    - .:/app
-  links:
-    - db
-  environment:
-    - DJANGO_SETTINGS_MODULE=athensreport.settings.dev
-    - DEFAULT_FROM_EMAIL=noreply@example.com
-    - ALLOWED_HOSTS=*
-    - DATABASE_URL=mysql://athensreport:athensreport@db/athensreport
-  command:
-    ./docker/run-compose.sh
+version: '3.1'
+services:
+
+  db:
+    image: mariadb:5.5
+    container_name: athensreport_mysql
+    environment:
+    - MYSQL_DATABASE=athensreport
+    - MYSQL_USER=athensreport
+    - MYSQL_PASSWORD=athensreport
+    - MYSQL_ROOT_PASSWORD=toor
+
+  web:
+    build: .
+    container_name: athensreport_web
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    links:
+      - db
+    environment:
+      - DJANGO_SETTINGS_MODULE=athensreport.settings.dev
+      - DEFAULT_FROM_EMAIL=noreply@example.com
+      - ALLOWED_HOSTS=*
+      - DATABASE_URL=mysql://athensreport:athensreport@db/athensreport
+    command:
+      ./docker/run-compose.sh
