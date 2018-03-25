@@ -47,18 +47,22 @@ $(document).ready(function() {
                         </div>
                 `;
             }
-            if (item.fields.comment) {
+            if (item.fields.comment || item.fields.credit) {
                 lightbox += `
                         <div class="lightbox-comment">
                 `;
                 if(item.fields.credit) {
                     lightbox += `
-                        [${item.fields.credit}]
+                        [${item.fields.credit}]&nbsp;
                     `;
-                    console.log(item.fields.credit);
+                }
+                if(item.fields.comment) {
+                    lightbox += `
+                        ${item.fields.comment}
+                    `;
                 }
                 lightbox += `
-                    ${item.fields.comment}</div>
+                    </div>
                 `;
             }
             lightbox +=`
