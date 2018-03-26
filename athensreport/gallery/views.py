@@ -49,8 +49,8 @@ def items(request, category, timestamp, year):
             minute = item.timestamp.minute
             if item.timestamp.hour > 0:
                 minute = minute + 60
-            low = minute - 3
-            high = minute + 3
+            low = minute - 2
+            high = minute + 2
             if low <= timestamp <= high:
                 data.append(item)
         response = serializers.serialize('json', data)
