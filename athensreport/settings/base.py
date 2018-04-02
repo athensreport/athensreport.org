@@ -14,7 +14,7 @@ DJANGO_APPS = (
     'django.contrib.flatpages',
 )
 THIRD_PARTY_APPS = (
-
+    'markdownx',
 )
 LOCAL_APPS = (
     'athensreport.base',

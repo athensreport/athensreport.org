@@ -13,6 +13,8 @@ urlpatterns = [
     url(r'^', include(interviews_urlpatterns)),
 
     url(r'^admin/', admin.site.urls),
+
+    url(r'^markdownx/', include('markdownx.urls')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

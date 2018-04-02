@@ -1,0 +1,27 @@
+{% extends 'flatpages/default.html' %}
+
+{% load staticfiles %}
+{% load tags %}
+
+{% block content %}
+  {% block carousel %}
+  {% endblock %}
+
+  {% block strip %}
+    {{ block.super }}
+  {% endblock %}
+
+  <div class="container flatpage">
+    <div class="row">
+      <div class="col-sm-8">
+        <div class="news">
+          {% block text %}
+            {{ flatpage.content|markdownify|safe|urlize }}
+          {% endblock %}
+        </div>
+      </div>
+      <div class="col-sm-4">
+      </div>
+    </div>
+  </div>
+{% endblock content %}

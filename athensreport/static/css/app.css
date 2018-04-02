@@ -1276,6 +1276,23 @@ a.footer-email {
     max-width: 170px;
 }
 
+.news {
+	padding: 10px 15px 0 15px;
+}
+
+.news h3 {
+    font-family: 'Open Sans';
+	font-size: 21px;
+	line-height: 1.1;
+    text-transform: uppercase;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.news p {
+    padding-left: 0;
+}
+
 
 @media screen and (max-width:992px) {
     footer {

@@ -1,5 +1,7 @@
 # Basic stuff
 django==1.9.2
+git+https://github.com/neutronX/django-markdownx.git
+Markdown
 
 # Configuration
 django_dotenv==1.4.1
