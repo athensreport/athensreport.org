@@ -28,7 +28,6 @@ $(document).ready(function() {
             id: id
         }).done(function(item) {
             var lightbox = `
-
                     <div class="content">
                     <div id="lightbox-close"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></div>
                         <div class="lightbox-img">
@@ -71,6 +70,14 @@ $(document).ready(function() {
             `;
             $('#lightbox').html(lightbox);
             $('#lightbox').show();
+
+            // Check for portrait photos
+            var current_img = $('.lightbox-img > img');
+            $(current_img).load(function() {
+                if (current_img.width() < current_img.height()){
+                    $('#lightbox > .content ').css('max-width', current_img.width() + 'px');
+                }
+            });
 
             // Seek video
             var point = new Date('01/01/2016 ' + item.fields.timestamp);
