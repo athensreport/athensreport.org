@@ -14,6 +14,7 @@ class ItemAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'video_timestamp', 'thumbnail')
     list_filter = ('category', 'timestamp')
     search_fields = ('title', )
+    exclude = ('source_large', )
 
     def name(self, obj):
         if obj.title:
