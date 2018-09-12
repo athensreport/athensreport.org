@@ -1,12 +1,12 @@
 # Basic stuff
-django==1.9.2
+django==1.11.15
 git+https://github.com/neutronX/django-markdownx.git
-Markdown
+Markdown==2.6.11
 
 # Configuration
-django_dotenv==1.4.1
-dj-database-url==0.4.0
-django-text==1.7.2
+django_dotenv==1.4.2
+dj-database-url==0.5.0
+django-text==1.7.6
 
 # Deployment
-Fabric==1.10.2
+Fabric==2.3.1
